@@ -8,12 +8,13 @@ body {
 html, 
 body {
     height: 100%;
+    color:white;
 }
 
 #header {
   width: 100%;
   padding: 20px 16px 20px 16px;
-  text-transform: uppercase;
+  text-transform: lowercase;
   font-weight: 400;
   text-align: center;
   
@@ -31,15 +32,15 @@ body {
   border-radius: 15px;
   margin: 10px;
   padding: 16px;
-  background-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(255,189,211 , 0.05);
   backdrop-filter: blur(5px);
 }
 
-#joke, #welcome {
+#blog, #welcome {
   display: inline-block;
 }
 
-#joke {
+#blog {
   float: left;
 }
 
@@ -73,17 +74,32 @@ li.menu-header-el {
   margin: 10px 15px 10px 0;
 }
 
+li.blog-links-el {
+  background-color: #823B7A;
+  margin: 5px 10px 5px -26px;
+  padding: 5px 10px 5px 20px;
+  filter: drop-shadow(5px 3px 2px #52234D);
+
+}
+
+#blog-links {
+  list-style-type: none;
+  padding-left: 0;
+
+}
+
 a {
   text-decoration: none;
-  color: #332C35;
-  font-weight: 700;
+  color: white;
 }
 
 a:hover {
   filter: drop-shadow(0 0 0.4rem #ED3994);
+  color: #E1ACCE;
 }
 
 #footer  {
   width: 100%;
+  text-align: center;
    
 }
