@@ -118,3 +118,45 @@ h1, h2, h3 {
 
 }
 
+@media only screen and (max-width: 320px) {
+  body {
+    width: 100%;
+  }
+  #container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: center;  
+  }
+
+  #header {
+    display: none;
+  }
+  
+  #blog, #welcome {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  #content {
+    display: block;
+  }
+
+  
+  
+
+  }
+
+
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+@media only screen and (min-width:1200px) {
+  body {
+    background-color: lightblue;
+  }
+}
