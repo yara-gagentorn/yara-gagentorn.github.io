@@ -6,6 +6,7 @@ body {
   margin: 0;
   background-color:#453a94;
   background-image: linear-gradient(to bottom right, #453a94, #f43b47);
+  background-repeat: no-repeat;
   font-size: 14pt;
   font-family: 'Quicksand', sans-serif;
 }
@@ -31,7 +32,6 @@ body {
   filter: drop-shadow(0 0 0.75rem #ED3994);
   
 }
-
 
 .block {
   border-radius: var(--bradius);
@@ -103,6 +103,9 @@ a {
 a:hover {
   filter: drop-shadow(0 0 0.4rem #ED3994);
   color: #E1ACCE;
+  position: relative;
+  left: 1px;
+  bottom:1px;
 }
 
 #footer  {
@@ -112,9 +115,48 @@ a:hover {
 }
 
 h1, h2, h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
   font-family: 'Fredoka One', cursive;
   font-weight: 300;
   text-transform: lowercase;
+}
+
+pre {
+  margin: 0;
+}
+
+.code-snippet {
+  text-align: left;
+  border-radius: var(--bradius);
+  background-color: #1E1E1E80;
+  padding: 8px 10px 8px 10px;
+}
+
+.blog-img-place {
+  background-color: rgba(201,121,135 , 0.3);
+  padding: 10px;
+  border-radius: var(--bradius);
+  backdrop-filter: blur(5px);
+  text-align: justify;
+}
+
+.blog-img-text {
+  font-style: italic;
+  margin: 0;
+
+}
+
+.blog-img-source {
+  
+}
+
+.blog-img {
+  width: 50%;
+  border-radius: var(--bradius);
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
 }
 
@@ -142,9 +184,6 @@ h1, h2, h3 {
   #content {
     display: block;
   }
-
-  
-  
 
   }
 
