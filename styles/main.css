@@ -1,3 +1,7 @@
+:root {
+  --bradius:10px;
+}
+
 body {
   margin: 0;
   background-color:#453a94;
@@ -5,10 +9,11 @@ body {
   font-size: 14pt;
   font-family: 'Quicksand', sans-serif;
 }
+
 html, 
 body {
     height: 100%;
-    color:white;
+    color:#F2C6EE;
 }
 
 #header {
@@ -29,7 +34,7 @@ body {
 
 
 .block {
-  border-radius: 15px;
+  border-radius: var(--bradius);
   margin: 10px;
   padding: 16px;
   background-color: rgba(255,189,211 , 0.05);
@@ -57,7 +62,7 @@ body {
 #container {
   display: flex;
   flex-wrap: wrap;
-  width: 800px;
+  width: 900px;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -75,11 +80,13 @@ li.menu-header-el {
 }
 
 li.blog-links-el {
-  background-color: #823B7A;
-  margin: 5px 10px 5px -26px;
+  background-color: rgba(201,121,135 , 0.3);
+  margin: 5px 10px 5px -27px;
   padding: 5px 10px 5px 20px;
-  filter: drop-shadow(5px 3px 2px #52234D);
-
+  border-radius: var(--bradius);
+  backdrop-filter: blur(5px);
+  white-space: nowrap;
+  
 }
 
 #blog-links {
@@ -103,3 +110,11 @@ a:hover {
   text-align: center;
    
 }
+
+h1, h2, h3 {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 300;
+  text-transform: lowercase;
+
+}
+
