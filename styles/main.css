@@ -143,6 +143,11 @@ pre {
   margin: 0;
 }
 
+.for-tag {
+  color: aquamarine;
+
+}
+
 .code-snippet {
   text-align: left;
   border-radius: var(--bradius);
