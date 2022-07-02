@@ -49,8 +49,7 @@
             <p>It is not easy to read and comprehend information in this format. And that is why we have HTML - HyperText Markup Language. HTML uses tags to tell a browser how to structure the information.</p>
             <p>This tag &lt;p> we use to let know the browser that this piece of data is a paragraph and it needs to be separated.
               With this tag &lt;h1> we show that there is a heading and it needs to be different from a paragraph. Tag &lt;div> we use as a container, we can put a heading and a few paragraphs inside of it. Here is an example of HTML code:</p>
-            <div class="code-snippet">
-              
+            <div class="code-snippet"> 
 <pre><code><span class="for-tag">&lt;h1></span>I am a heading!<span class="for-tag">&lt;/h1></span>
 <span class="for-tag">&lt;p></span> I am a paragraph. I am longer than the heading and 
 I contain a lot of very valuble and useful information.<span class="for-tag">&lt;/p></span></code></pre>
@@ -61,19 +60,22 @@ I contain a lot of very valuble and useful information.<span class="for-tag">&lt
               <img class="blog-img" src="../media/with-html.png" alt=" html">
               <p class="blog-img-text"></p>
             </div>
+            <p>With HTML we get a piece of structured information. It is good enough, but what if we want to change the font? Or colour? Or the position of the element on the page? It is time to meet CSS (Cascading Style Sheets ). We use CSS to style our HTML page and there are a few ways to do it.</p>
+<p>The most obvious way - you find an opening tag of the element in your html code and give this element some style.Right there, inside of the openning tag:</p>  
+<div class="code-snippet">
+<pre><code><span class="for-tag">&lt;h1 style="color:red; font-size: 16px;"></span>I am a heading!<span class="for-tag">&lt;/h1></span>
+<span class="for-tag">&lt;p style="color: blue;"></span> I am a paragraph. I am longer than the heading and 
+I contain a lot of very valuble and useful information.<span class="for-tag">&lt;/p></span></code></pre>  
+</div>
+<p>And it is working:</p>
+<div class="blog-img-place">         
+  <img class="blog-img" src="../media/html-inline-styles.png" alt=" html">
+  <p class="blog-img-text"></p>
+</div>
 
-
-<p></p>
-            <div class="code-snippet">
-              <pre><code>
-                &lt;h1>I am a heading!&lt;/h1>
-                &lt;p>And I am a paragraph. I am longer than the heading and 
-                I contain a lot of very valuble and useful information.&lt;/p>
-                
-                here some &lt;p> tag</code></pre>
-            </div>
-
-          <h4>Why styles are important?</h4>
+  <p> And it is totally make sence if you have one html page with one element of each type (one paragraph, one picture, one heading etc). If you have two paragraphs you would need to put style="" attribute to the each of them and if you want your both paragraphs have the same apperance you would need to repet youself. More elements you have more bulky your code become. And, hey, do you remember about the importance of the presentation? It works for developers too! Just imagine you decided to change a font size for all of your &lt;p> elements. If you have ten &lt;p> elements on your page you WILL make a mistake somewhere, I promise. </p> 
+  <p>It would make sence to describe the style once and them just refer it every time when you want to use it. Ant there we get classes. Now all you need is to put class="my_amazing_style" inside each openening tag of the element you want to style and describe this style somewhere. Again, it makes sence to describe this style right in your html page, but what if you have 34 styles? It is a lot of code for one page.</p>           
+            <h4>Why styles are important?</h4>
           
           <h4>What are styles?</h4>
           <p></p>
