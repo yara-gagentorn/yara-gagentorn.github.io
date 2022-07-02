@@ -173,7 +173,7 @@ pre {
   width: 20px;
   float: right;
   opacity: 60%;
-  filter: saturate(0);
+  filter: saturate(3);
 }
 
 .blog-img {

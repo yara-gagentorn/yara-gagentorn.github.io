@@ -64,8 +64,9 @@ I contain a lot of very valuble and useful information.<span class="for-tag">&lt
 <p>The most obvious way - you find an opening tag of the element in your html code and give this element some style.Right there, inside of the opening tag:</p>  
 <div class="code-snippet">
 <pre><code><span class="for-tag">&lt;h1 style="color:red; font-size: 16px;"></span>I am a heading!<span class="for-tag">&lt;/h1></span>
-<span class="for-tag">&lt;p style="color: blue;"></span> I am a paragraph. I am longer than the heading and 
-I contain a lot of very valuble and useful information.<span class="for-tag">&lt;/p></span></code></pre>  
+<span class="for-tag">&lt;p style="color: blue;"></span> I am a paragraph. I am longer than
+the heading and I contain a lot of very valuble and 
+useful information.<span class="for-tag">&lt;/p></span></code></pre>  
 </div>
 
 <p>And it is working:</p>
@@ -83,15 +84,99 @@ I contain a lot of very valuble and useful information.<span class="for-tag">&lt
     </div>
     
     <p>Hey, do you remember about the importance of the presentation? It works for web developers too! Just imagine you decided to change a font size for all of your  <span class="for-tag">&lt;p></span> elements. If you have ten  <span class="for-tag">&lt;p></span> elements on your page you WILL make a mistake somewhere, I promise. </p> 
-  <p>It would make sence to describe the style once and them just refer it every time when you want to use it. And here we've just invented <span class="for-tag"><b>class</b></span>. Now all you need is to put <span class="for-tag">class="name_of_my_amazing_style"</span> inside each openening tag of the element you want to style and describe this style somewhere. Again, it makes sence to describe this style right in your html page, but what if you have 34 styles? It is a lot of code for one page.</p>           
-            
+  <p>It would make sence to describe the style once and them just refer it every time when you want to use it. Congratulations! We've just invented <span class="for-tag"><b>class</b></span>. Now all you need is to put <span class="for-tag">class="name_of_my_amazing_style"</span> inside each openening tag of the element you want to style and describe this style somewhere. 
+  </p>
+  <p>Again, it makes sence to describe this style right in your html page:</p> 
+  <div class="code-snippet">
+  <pre><code><span class="for-tag">&lt;html></span>
+  <span class="for-tag">&lt;head></span>
+    <span class="for-tag">&lt;style></span>
+      .my-heading {
+        color:red; 
+        font-size: 16px;
+      }
+      .my-paragraph {
+        color: blue;
+      }
+    <span class="for-tag">&lt;/style></span>
+  <span class="for-tag">&lt;/head></span>
+  <span class="for-tag">&lt;body></span>
+    <span class="for-tag">&lt;h1 class="my-heading"></span>I am a heading!<span class="for-tag">&lt;/h1></span>
+    <span class="for-tag">&lt;p class="my-paragraph"></span> I am a paragraph. I am longer 
+    than the heading and I contain a lot of very valuble and 
+    useful information.<span class="for-tag">&lt;/p></span>
+    <span class="for-tag">&lt;p class="my-paragraph"></span>I am a paragraph too. I have the 
+    same style as the previos one, but my personality 
+    is different.<span class="for-tag">&lt;/p></span>
+  <span class="for-tag">&lt;/body></span>
+<span class="for-tag">&lt;/html></span></code></pre>  
+    </div>
+    <p>Here is the result:</p>
+    <div class="blog-img-place">         
+      <img class="blog-img" src="../media/html-plus-styles.png" alt=" many inline styles">
+      <p class="blog-img-text"></p>
+    </div>
+  <p>but what if you have 34 styles? It is a lot of text for one file! Let's separate styles from the content and put them in two different files. And now we connect it with our html-page using a special tag <span class="for-tag">&lt;link></span> (this tag has only an opening part).</p>
+<div class="code-snippet">
+  <pre><code><span class="for-tag">&lt;html></span>
+  <span class="for-tag">&lt;head></span>  
+    <span class="for-tag">&lt;link href="my-styles.css"></span>
+  <span class="for-tag">&lt;/head></span>
+  <span class="for-tag">&lt;body></span>
+    <span class="for-tag">&lt;h1 class="my-heading"></span>I am a heading!<span class="for-tag">&lt;/h1></span>
+    <span class="for-tag">&lt;p class="my-paragraph"></span> I am a paragraph. I am longer 
+    than the heading and I contain a lot of very valuble and 
+    useful information.<span class="for-tag">&lt;/p></span>
+    <span class="for-tag">&lt;p class="my-paragraph"></span>I am a paragraph too. I have the 
+    same style as the previos one, but my personality 
+    is different.<span class="for-tag">&lt;/p></span>
+  <span class="for-tag">&lt;/body></span>
+<span class="for-tag">&lt;/html></span></code></pre>  
+</div>
+<p>Ta-dam! It is working!</p>
+<div class="blog-img-place">         
+  <img class="blog-img" src="../media/html-plus-styles.png" alt=" many inline styles">
+  <p class="blog-img-text"></p>
+</div>
+<h4>Class vs id</h4>
+<p>Now we know about classes, how to declare them and how to use them for make your html-page not only smart, but also beautiful. But if you dive a little bit deeper into html code of we will notice something which looks like class:
+</p>
+<div class="blog-img-place">
+  <a href="https://devacademy.co.nz/"><img class="blog-img-source" src="../media/link-out.png" alt="Link to the source"></a>         
+  <img class="blog-img" src="../media/what-are-those.png" alt=" many inline styles">
+  <p class="blog-img-text">What ARE those???</p>
+</div>
+<p>It is time to introduce you to id! Ids are similar to classes - you describe styles for them and then declare in the opening tag. In fact, if your web site has only html and css, without other technologies, you can use id exactly the same way! But why then we need both?
+</p>
+<p>We have a web page, which is looking good, but something is missing. To become <i>alive</i> our web page need some action and, the most importantly, <b>interaction</b>. We want click buttons and fill forms, animate images and play games! Building an interactive website is a huge topic and this topic is strongly related to id and class and the difference between those two.</p>
+<div class="block" style="text-align: center; font-size: larger;"><p>The key difference - id is UNIQUE.</p></div> That means only one element with this exact id has to be on one web page - that is the best practice. It is a good idea to give elements names which describe them, so you could easily remember the element if you see its name. It is like giving a unique name to the element. At the time we still can use classes on those elements - class for style, id - for using in interactions (scripts).</p>
+<div class="code-snippet">
+  <pre><code><span class="for-tag">&lt;html></span>
+  <span class="for-tag">&lt;head></span>  
+    <span class="for-tag">&lt;link href="my-styles.css"></span>
+  <span class="for-tag">&lt;/head></span>
+  <span class="for-tag">&lt;body></span>
+    <span class="for-tag">&lt;h1 class="my-heading"></span>I am a heading!<span class="for-tag">&lt;/h1></span>
+    <span class="for-tag">&lt;p class="my-paragraph" id="first-paragraph"></span> I am 
+    a paragraph. I am longer than the heading and I contain 
+    a lot of very valuble and useful information.<span class="for-tag">&lt;/p></span>
+    <span class="for-tag">&lt;p class="my-paragraph" id="second-paragraph"></span>I am 
+    a paragraph too. I have the same style as the previos one, 
+    but my personality is different.<span class="for-tag">&lt;/p></span>
+  <span class="for-tag">&lt;/body></span>
+<span class="for-tag">&lt;/html></span></code></pre>  
+</div>
+<p>Now we can interact with each paragraph separately.</p>
 
-  <h4>Why styles are important?</h4>
-          
-          <h4>What are styles?</h4>
-          <p></p>
-          <h4>What is the difference?</h4>
-          <p></p>
+<div class="code-snippet">
+<pre><code><span class="for-tag">shake-that-text</span>("second-paragraph");</code></pre></div>
+
+<p>And the result:</p> 
+<div class="blog-img-place">        
+  <img class="blog-img" src="../media/shake.gif" alt=" many inline styles">
+  <p class="blog-img-text"></p>
+</div>
+<p>Well... The real code would be a little bit different, but you've got the idea!</p>
           <span class="date-and-name">2/07/2022</span>
         </div>
       </div>
