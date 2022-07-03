@@ -201,7 +201,13 @@ pre {
   body {
     width: 100%;
   }
-
+  
+  #blog-current-item {
+    margin: 5px 5px 5px 5px;
+    color: white;
+    text-align: right;
+  }
+  
   #container {
     width: 100%;
     display: flex;
@@ -211,6 +217,7 @@ pre {
   }
 
   #header {
+
     display: none;
   }
   
@@ -225,15 +232,48 @@ pre {
 
   }
 
+  @media only screen and (max-width: 767px) {
+    body {
+      width: 100%;
+    }
+  
+    #container {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      justify-content: center;  
+    }
+  
+    #header {
+      display: none;
+    }
+    
+    #blog, #welcome {
+      display: block;
+      float: none;
+      width: 100%;
+    }
+    #content {
+      display: block;
+    }
+
+    code{
+      display: none;
+    }
+  
+    }
+  
+  
 
 @media only screen and (min-width: 768px) {
   body {
-    background-color: lightblue;
+    background-color: #E1ACCE;
   }
 }
 
 @media only screen and (min-width:1200px) {
   body {
-    background-color: lightblue;
+    background-color: #E1ACCE;
   }
 }
