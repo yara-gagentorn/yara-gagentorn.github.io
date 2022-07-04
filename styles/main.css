@@ -270,6 +270,27 @@ pre {
   body {
     background-color: #E1ACCE;
   }
+#container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    justify-content: center;  
+  }
+
+  #header {
+    display: none;
+  }
+  
+  #blog, #welcome {
+    display: block;
+    float: none;
+    width: 100%;
+  }
+  #content {
+    display: block;
+  }
+
 }
 
 @media only screen and (min-width:1200px) {
