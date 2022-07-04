@@ -64,7 +64,6 @@ body {
   display: flex;
   flex-wrap: wrap;
   width: 60%;
-  max-width: 1000px;
   margin-left: auto;
   margin-right: auto;
   justify-content: center;
@@ -238,7 +237,7 @@ pre {
     }
   
     #container {
-      width: 100%;
+      width: 80%;
       display: flex;
       flex-wrap: wrap;
       margin: 0;
@@ -246,7 +245,7 @@ pre {
     }
   
     #header {
-      display: none;
+     
     }
     
     #blog, #welcome {
@@ -255,7 +254,7 @@ pre {
       width: 100%;
     }
     #content {
-      display: block;
+      
     }
 
     code{
@@ -271,15 +270,15 @@ pre {
     background-color: #E1ACCE;
   }
 #container {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-wrap: wrap;
-    margin: 0;
     justify-content: center;  
   }
 
   #header {
-    display: none;
+    
   }
   
   #blog, #welcome {
@@ -288,7 +287,7 @@ pre {
     width: 100%;
   }
   #content {
-    display: block;
+   
   }
 
 }
