@@ -258,8 +258,12 @@ pre {
     }
 
     code{
-      display: none;
     }
+
+    pre { 
+      white-space: pre-wrap; 
+      max-width:100%;
+      height:auto;}
   
     }
   
