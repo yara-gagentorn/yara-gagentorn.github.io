@@ -282,9 +282,7 @@ pre {
   }
   
   #blog, #welcome {
-    display: block;
-    float: none;
-    width: 100%;
+   
   }
   #content {
    
