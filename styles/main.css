@@ -156,7 +156,6 @@ pre {
 }
 
 .blog-img-place {
-  width: 100%;
   background-color: rgba(201,121,135 , 0.3);
   padding: 10px;
   border-radius: var(--bradius);
@@ -232,6 +231,7 @@ pre {
   }
   #content {
     display: block;
+    justify-content: center;
   }
 
   }
@@ -268,10 +268,11 @@ pre {
     #blog, #welcome {
       display: block;
       float: none;
-      width: 100%;
+    
     }
     #content {
       display: block;
+      justify-content: center;
     }
 
     pre { 
@@ -295,6 +296,7 @@ pre {
 
     .blog-img-place {
       padding: 0;
+      width: 100%;
     }
 
     }
