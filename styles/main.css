@@ -245,7 +245,7 @@ pre {
     }
   
     #header {
-     
+     display:none;
     }
     
     #blog, #welcome {
@@ -254,7 +254,7 @@ pre {
       width: 100%;
     }
     #content {
-      
+      display: block;
     }
 
     code{
