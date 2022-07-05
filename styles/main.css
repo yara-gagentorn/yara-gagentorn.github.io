@@ -249,7 +249,11 @@ pre {
       text-align: center;
       
     }
-  
+    #logo-header {
+      width: 130px;
+      margin: 10px 0 10px 0;
+      filter: drop-shadow(0 0 0.75rem #ED3994);
+
     #container {
       width: 80%;
       display: flex;
