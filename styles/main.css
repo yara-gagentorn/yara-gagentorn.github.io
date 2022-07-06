@@ -197,6 +197,18 @@ pre {
   text-align: right;
 }
 
+.for-tag1{
+  color:#453a94;
+}
+
+.for-tag2{
+  color: #ED3994;
+
+}
+
+
+
+
 @media only screen and (max-width: 320px) {
   body {
     width: 100%;
