@@ -18,19 +18,24 @@ function htmlToCode(myHTML, class1, class2) {
     class2 +
     '"&gt;'
   let closeTag = '</span><span class="' + class1 + '">></span>'
+  let openFancyBraket = '<span class=' + class1 + '>{</span>'
+  let closeFancyBraket = '<span class=' + class1 + '>}</span>'
+  let func = '<span class=' + class2 + '>function</span>'
 
-  myCode = myHTMLstr.replaceAll(/</g, openTag).replaceAll(/>/g, closeTag)
+  myCode = myHTMLstr
+    .replaceAll(/</g, openTag)
+    .replaceAll(/>/g, closeTag)
+    .replaceAll(/{/g, openFancyBraket)
+    .replaceAll(/}/g, closeFancyBraket)
+    .replaceAll(/function/g, func)
 
   document.getElementById('final-code').innerHTML = myCode
-  //document.getElementById('demo').innerHTML = myCode
 }
 
 // Copy function
 function copyTextarea() {
   let copyText = document.getElementById('final-code').value
   navigator.clipboard.writeText(copyText)
-  //.then(() => {  alert('copied to clipboard')
-  //})
 }
 
 // "Copy textarea" button
