@@ -213,16 +213,14 @@ pre {
 }
 
 button {
-  box-shadow: 2px 2px #551d3940;
+  box-shadow: 4px 4px #551d3940;
   /**filter: drop-shadow(5px 5px 1px #551d39);**/
   border: none;
+  border-radius: var(--bradius);
   font-weight: 400;
-  
-  padding: 10px 25px 10px 25px;
-  border-radius: 7px;
-  background-color:rgba(108, 63, 70, 0.3);
-  background-image: linear-gradient(to right, #734187 0%, #923B7280 100%);
-  
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  background-color:rgba(249, 151, 166, 0.5);
+  background-image: linear-gradient(to right, #923B7280 0%,   #A14273 100%);
   color:white;
   display: inline-block;
   font-size: 1em;
@@ -231,9 +229,13 @@ button {
 }
 
 button:hover {
-  /**background-color:rgba(108, 63, 70, 0.3);**/
-  background-image: linear-gradient(to right, #923B7280 0%,   #A14273 100%);
-  background-color:rgba(238, 142, 158, 0.3);
+  /**background-color:rgba(108, 63, 70, 0.3);
+ 
+  background-image: linear-gradient(to right, #734187 0%, #923B7280 100%);
+**/
+  background-color:rgba(238, 142, 158, 0.1);
+  transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
 }
 
 button:active {
@@ -280,6 +282,9 @@ button:active {
   #content {
     display: block;
     justify-content: center;
+  }
+  #tools {
+    display: none;
   }
 
   }
@@ -350,6 +355,10 @@ button:active {
     .blog-img-place {
       padding: 0;
       width: 100%;
+    }
+
+    #tools {
+      display: none;
     }
 
     }

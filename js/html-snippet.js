@@ -21,23 +21,8 @@ function htmlToCode(myHTML, class1, class2) {
 
   myCode = myHTMLstr.replaceAll(/</g, openTag).replaceAll(/>/g, closeTag)
 
-  // for (let i = 0; i < myHTMLstr.length; i++) {
-  //   if (myHTMLstr[i] == '<') {
-  //     myCode = myCode.concat(
-  //       '<span class="' +
-  //         class1 +
-  //         '>' +
-  //         '&' +
-  //         'lt;' +
-  //         '</span><span class="user-class-name-2">'
-  //     )
-  //   } else if (myHTMLstr[i] == '>') {
-  //     myCode = myCode.concat('Closing tag')
-  //   } else myCode = myCode.concat(myHTMLstr[i])
-  // }
-
   document.getElementById('final-code').innerHTML = myCode
-  document.getElementById('demo').innerHTML = ''
+  document.getElementById('demo').innerHTML = myCode.toString
 }
 
 document.getElementById('html-to-code').onclick = () => {
