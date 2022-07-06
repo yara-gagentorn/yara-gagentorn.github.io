@@ -22,8 +22,21 @@ function htmlToCode(myHTML, class1, class2) {
   myCode = myHTMLstr.replaceAll(/</g, openTag).replaceAll(/>/g, closeTag)
 
   document.getElementById('final-code').innerHTML = myCode
-  document.getElementById('demo').innerHTML = myCode.toString
+  //document.getElementById('demo').innerHTML = myCode
 }
+
+// Copy function
+function copyTextarea() {
+  let copyText = document.getElementById('final-code').value
+  navigator.clipboard.writeText(copyText)
+  //.then(() => {  alert('copied to clipboard')
+  //})
+}
+
+// "Copy textarea" button
+document.getElementById('copy-button').onclick = copyTextarea
+
+// Assign function to a button
 
 document.getElementById('html-to-code').onclick = () => {
   htmlToCode(myHTML, class1, class2)
