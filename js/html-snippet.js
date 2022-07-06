@@ -37,7 +37,7 @@ function htmlToCode(myHTML, class1, class2) {
   // }
 
   document.getElementById('final-code').innerHTML = myCode
-  document.getElementById('demo').innerHTML = myCode
+  document.getElementById('demo').innerHTML = ''
 }
 
 document.getElementById('html-to-code').onclick = () => {

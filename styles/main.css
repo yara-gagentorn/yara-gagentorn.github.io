@@ -198,16 +198,52 @@ pre {
 }
 
 .for-tag1{
-  color:#453a94;
+  color:#f0f39b;
 }
 
 .for-tag2{
-  color: #ED3994;
+  color: #27f3f6;
 
 }
 
+#tools {
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+button {
+  box-shadow: 2px 2px #551d3940;
+  /**filter: drop-shadow(5px 5px 1px #551d39);**/
+  border: none;
+  font-weight: 400;
+  
+  padding: 10px 25px 10px 25px;
+  border-radius: 7px;
+  background-color:rgba(108, 63, 70, 0.3);
+  background-image: linear-gradient(to right, #734187 0%, #923B7280 100%);
+  
+  color:white;
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  /**background-color:rgba(108, 63, 70, 0.3);**/
+  background-image: linear-gradient(to right, #923B7280 0%,   #A14273 100%);
+  background-color:rgba(238, 142, 158, 0.3);
+}
+
+button:active {
+    
+    box-shadow: 1px 1px  #551d3940;
+    transform: translate(1px, 1px);
+}
 
 
+/** -------------- MEDIA ------------------- **/
 
 @media only screen and (max-width: 320px) {
   body {
