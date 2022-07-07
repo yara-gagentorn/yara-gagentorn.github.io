@@ -1,8 +1,10 @@
-// read the input
-// check the imput symbol by symbol
-// < - means tag is starting, need to change it to <span class="user-class-name-1">&amp;lt;</span><span class="user-class-name-2">
-// > - means tag is finished, needs to change it to </span><span class="user-class-name-1"> > </span>
-//display the text in the textarea
+////// Creating colored HTML code for using in code demonstrations on webpages. //////
+
+// -- take a standart HTML code as an input
+// -- assign styles to symbols < > {}
+// -- assign styles to tags names
+// -- change < symbol to &lt; which let display tags without being interpreted by browser
+// -- copy the output and use it inside your <code><pre></pre><code> tags (need to manually adjust indents)
 
 const myHTML = document.getElementById('html-code')
 const class1 = document.getElementById('class-for-tag-1').value
