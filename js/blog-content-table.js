@@ -4,7 +4,9 @@
 // Takes a code which need to be inserted
 // and a div ID where needs to be inserted
 // as an input
-// id="blog-current-item"
+
+const myCurrentPageAddress = window.location.href
+const isIndex = myCurrentPageAddress.includes('index')
 
 // here is HTML code for the menu
 const myBlogContentTable =
@@ -15,6 +17,13 @@ const myBlogContentTable =
   '<li class="blog-links-el" class="core-blog"><a href="./3-learning-plan.html">Learning plan</a></li>' +
   '<li class="blog-links-el" class="tech-blog"><a href="./4-javascript-dom.html">JavaScript and DOM</a></li>' +
   '</ul>'
+
+// links for main page are different
+function fixLink(BlogContentTable) {
+  return BlogContentTable.replaceAll(/\.\//g, './blog/')
+}
+
+const myBlogContentTableForIndex = fixLink(myBlogContentTable)
 
 const myDIVid = 'blog' // id of DIV where to insert
 const myCurrentItem = document
@@ -42,4 +51,9 @@ function markCurrentItem(titleName) {
   currentItem.parentElement.setAttribute('id', 'blog-current-item')
 }
 
-markCurrentItem(myCurrentItem)
+// no current item on the index page
+if (!isIndex) {
+  markCurrentItem(myCurrentItem)
+} else {
+  insertBlogContentTable(myBlogContentTableForIndex, myDIVid)
+}
