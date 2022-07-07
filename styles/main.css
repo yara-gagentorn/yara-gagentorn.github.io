@@ -244,6 +244,10 @@ button:active {
     transform: translate(1px, 1px);
 }
 
+.small-button {
+  font-size: 0.6em ;
+}
+
 
 /** -------------- MEDIA ------------------- **/
 
