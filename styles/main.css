@@ -89,6 +89,13 @@ li.blog-links-el {
   white-space: nowrap;
 }
 
+.tech-blog {
+  background-color: rgba(68, 40, 44, 0.3) !important;
+
+}
+
+
+
 #blog-current-item {
   margin: 5px -10px 5px 5px;
   color: white;
