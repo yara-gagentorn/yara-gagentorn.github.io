@@ -163,17 +163,17 @@ pre {
 }
 
 .blog-img-place {
-  background-color: rgba(201,121,135 , 0.3);
+  /*background-color: rgba(201,121,135 , 0.3);*/
   padding: 10px;
   border-radius: var(--bradius);
-  backdrop-filter: blur(5px);
-  text-align: justify;
+ /* backdrop-filter: blur(5px);*/
+  text-align: center;
 }
 
 .blog-img-text {
   font-style: italic;
   margin: 0;
-  width: 80%;
+  width: 100%;
 
 }
 
@@ -255,7 +255,19 @@ button:active {
   font-size: 0.6em ;
 }
 
+.imp {
+  border-style: dashed;
+  border-width: 3px !important;
+  border-color: #453a94;
+  font-size: larger;
+  text-align: center;
+}
 
+pre { 
+  white-space: pre-wrap; 
+  max-width:100%;
+  height:auto;}
+  
 /** -------------- MEDIA ------------------- **/
 
 @media only screen and (max-width: 320px) {
@@ -343,11 +355,6 @@ button:active {
       display: block;
       justify-content: center;
     }
-
-    pre { 
-      white-space: pre-wrap; 
-      max-width:100%;
-      height:auto;}
 
     .block {
       margin: 10px;
