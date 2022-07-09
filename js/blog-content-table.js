@@ -16,7 +16,7 @@ const myBlogContentTable =
   '<li class="blog-links-el tech-blog"><a href="./1-class-vs-id.html">Classes vs IDs</a></li>' +
   '<li class="blog-links-el core-blog"><a href="./2-identity-and-value.html">Identity and Values</a></li>' +
   '<li class="blog-links-el core-blog"><a href="./3-learning-plan.html">Learning plan</a></li>' +
-  '<li class="blog-links-el tech-blog"><a href="./4-javascript-dom.html">JavaScript and DOM</a></li>' +
+  '<li class="blog-links-el tech-blog"><a href="./4-javascript-dom.html">JavaScript&DOM</a></li>' +
   '<li class="blog-links-el core-blog"><a href="./5-emotional-intelligence.html">IQ and EQ</a></li>' +
   '</ul>'
 
@@ -53,7 +53,7 @@ function markCurrentItem(titleName) {
   currentItem.parentElement.setAttribute('id', 'blog-current-item')
 }
 
-// no current item on the index page
+// no current item on the or root index page
 if (!isIndex && !isRoot) {
   markCurrentItem(myCurrentItem)
 } else {
