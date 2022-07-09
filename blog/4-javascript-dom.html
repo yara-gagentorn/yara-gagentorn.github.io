@@ -95,12 +95,12 @@
             <p>Imagine we have a building (HTML) with all pretty walls and floors (CSS applied). We have some furniture in the building already (out texts and images) and a truck with more furniture has just arrived. We are waiting for a delivery from IKEA, but on the truck it says TARGET. We need to tell a driver something like “sorry, this delivery is not for us”. In program language it is called <b>conditional statment</b> and the syntax would be similar to this:
             </p>
             <div class="code-snippet">
-<code><pre>   if (truckName == “IKEA”) <span class=for-tag1>{</span> recieveFurniture() <span class=for-tag1>}</span>
-   else <span class=for-tag1>{</span> say (“sorry, this delivery is not for us”)<span class=for-tag1>}</span></pre></code></div>
+<pre><code>   if (truckName == “IKEA”) <span class=for-tag1>{</span> recieveFurniture() <span class=for-tag1>}</span>
+   else <span class=for-tag1>{</span> say (“sorry, this delivery is not for us”)<span class=for-tag1>}</span></code></pre></div>
 
             <p>There are 4 tables and 3 chairs on the track and all of them for us. Driver gives you a list of the furniture and it  looks like this:</p>
             <div class="code-snippet">
-              <code><pre>listOfFurniture = [table1, table2, table3, table4, chair1, chair2, chair3] </pre></code></div>
+              <pre><code>listOfFurniture = [table1, table2, table3, table4, chair1, chair2, chair3] </code></pre></div>
 <p></p>
               <div class="blog-img-place">
                 <img class="blog-img" src="../media/array.png" alt="array">
@@ -132,16 +132,16 @@
               <p>Each pair is called property. Besides properties, objects may have methods. The syntax for calling methods would be like this:
               </p>
               <div class="code-snippet">
-                <code>object.method(parameters) // for methods with parameters<br> 
-                  object.method() // if method takes no parameters.</code>
+                <pre><code>object.method(parameters) // for methods with parameters<br> 
+                  object.method() // if method takes no parameters.</pre></code>
               </div>
               <p>Look at methods like at actions which we can perform on the object. If we go back to our table and imagine what we could do with it we get a list of methods. 
               </p>
               <div class="code-snippet">
-                <code>pieceOfFurniture.rotate(angle)  // will rotate our table on an angle which we pass as a parameter<br>
+                <pre><code>(angle)  // will rotate our table on an angle which we pass as a parameter<br>
                   pieceOfFurniture.paint(color) // will paint the table to chosen color<br>
-                  pieceOfFurniture.turnUpsideDown() // will rotate our table upsidedown. As you can see this method takes no parameters
-                  </code>
+                  pieceOfFurniture.turnUpsideDown() // will rotate our table upsidedown. As you can see this method takes no parameters</code></pre>
+                  
               </div>
 
               <p>We access data in our array simply by using the name of the array and the index of the element. Objects have a more complicated structure. To get access to the value of the particular key we would need the name of the object and the name of the key. We also can get a list of all key-value couples or find the name of the key if we know the object name and value of the key. For example, if we want to find all black pieces of furniture in our array we would need to check which objects have a key with name "color" and value "black". We also can take a piece of furniture and check its type, by accessing a value of the key with name "type". <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects" target="_blank">Check here</a> to find out more about accessing data in objects.</p>
@@ -150,7 +150,7 @@
               <p>After we had a look at the documentation for our furniture it is time to unload the truck and put each piece of furniture (POF) in its place (all those furniture for the lounge on the second floor). For each table and chair we would need to perform the same set of operations:
               </p>
               <div class="code-snippet">
-                <code>Retrieve POF from the truck<br> 
+                <pre><code>Retrieve POF from the truck<br> 
                   Bring POF to the building <br>
                   Press a lift button<br>
                   Enter the lift<br>
@@ -158,13 +158,13 @@
                   Exit the lift<br>
                   Bring POF to the lounge<br>
                   Place POF in its place<br>
-                  </code>
+                  </code></pre>
               </div>
               <div class="block imp">An order in which instructions are executed calls control flow.</div>
               <p>As we are going to perform the same set of instructions for each piece it is useful to describe it once and then refer to it every time we have a new piece of furniture. This is a function and the syntax would be similar to:
               </p>
               <div class="code-snippet">
-                <code><pre>
+                <pre><code>
 function deliverPOF() {
   
   Retrieve POF from the truck 
@@ -176,12 +176,12 @@ function deliverPOF() {
   Bring POF to the lounge
   Place POF in its place
 
-}</pre></code></div>
+}</code></pre></div>
 
 <p>If we think we may need the same set of operations, but a different room on the different floor, for another furniture delivery, it is make sense to design our function with parameters:</p>
 
 <div class="code-snippet">
-<code><pre>function deliverPOF(floorNumber,roomName) {
+<pre><code>function deliverPOF(floorNumber,roomName) {
 
 Retrieve POF from the truck 
 Bring POF to the building
@@ -196,17 +196,17 @@ Place POF in its place
               <p>Now when we have a function for each POF we can go through our furniture piece by piece. As we have our furniture in an array, we can use method forEach, which perform function on each element of the array:</p>
               
 <div class="code-snippet">
-<code><pre>forEach (deliverPOF(2,lounge)) 
-</pre></code></div>
+<pre><code>forEach (deliverPOF(2,lounge)) 
+</code></pre></div>
 
 <p>2,lounge - are our parameters for this particular set of furniture.</p> 
   <p>We also could use <b>while</b> loop.</p>
   <div class="code-snippet">
-<code><pre>
+<pre><code>
 while (numberOfFurnitureInTheTruck > 0) {
  Take piece of furniture
  Execute deliverPOF(2,lounge) on it     
-}</pre></code></div>
+}</code></pre></div>
               
 <p>The actual syntax of the <b>while</b> loop you can check <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while" target="_blank">here</a>. The code above is a simplification designed to give you an understanding of the conception. </p>
 
