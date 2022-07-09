@@ -7,6 +7,7 @@
 
 const myCurrentPageAddress = window.location.href
 const isIndex = myCurrentPageAddress.includes('index')
+const isRoot = location.pathname == '/'
 
 // here is HTML code for the menu
 const myBlogContentTable =
@@ -53,7 +54,7 @@ function markCurrentItem(titleName) {
 }
 
 // no current item on the index page
-if (!isIndex) {
+if (!isIndex && !isRoot) {
   markCurrentItem(myCurrentItem)
 } else {
   insertBlogContentTable(myBlogContentTableForIndex, myDIVid)
