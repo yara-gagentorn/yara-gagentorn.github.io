@@ -18,6 +18,8 @@ const myBlogContentTable =
   '<li class="blog-links-el core-blog"><a href="./3-learning-plan.html">Learning plan</a></li>' +
   '<li class="blog-links-el tech-blog"><a href="./4-javascript-dom.html">JS and DOM</a></li>' +
   '<li class="blog-links-el core-blog"><a href="./5-emotional-intelligence.html">IQ and EQ</a></li>' +
+  '<li class="blog-links-el tech-blog"><a href="./6-problem-solving.html">Problem Solving</a></li>' +
+  '<li class="blog-links-el core-blog"><a href="./7-neuroplasticity.html">Neuroplasticity</a></li>' +
   '</ul>'
 
 // links for main page are different
