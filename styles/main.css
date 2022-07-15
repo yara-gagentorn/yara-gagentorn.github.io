@@ -193,6 +193,10 @@ pre {
 
 }
 
+.sm {
+  width: 40%;
+}
+
 .content-list {
   margin-left: 20px;
 }
@@ -315,6 +319,10 @@ pre {
     margin: 5px 10px 5px 10px;
 
   }
+
+  .sm {
+    width: 80%;
+  }
 }
 
   @media only screen and (max-width: 767px) {
@@ -380,6 +388,10 @@ pre {
       width: 100%;
     }
 
+    .sm {
+      width: 80%;
+    }
+    
     #tools {
       display: none;
     }

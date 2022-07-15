@@ -1,7 +1,7 @@
 ////// Creating colored HTML code for using in code demonstrations on webpages. //////
 
 // -- take a standart HTML code as an input
-// -- assign styles to symbols < > {}
+// -- assign styles to symbols < > {} ()
 // -- assign styles to tags names
 // -- change < symbol to &lt; which let display tags without being interpreted by browser
 // -- copy the output and use it inside your <code><pre></pre><code> tags (need to manually adjust indents)

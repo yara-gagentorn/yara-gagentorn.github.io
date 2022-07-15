@@ -30,10 +30,6 @@ function fixLink(BlogContentTable) {
 const myBlogContentTableForIndex = fixLink(myBlogContentTable)
 
 const myDIVid = 'blog' // id of DIV where to insert
-const myCurrentItem = document
-  .getElementsByTagName('title')
-  .item(0)
-  .innerHTML.toString() // title is the same as a name of current item
 
 function insertBlogContentTable(HTMLcode, divID) {
   document.getElementById(divID).innerHTML = HTMLcode
@@ -41,10 +37,15 @@ function insertBlogContentTable(HTMLcode, divID) {
 
 insertBlogContentTable(myBlogContentTable, myDIVid)
 
+const myCurrentItem = document
+  .getElementsByTagName('title')
+  .item(0)
+  .innerHTML.toString() // title is the same as a name of current item
+
 const allLinks = Array.from(document.querySelectorAll('a'))
 
 // after inserting the menu, find the current item (the title of the page)
-// NOTE: title of the page must me the same as name of the current item in menu
+// NOTE: title of the page must be the same as name of the current item in menu
 
 function markCurrentItem(titleName) {
   // find the element which content is the same as title
@@ -56,6 +57,7 @@ function markCurrentItem(titleName) {
 }
 
 // no current item on the or root index page
+// plus different links for the index
 if (!isIndex && !isRoot) {
   markCurrentItem(myCurrentItem)
 } else {

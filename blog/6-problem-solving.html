@@ -24,14 +24,89 @@
         </div>
         <div class="block" id="welcome">
           <h3>Problem Solving</h3>
-          
-            <div class="block">
-              <h4></h4>
+        
               <p>
-
+                This website started as a three pages blog. Each page had almost the same structure: main navigation on the top, navigation for blog entries on the left, and the main content on the right (desktop view).
               </p>
-            </div>
-          <div class="date-and-name">3/07/2022</div>
+              <p>
+                With each sprint, I would need to add new blog entries. It was quite easy at first - just copy HTML text, past, and change text content. 
+              </p>
+              <div class="blog-img-place">        
+                <img class="blog-img sm" src="../media/ctrc-v.png" alt="ctrl c-v">
+                <p class="blog-img-text">One of the main tool of development</p>
+              </div>
+
+              <p>
+                Sounds easy and it was, in fact, easy. But then the blog got more entries and altering the menu, and adding more links to it becomes one tedious task! At that moment I’d just started learning about JavaScript and finished the code along video. “It is time to use my JavaScript skills!” - I’ve decided.  After the video, I know how to insert any content to any tag as long as I know the ID of this tag and I know if I call a function after creating it in the js file it will be executed at the moment when the page is loaded. I created  .js file with one simple function:
+ 
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/func1.png" alt="simple function">
+                <p class="blog-img-text">Very simple function</p>
+              </div>
+
+              <p>
+                After creating the main function I needed to write a code for the menu which I would pass to the function as a parameter.
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/menu-text.png" alt="menu text">
+                <p class="blog-img-text">HTML-text for the blog menu</p>
+              </div>
+              
+              <p>
+                And it worked! But a new problem appears. Look at the links in the HTML text below. I’ve copied and pasted a menu from the blog page, but because of the file structure of the website, the links for the menu on the index page must be different.
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img sm" src="../media/structure.png" alt="site structure">
+                <p class="blog-img-text">Site structure: blog items are in the folder</p>
+              </div>
+              
+              <p>
+                And there is a way to solve this problem: check if the page is index or user at the root of the website and create a different menu for this case.
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/links-for-index.png" alt="links for index">
+                <p class="blog-img-text">Alter the links for index page</p>
+              </div>
+
+              <p>
+                Now links will work on all pages, but there is another problem. If a user visits one of the pages of the blog, the menu is supposed to be a little bit different - the current item in the menu has a different position, but my current solution doesn’t support this feature.
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/curret-item.png" alt="current item">
+                <p class="blog-img-text">The current item is marked</p>
+              </div>
+              
+              <p>
+                Solution: after the page is created (I need the menu already be on the page), I will need to run one more function which is looking for the &lt;a> tag with the current item name as a content (the title of the page has exactly the same name as the menu item) and alter the id for the parent of the &lt;a> tag. 
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/mark-current-item.png" alt="current item">
+                <p class="blog-img-text">Mark a current item</p>
+              </div>
+
+              <p>
+                Problem solved! Now I just need to know if a user is on the index page (or at the root of the website) and display the right menu.
+              </p>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/page-address.png" alt="page address">
+                <p class="blog-img-text">Find out the address of current page. Is it index? Is it root?</p>
+              </div>
+
+              <div class="blog-img-place">        
+                <img class="blog-img" src="../media/index-and-root.png" alt="index or root">
+                <p class="blog-img-text">Check if it is not an index or root, display the right menu</p>
+              </div>
+
+            
+          <div class="date-and-name">15/07/2022</div>
         </div>
       </div>
       <div class="block" id="footer"><!-- footer -->
