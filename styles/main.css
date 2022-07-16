@@ -301,11 +301,19 @@ pre {
     text-align: center;
   }
   
-  #blog, #welcome {
+  #welcome {
     display: block;
     float: none;
     width: 100%;
   }
+
+  #blog {
+    display: block;
+    float: none;
+    width: 90%;
+    
+  }
+
   #content {
     display: block;
     justify-content: center;
@@ -345,7 +353,7 @@ pre {
     }
 
     #container {
-      width: 80%;
+      width: 98%;
       display: flex;
       flex-wrap: wrap;
       justify-content: center;  
@@ -364,6 +372,11 @@ pre {
       float: none;
     
     }
+
+    #blog {
+      width: 90%;
+    }
+
     #content {
       display: block;
       justify-content: center;
