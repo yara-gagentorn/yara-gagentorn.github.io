@@ -27,170 +27,240 @@
           <div class="content-list">
             <a href="#simple-problem">Blocked on a simple problem</a><br>
             <a href="#elegant-solution">Elegant Solution</a><br>
-            <a href="#not-elegant-solution">Elegant Solution</a><br>
             <a href="#techniques">Problem-Solving Techniques</a><br>
+            <a href="#not-elegant-solution">When the problem-solving went wrong</a><br>
           </div>  
           <h4 id="simple-problem">Blocked on a simple problem</h4>
           <p>
+            After a new git commit, I noticed the mobile view for my website started acting strange. I had had a problem with my mobile view from the very beginning (a little more about it at the end of this post), so I wasn’t surprised at all. After a little bit of self-beating (why do I always have problems with css???) I went to my css file and tried to change some styles there to see if they affect the page view. I didn’t see any changes. Maybe I broke the connectionHTML with css? Checked - nope, all good with the connection. Went to get a cup of tea. Came back. Checked the media queries. Aaaaaand
+          </p>
+          <div class="blog-img-place">        
+            <img class="blog-img sm" src="../media/missing.gif" alt="missing bracket">
+            <p class="blog-img-text">Watch with dramatic music</p>
+          </div> 
 
+          <p>
+            I saw her, red and so alone! 
+            I couldn’t remember any manipulations with the css file which could cause accidental }-removal, but let it stay a mystery. One of many other mysteries of missing brackets, dots, and semicolons.
           </p>
           <h4 id="elegant-solution">Elegant Solution</h4>
-              <p>
-                This website started as a three pages blog. Each page had almost the same structure: main navigation on the top, navigation for blog entries on the left, and the main content on the right (desktop view).
-              </p>
-              <p>
-                With each sprint, I would need to add new blog entries. It was quite easy at first - just copy HTML text, past, and change text content. 
-              </p>
+          <p>
+            This website started as a three pages blog. Each page had almost the same structure: main navigation on the top, navigation for blog entries on the left, and the main content on the right (desktop view).
+          </p>
+
+          <p>
+            With each sprint, I would need to add new blog entries. It was quite easy at first - just copy HTML text, past, and change text content. 
+          </p>
+          <div class="blog-img-place">        
+            <img class="blog-img sm" src="../media/ctrc-v.png" alt="ctrl c-v">
+            <p class="blog-img-text">One of the main tool of development</p>
+          </div>
+
+          <p>
+            Sounds easy and it was, in fact, easy. But then the blog got more entries and altering the menu, and adding more links to it becomes one tedious task! At that moment I’d just started learning about JavaScript and finished the code along video. “It is time to use my JavaScript skills!” - I’ve decided.  After the video, I know how to insert any content to any tag as long as I know the ID of this tag and I know if I call a function after creating it in the js file it will be executed at the moment when the page is loaded. I created  .js file with one simple function:
+
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/func1.png" alt="simple function">
+            <p class="blog-img-text">Very simple function</p>
+          </div>
+
+          <p>
+            After creating the main function I needed to write a code for the menu which I would pass to the function as a parameter.
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/menu-text.png" alt="menu text">
+            <p class="blog-img-text">HTML-text for the blog menu</p>
+          </div>
+          
+          <p>
+            And it worked! But a new problem appears. Look at the links in the HTML text below. I’ve copied and pasted a menu from the blog page, but because of the file structure of the website, the links for the menu on the index page must be different.
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img sm" src="../media/structure.png" alt="site structure">
+            <p class="blog-img-text">Site structure: blog items are in the folder</p>
+          </div>
+          
+          <p>
+            And there is a way to solve this problem: check if the page is index or user at the root of the website and create a different menu for this case.
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/links-for-index.png" alt="links for index">
+            <p class="blog-img-text">Alter the links for index page</p>
+          </div>
+
+          <p>
+            Now links will work on all pages, but there is another problem. If a user visits one of the pages of the blog, the menu is supposed to be a little bit different - the current item in the menu has a different position, but my current solution doesn’t support this feature.
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/curret-item.png" alt="current item">
+            <p class="blog-img-text">The current item is marked</p>
+          </div>
+          
+          <p>
+            Solution: after the page is created (I need the menu already be on the page), I will need to run one more function which is looking for the &lt;a> tag with the current item name as a content (the title of the page has exactly the same name as the menu item) and alter the id for the parent of the &lt;a> tag. 
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/mark-current-item.png" alt="current item">
+            <p class="blog-img-text">Mark a current item</p>
+          </div>
+
+          <p>
+            Problem solved! Now I just need to know if a user is on the index page (or at the root of the website) and display the right menu.
+          </p>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/page-address.png" alt="page address">
+            <p class="blog-img-text">Find out the address of current page. Is it index? Is it root?</p>
+          </div>
+
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/index-and-root.png" alt="index or root">
+            <p class="blog-img-text">Check if it is not an index or root, display the right menu</p>
+          </div>
+
+          <h4 id="techniques">Problem solving techniques</h4>
+          <p>There is a list of problem-solving techniques, from the most used to less used:</p>
+          
+          <div class="block">
+            <h4>Googling</h4>
+            <p>
+              This is, in general, my all-time favorite technique. I am convinced that there are no unique problems in the world (well, better say <i>my</i> problems are not unique, as there is a handful of pioneers in the world who, for sure, facing unique challenges). Often I get surprised that people have some problem, but have never tried to google it because for me it is the first thing to do. The main catch with google - you need to ask the right question and this is not always easy.
+            </p>
+          </div>
+          
+          <div class="block">
+            <h4> Reading error messages</h4>
+            <p>
+                This technique goes hand to hand with googling. Sometimes the error messages are quite straightforward (when there is a spelling mistake or wrong syntax, for example), but sometimes those messages can be confusing, and googling the error is helping to understand where is the real problem.
+            </p>
+          </div>
+
+          <div class="block">
+            <h4>Console.logging</h4>
+            <p>
+              Checking every step by displaying variables in the console is an amazing way to see through the code and catch the error,  it helps make a code transparent and clarify every step.
+            </p>
+          </div>
+          
+          <div class="block">
+            <h4>Rubber ducky method</h4>
+            <p>
+              I love this method, especially for the hardest problems. Talking about the problem often gives a solution. At the beginning of the course, I asked my daughter, who loves to make things from clay, to make Problem-Solving Bob for me.<!--He is naive and has no clue about coding: 
               <div class="blog-img-place">        
-                <img class="blog-img sm" src="../media/ctrc-v.png" alt="ctrl c-v">
-                <p class="blog-img-text">One of the main tool of development</p>
-              </div>
+                <img class="blog-img" src="../media/bob.png" alt="problem-solving Bob">
+                <p class="blog-img-text">This guy is such a good listener!</p>
+              </div>--> 
+            </p>
+          </div>
 
-              <p>
-                Sounds easy and it was, in fact, easy. But then the blog got more entries and altering the menu, and adding more links to it becomes one tedious task! At that moment I’d just started learning about JavaScript and finished the code along video. “It is time to use my JavaScript skills!” - I’ve decided.  After the video, I know how to insert any content to any tag as long as I know the ID of this tag and I know if I call a function after creating it in the js file it will be executed at the moment when the page is loaded. I created  .js file with one simple function:
- 
-              </p>
+          <div class="block">
+            <h4>Pseudocode</h4>
+            <p>          
+              Pseudocode is helping a lot to divide one big task into many small ones. After that, all I need is to write a small function (or another piece of code) for every step in pseudocode. This technique is also priceless when you know you or somebody else are going to come back to your code and it needs to be clear and understandable.
+            </p>
+          </div>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/func1.png" alt="simple function">
-                <p class="blog-img-text">Very simple function</p>
-              </div>
+          <div class="block">
+            <h4>Trying something</h4>
+            <p>
+              Normally I wouldn’t try something without understanding why this could work and trying something just because somebody wrote it on StackOverflow is my last resort. But sometimes understanding comes after trying,  so on rare occasions I just try something even if it doesn’t make sense to me. And sometimes it works.
+            </p>
+          </div>
 
-              <p>
-                After creating the main function I needed to write a code for the menu which I would pass to the function as a parameter.
-              </p>
+          <div class="block">
+            <h4>Improving your process with reflection</h4>
+            <p>
+              This is a very important step. After each solved problem, I need closure and reflection is a perfect way to learn from the experience. What went well? What was wrong? What to do or not to do next time? Even if the process of problem-solving was bumpy and the solution wasn’t elegant, it still was a lesson that I need to learn.
+            </p>
+          </div>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/menu-text.png" alt="menu text">
-                <p class="blog-img-text">HTML-text for the blog menu</p>
-              </div>
-              
-              <p>
-                And it worked! But a new problem appears. Look at the links in the HTML text below. I’ve copied and pasted a menu from the blog page, but because of the file structure of the website, the links for the menu on the index page must be different.
-              </p>
+          <div class="block">
+            <h4>Improving your process with reflection</h4>
+            <p>
+              This is a very important step. After each solved problem, I need closure and reflection is a perfect way to learn from the experience. What went well? What was wrong? What to do or not to do next time? Even (or rather <i>especially</i>) if the process of problem-solving was bumpy and the solution wasn’t elegant, it still was a lesson that I need to learn.
+            </p>
+          </div>
+          
+          <div class="block">
+            <h4>Asking your peers for help</h4>
+            <p>
+              I respect the time of other people and trying do not disturb others until it is really necessary. However, I understand that sometimes asking questions straight away is saving time for the team, so as always, it is all about balance.  Refusing to ask for help and spending hours trying to solve a problem alone is not good for teamwork,  asking trivial questions every time when you have them is not a good way either. 
+            </p>
+          </div>
 
-              <div class="blog-img-place">        
-                <img class="blog-img sm" src="../media/structure.png" alt="site structure">
-                <p class="blog-img-text">Site structure: blog items are in the folder</p>
-              </div>
-              
-              <p>
-                And there is a way to solve this problem: check if the page is index or user at the root of the website and create a different menu for this case.
-              </p>
+          <div class="block">
+            <h4>Asking coaches for help</h4>
+            <p>
+              This is similar to the previous part - I respect the time of coaches. The difference between asking peers and asking coaches is that coaches encourage students to ask questions and their level of expertise is much higher than the level of expertise of peers (also coaches have experience with students and curriculum, so they probably have heard the same question before). Again, depending on the circumstances, I would assess the situation first, and if I have time I would try to find the solution by myself (this is the best way of learning for me). 
+            </p>
+          </div>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/links-for-index.png" alt="links for index">
-                <p class="blog-img-text">Alter the links for index page</p>
-              </div>
+          <h4 id="not-elegant-solution">When the problem-solving went wrong</h4>  
+          <p>That was a good lesson for me and I am pretty sure it could be a good plot for a children's book :) </p>
+          <p>
+            During the writing of my first blog post I faced a problem - if I want to show an HTML code I can’t just copy and past it, because the browser will interpret it instead of actually displaying the code. And I also wanted some fancy colors for tags and brackets - just like in VS code. I didn’t want to just screenshot the code, I wanted people would be able to copy and past it (who are those people who would do this? Rhetorical question, there are no any). I googled it but didn’t succeed.  Then I got the idea - what if I write a simple script that would take HTML code and class names as input and create a code with all styles in place (I wanted to use &lt;span> tag to surround tags and brackets)? 
+          </p>
+          <p>
+            And I did:
+          </p>
+          <div class="blog-img-place">        
+            <img class="blog-img sm" src="../media/html-sn.png" alt="my tool">
+            <p class="blog-img-text"></p>
+          </div>
 
-              <p>
-                Now links will work on all pages, but there is another problem. If a user visits one of the pages of the blog, the menu is supposed to be a little bit different - the current item in the menu has a different position, but my current solution doesn’t support this feature.
-              </p>
+          <p>
+            It would take an HTML text and turn it into another HTML text which I would need to insert on my page.
+          </p>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/curret-item.png" alt="current item">
-                <p class="blog-img-text">The current item is marked</p>
-              </div>
-              
-              <p>
-                Solution: after the page is created (I need the menu already be on the page), I will need to run one more function which is looking for the &lt;a> tag with the current item name as a content (the title of the page has exactly the same name as the menu item) and alter the id for the parent of the &lt;a> tag. 
-              </p>
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/html-sn-input.png" alt="my tool - input">
+            <p class="blog-img-text">Input</p>
+          </div>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/mark-current-item.png" alt="current item">
-                <p class="blog-img-text">Mark a current item</p>
-              </div>
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/html-sn-output.png" alt="my tool - output">
+            <p class="blog-img-text">Output</p>
+          </div>
 
-              <p>
-                Problem solved! Now I just need to know if a user is on the index page (or at the root of the website) and display the right menu.
-              </p>
+          <div class="blog-img-place">        
+            <img class="blog-img" src="../media/html-sn-result.png" alt="my tool - result">
+            <p class="blog-img-text">How it looks on the page</p>
+          </div>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/page-address.png" alt="page address">
-                <p class="blog-img-text">Find out the address of current page. Is it index? Is it root?</p>
-              </div>
+          <p>
+            The problems with my solution:
+          </p>
 
-              <div class="blog-img-place">        
-                <img class="blog-img" src="../media/index-and-root.png" alt="index or root">
-                <p class="blog-img-text">Check if it is not an index or root, display the right menu</p>
-              </div>
+          <ul>
+            <li>Inserting the code using &lt;div>, &lt;pre> and &lt;code> tags was a disaster. It was hard to make the code look good on the page and it completely ruined the mobile view even though I spent  hours trying to adjust it</li>
+            <li> was extremely bulky and add a lot of mess to the page’s code</li>
+            <li>It wasn’t pretty enough, there were only two styles so &lt;> and tag name would be different colors, but in reality I would need more colors</li>
+          </ul>
+          
+          <p>
+            I used this tool for the last posts just because it was hard to let it go and accept that it wasn’t a good solution, but in this post I decided to use screenshots of code.
+          </p>
 
-              <h4 id="techniques">Problem solving techniques</h4>
-              <p>There is a list of problem-solving techniques, from the most used to less used:</p>
-              
-              <div class="block">
-                <h4>Googling</h4>
-                <p>
-                  This is, in general, my all-time favorite technique. I am convinced that there are no unique problems in the world (well, better say <i>my</i> problems are not unique, as there is a handful of pioneers in the world who, for sure, facing unique challenges). Often I get surprised that people have some problem, but have never tried to google it because for me it is the first thing to do. The main catch with google - you need to ask the right question and this is not always easy.
-                </p>
-              </div>
-              
-              <div class="block">
-                <h4> Reading error messages</h4>
-                <p>
-                   This technique goes hand to hand with googling. Sometimes the error messages are quite straightforward (when there is a spelling mistake or wrong syntax, for example), but sometimes those messages can be confusing, and googling the error is helping to understand where is the real problem.
-                </p>
-              </div>
+          <p>
+          Even though I spend a few hours writing this solution and it didn’t work the way I wanted, it was a good lesson for me. 
+          </p>
 
-              <div class="block">
-                <h4>Console.logging</h4>
-                <p>
-                  Checking every step by displaying variables in the console is an amazing way to see through the code and catch the error,  it helps make a code transparent and clarify every step.
-                </p>
-              </div>
-              
-              <div class="block">
-                <h4>Rubber ducky method</h4>
-                <p>
-                  I love this method, especially for the hardest problems. Talking about the problem often gives a solution. At the beginning of the course, I asked my daughter, who loves to make things from clay,  to make Problem-Solving Bob for me. He is naive and has no clue about coding: 
-                  <div class="blog-img-place">        
-                    <img class="blog-img" src="../media/bob.png" alt="problem-solving Bob">
-                    <p class="blog-img-text">This guy is such a good listener!</p>
-                  </div>
-                </p>
-              </div>
+          <ul>
+            <li>I've practiced my JavaScript skills</li>
+            <li>I've created beautiful buttons</li>
+            <li>I've learned how to let go</li>
+            <li>I've got a story to tell</li>
+          </ul>
 
-              <div class="block">
-                <h4>Pseudocode</h4>
-                <p>          
-                  Pseudocode is helping a lot to divide one big task into many small ones. After that, all I need is to write a small function (or another piece of code) for every step in pseudocode. This technique is also priceless when you know you or somebody else are going to come back to your code and it needs to be clear and understandable.
-                </p>
-              </div>
-
-              <div class="block">
-                <h4>Trying something</h4>
-                <p>
-                  Normally I wouldn’t try something without understanding why this could work and trying something just because somebody wrote it on StackOverflow is my last resort. But sometimes understanding comes after trying,  so on rare occasions I just try something even if it doesn’t make sense to me. And sometimes it works.
-                </p>
-              </div>
-
-              <div class="block">
-                <h4>Improving your process with reflection</h4>
-                <p>
-                  This is a very important step. After each solved problem, I need closure and reflection is a perfect way to learn from the experience. What went well? What was wrong? What to do or not to do next time? Even if the process of problem-solving was bumpy and the solution wasn’t elegant, it still was a lesson that I need to learn.
-                </p>
-              </div>
-
-              <div class="block">
-                <h4>Improving your process with reflection</h4>
-                <p>
-                  This is a very important step. After each solved problem, I need closure and reflection is a perfect way to learn from the experience. What went well? What was wrong? What to do or not to do next time? Even (or rather <i>especially</i>) if the process of problem-solving was bumpy and the solution wasn’t elegant, it still was a lesson that I need to learn.
-                </p>
-              </div>
-              
-              <div class="block">
-                <h4>Asking your peers for help</h4>
-                <p>
-                  I respect the time of other people and trying do not disturb others until it is really necessary. However, I understand that sometimes asking questions straight away is saving time for the team, so as always, it is all about balance.  Refusing to ask for help and spending hours trying to solve a problem alone is not good for teamwork,  asking trivial questions every time when you have them is not a good way either. 
-                </p>
-              </div>
-
-              <div class="block">
-                <h4>Asking coaches for help</h4>
-                <p>
-                  This is similar to the previous part - I respect the time of coaches. The difference between asking peers and asking coaches is that coaches encourage students to ask questions and their level of expertise is much higher than the level of expertise of peers (also coaches have experience with students and curriculum, so they probably have heard the same question before). Again, depending on the circumstances, I would assess the situation first, and if I have time I would try to find the solution by myself (this is the best way of learning for me). 
-                </p>
-              </div>
+          <p>
+          </p>
 
           <div class="date-and-name">16/07/2022</div>
         
