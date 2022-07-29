@@ -322,6 +322,7 @@ pre {
 
   #blog-current-item {
      text-align: center;
+     margin: 5px 10px 5px 10px;
   }
 
   
@@ -349,11 +350,12 @@ pre {
   #blog, #welcome {
     display: block;
     float: none;
+    padding: 10px;
   
   }
 
   #blog {
-    width: 90%;
+    width: inherit;
   }
 
   #content {
@@ -419,31 +421,24 @@ pre {
     text-align: center;
   }
   
-  #welcome {
+  #welcome, #blog {
     display: block;
     float: none;
-    width: 100%;
+    width: inherit;
   }
 
-  #blog {
-    display: block;
-    float: none;
-    width: 90%;  
-  }
 
   #content {
     display: block;
     justify-content: center;
   }
+
   #tools {
     display: none;
   }
 
-
   li.blog-links-el a {
     margin: 5px 10px 5px 10px;
-    
-
   }
 
   .sm {
