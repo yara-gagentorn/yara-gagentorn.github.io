@@ -274,14 +274,132 @@ pre {
 
 /** -------------- MEDIA ------------------- **/
 
+@media only screen and (min-width:1200px) {
+  body {
+    background-color: #E1ACCE;
+  }
+}
+
+  
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: #E1ACCE;
+  }
+#container {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+  }
+
+  #header {
+    
+  }
+  
+  #blog, #welcome {
+   
+  }
+  #content {
+   
+  }
+
+}
+
+
+@media only screen and (max-width: 767px) {
+  body {
+    width: 100%;
+  }
+
+  #blog-current-item a {
+    margin: 5px 10px 5px 10px;
+    padding: 5px 10px 5px 20px;
+    color:#dccdfd;
+    font-weight: 600;
+   
+  }
+
+  #blog-current-item {
+     text-align: center;
+  }
+
+  
+  #logo-header {
+    width: 130px;
+    margin: 10px 0 10px 0;
+    filter: drop-shadow(0 0 0.75rem #ED3994);
+  }
+
+  #container {
+    width: 98%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  
+  }
+
+  #header {
+    width: 100%;
+    padding: 10px 10px 10px 10px;
+    text-transform: lowercase;
+    font-weight: 400;
+    text-align: center;
+  }
+  
+  #blog, #welcome {
+    display: block;
+    float: none;
+  
+  }
+
+  #blog {
+    width: 90%;
+  }
+
+  #content {
+    display: block;
+    justify-content: center;
+  }
+
+  .block {
+    margin: 10px;
+    padding: 10px;
+  }
+
+  li.blog-links-el {
+    background-color: rgba(201,121,135 , 0.3);
+    margin: 5px 10px 5px 10px;
+    padding: 5px 10px 5px 20px;
+    border-radius: var(--bradius);
+    backdrop-filter: blur(5px);
+    white-space: nowrap;
+  }
+
+  .blog-img-place {
+    padding: 0;
+    width: 100%;
+  }
+
+  .sm {
+    width: 80%;
+  }
+
+  #tools {
+    display: none;
+  }
+
+}
+
+
+  
 @media only screen and (max-width: 320px) {
   body {
     width: 100%;
   }
   
-  #blog-current-item {
+  #blog-current-item a {
     margin: 5px 5px 5px 5px;
-    color: white;
+    color: #f891b8
     
   }
   
@@ -310,8 +428,7 @@ pre {
   #blog {
     display: block;
     float: none;
-    width: 90%;
-    
+    width: 90%;  
   }
 
   #content {
@@ -323,125 +440,13 @@ pre {
   }
 
 
-  li.blog-links-el {
+  li.blog-links-el a {
     margin: 5px 10px 5px 10px;
+    
 
   }
 
   .sm {
     width: 80%;
-  }
-}
-
-  @media only screen and (max-width: 767px) {
-    body {
-      width: 100%;
-    }
-
-    #blog-current-item {
-      margin: 5px 10px 5px 10px;
-      padding: 5px 10px 5px 20px;
-      color: white;
-      font-weight: 600;
-      text-align: center;
-      
-    }
-    #logo-header {
-      width: 130px;
-      margin: 10px 0 10px 0;
-      filter: drop-shadow(0 0 0.75rem #ED3994);
-    }
-
-    #container {
-      width: 98%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;  
-    }
-  
-    #header {
-      width: 100%;
-      padding: 10px 10px 10px 10px;
-      text-transform: lowercase;
-      font-weight: 400;
-      text-align: center;
-    }
-    
-    #blog, #welcome {
-      display: block;
-      float: none;
-    
-    }
-
-    #blog {
-      width: 90%;
-    }
-
-    #content {
-      display: block;
-      justify-content: center;
-    }
-
-    .block {
-      margin: 10px;
-      padding: 10px;
-    }
-
-    li.blog-links-el {
-      background-color: rgba(201,121,135 , 0.3);
-      margin: 5px 10px 5px 10px;
-      padding: 5px 10px 5px 20px;
-      border-radius: var(--bradius);
-      backdrop-filter: blur(5px);
-      white-space: nowrap;
-    }
-
-    .blog-img-place {
-      padding: 0;
-      width: 100%;
-    }
-
-    .sm {
-      width: 80%;
-    }
-
-    #tools {
-      display: none;
-    }
-
-  }
-
-  
-  
-  
-
-@media only screen and (min-width: 768px) {
-  body {
-    background-color: #E1ACCE;
-  }
-#container {
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;  
-  }
-
-  #header {
-    
-  }
-  
-  #blog, #welcome {
-   
-  }
-  #content {
-   
-  }
-
-}
-
-@media only screen and (min-width:1200px) {
-  body {
-    background-color: #E1ACCE;
   }
 }
