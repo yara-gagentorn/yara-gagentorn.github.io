@@ -3,6 +3,11 @@
 
 }*/
 
+.game-board-no-spaces {
+  border-collapse: collapse;
+}
+
+
 #inner-game-of-life-board{
   
   text-align: center;

@@ -10,7 +10,6 @@ let randomClass = () => {
 
 //create a random board
 function createRandomBoard(size) {
-  //console.log('creating random board')
   // if board already there, clean it
   if (document.getElementById('game-board').innerHTML !== '') {
     document.getElementById('game-board').innerHTML = ''
@@ -24,6 +23,7 @@ function createRandomBoard(size) {
       newTD.setAttribute('id', 'x' + x + 'y' + y)
       let newClass = randomClass()
       newTD.classList.add(newClass)
+      newTD.onclick = markDeadAlive
       document.getElementById('row' + y).appendChild(newTD)
     }
   }
@@ -40,7 +40,6 @@ function createEmptyBoard(size) {
       newTD = document.createElement('td')
       newTD.setAttribute('id', 'x' + x + 'y' + y)
       newTD.classList.add('dead')
-      //newTD.innerHTML = 'o'
       newTD.onclick = markDeadAlive
       document.getElementById('row' + y).appendChild(newTD)
     }
@@ -100,30 +99,23 @@ function getCoorAround(x, y) {
   return around
 }
 
-//let counterAlive = 0
-
 // count how many alive neighbours
 function countAlive(around) {
   let state
-  let deadAliveArr = around
+  let counterAlive = around
     .map((elem) => {
-      //counterAlive = 0
       state = document.getElementById(elem).classList.contains('alive')
-      if (state) {
-        //counterAlive = counterAlive + 1
-      }
       return state
     })
     .reduce((acc, current) => acc + current, 0)
 
-  return deadAliveArr
+  return counterAlive
 }
 
 function getNewBoard() {
   function getNewStates() {
     let newStatesArr = []
     // creates an array with the new states
-    //console.log('getting new states')
     let around = 0
     let aliveAround = 0
     let isAlive = false
@@ -131,16 +123,10 @@ function getNewBoard() {
     // for each element count alive around
     for (let y = 1; y <= size[0]; y++) {
       for (let x = 1; x <= size[1]; x++) {
-        //console.log('here')
         currentCell = document.getElementById('x' + x + 'y' + y)
-        //console.log(currentCell)
         around = getCoorAround(x, y)
-        //console.log(around)
         aliveAround = countAlive(around)
-        //console.log('x' + x + 'y' + y, 'mark alive')
-        //currentCell.innerHTML = aliveAround
         isAlive = currentCell.classList.contains('alive')
-        //console.log(x, y, isAlive)
 
         if (isAlive && aliveAround < 2) {
           newStatesArr.push(false)
@@ -164,9 +150,8 @@ function getNewBoard() {
     }
     return newStatesArr
   }
-  let newStatesArr = getNewStates()
 
-  //console.log('get new board with ')
+  let newStatesArr = getNewStates()
   document.getElementById('game-board').innerHTML = ''
   let i = 0
   for (let y = 1; y <= size[0]; y++) {
@@ -190,22 +175,22 @@ function getNewBoard() {
 
 createEmptyBoard(size)
 
-function renewBoard() {
-  //console.log('i am here, renew board')
-  getNewBoard()
+function isSpaces() {
+  console.log(document.getElementById('is-spaces').checked)
+  if (document.getElementById('is-spaces').checked) {
+    document.getElementById('game-board').classList.add('game-board-no-spaces')
+  } else {
+    document
+      .getElementById('game-board')
+      .classList.remove('game-board-no-spaces')
+  }
+  //document.getElementById('game-board').classList.add('game-board-no-spaces')
 }
 
 function startCustomGame() {
-  setInterval(renewBoard, 300)
+  setInterval(getNewBoard, 200)
 }
 
 function startRandomGame() {
   createRandomBoard(size)
-  //let newStatesArr = newStatesArr()
-  // getNewBoard()
-  // setInterval(renewBoard, 200)
 }
-
-//getNewBoard()
-// let arr = getNewStates()
-// setInterval(renewBoard, 200)
