@@ -1,4 +1,5 @@
-const size = 50 // board size
+//const size = 50 // board size
+const size = [50, 100]
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 
 // get random class - alive or dead  -for random board
@@ -14,11 +15,11 @@ function createRandomBoard(size) {
   if (document.getElementById('game-board').innerHTML !== '') {
     document.getElementById('game-board').innerHTML = ''
   }
-  for (let y = 1; y <= size; y++) {
+  for (let y = 1; y <= size[0]; y++) {
     newTR = document.createElement('tr')
     newTR.setAttribute('id', 'row' + y)
     document.getElementById('game-board').appendChild(newTR)
-    for (let x = 1; x <= size; x++) {
+    for (let x = 1; x <= size[1]; x++) {
       newTD = document.createElement('td')
       newTD.setAttribute('id', 'x' + x + 'y' + y)
       let newClass = randomClass()
@@ -31,11 +32,11 @@ function createRandomBoard(size) {
 // create an empty board for a custom game
 function createEmptyBoard(size) {
   console.log('here')
-  for (let y = 1; y <= size; y++) {
+  for (let y = 1; y <= size[0]; y++) {
     newTR = document.createElement('tr')
     newTR.setAttribute('id', 'row' + y)
     document.getElementById('game-board').appendChild(newTR)
-    for (let x = 1; x <= size; x++) {
+    for (let x = 1; x <= size[1]; x++) {
       newTD = document.createElement('td')
       newTD.setAttribute('id', 'x' + x + 'y' + y)
       newTD.classList.add('dead')
@@ -179,8 +180,8 @@ function getNewBoard() {
     let isAlive = false
     let currentCell
     // for each element count alive around
-    for (let y = 1; y <= size; y++) {
-      for (let x = 1; x <= size; x++) {
+    for (let y = 1; y <= size[0]; y++) {
+      for (let x = 1; x <= size[1]; x++) {
         //console.log('here')
         currentCell = document.getElementById('x' + x + 'y' + y)
         //console.log(currentCell)
@@ -219,11 +220,11 @@ function getNewBoard() {
   console.log('get new board with ')
   document.getElementById('game-board').innerHTML = ''
   let i = 0
-  for (let y = 1; y <= size; y++) {
+  for (let y = 1; y <= size[0]; y++) {
     newTR = document.createElement('tr')
     newTR.setAttribute('id', 'row' + y)
     document.getElementById('game-board').appendChild(newTR)
-    for (let x = 1; x <= size; x++) {
+    for (let x = 1; x <= size[1]; x++) {
       newTD = document.createElement('td')
       newTD.setAttribute('id', 'x' + x + 'y' + y)
       if (newStatesArr[i]) {
