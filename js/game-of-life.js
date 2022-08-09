@@ -1,5 +1,5 @@
 //const size = 50 // board size
-const size = [50, 100]
+const size = [50, 50]
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 
 // get random class - alive or dead  -for random board
@@ -10,7 +10,7 @@ let randomClass = () => {
 
 //create a random board
 function createRandomBoard(size) {
-  console.log('creating random board')
+  //console.log('creating random board')
   // if board already there, clean it
   if (document.getElementById('game-board').innerHTML !== '') {
     document.getElementById('game-board').innerHTML = ''
@@ -31,7 +31,7 @@ function createRandomBoard(size) {
 
 // create an empty board for a custom game
 function createEmptyBoard(size) {
-  console.log('here')
+  //console.log('here')
   for (let y = 1; y <= size[0]; y++) {
     newTR = document.createElement('tr')
     newTR.setAttribute('id', 'row' + y)
@@ -100,22 +100,17 @@ function getCoorAround(x, y) {
   return around
 }
 
-let counterAlive = 0
+//let counterAlive = 0
 
 // count how many alive neighbours
 function countAlive(around) {
   let state
   let deadAliveArr = around
     .map((elem) => {
-      counterAlive = 0
-      if (document.getElementById(elem)) {
-        state = document.getElementById(elem).classList.contains('alive')
-      }
-      if (state === undefined) {
-        state = 0
-      }
+      //counterAlive = 0
+      state = document.getElementById(elem).classList.contains('alive')
       if (state) {
-        counterAlive = counterAlive + 1
+        //counterAlive = counterAlive + 1
       }
       return state
     })
@@ -124,57 +119,11 @@ function countAlive(around) {
   return deadAliveArr
 }
 
-// // creates an array with the new states
-// function getNewStates() {
-//   console.log('getting new states')
-//   let around = 0
-//   let aliveAround = 0
-//   let isAlive = false
-//   let currentCell
-//   // for each element count alive around
-//   for (let y = 1; y <= size; y++) {
-//     for (let x = 1; x <= size; x++) {
-//       //console.log('here')
-//       currentCell = document.getElementById('x' + x + 'y' + y)
-//       //console.log(currentCell)
-//       around = getCoorAround(x, y)
-//       //console.log(around)
-//       aliveAround = countAlive(around)
-//       //console.log('x' + x + 'y' + y, 'mark alive')
-//       //currentCell.innerHTML = aliveAround
-//       isAlive = currentCell.classList.contains('alive')
-//       //console.log(x, y, isAlive)
-
-//       if (isAlive && aliveAround < 2) {
-//         newStatesArr.push(false)
-//       }
-//       if (isAlive && aliveAround > 3) {
-//         newStatesArr.push(false)
-//       }
-
-//       if (isAlive && (aliveAround === 2 || aliveAround === 3)) {
-//         newStatesArr.push(true)
-//       }
-
-//       if (!isAlive && aliveAround === 3) {
-//         newStatesArr.push(true)
-//       }
-
-//       if (!isAlive && aliveAround !== 3) {
-//         newStatesArr.push(false)
-//       }
-//     }
-//   }
-//   return newStatesArr
-// }
-
-//let arr = getNewStates()
-
 function getNewBoard() {
   function getNewStates() {
     let newStatesArr = []
     // creates an array with the new states
-    console.log('getting new states')
+    //console.log('getting new states')
     let around = 0
     let aliveAround = 0
     let isAlive = false
@@ -217,7 +166,7 @@ function getNewBoard() {
   }
   let newStatesArr = getNewStates()
 
-  console.log('get new board with ')
+  //console.log('get new board with ')
   document.getElementById('game-board').innerHTML = ''
   let i = 0
   for (let y = 1; y <= size[0]; y++) {
@@ -242,7 +191,7 @@ function getNewBoard() {
 createEmptyBoard(size)
 
 function renewBoard() {
-  console.log('i am here, renew board')
+  //console.log('i am here, renew board')
   getNewBoard()
 }
 
