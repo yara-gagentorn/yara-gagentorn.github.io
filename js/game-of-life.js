@@ -1,4 +1,4 @@
-const size = 20 // board size
+const size = 50 // board size
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 
 // get random class - alive or dead  -for random board
@@ -246,7 +246,7 @@ function renewBoard() {
 }
 
 function startCustomGame() {
-  setInterval(renewBoard, 1000)
+  setInterval(renewBoard, 300)
 }
 
 function startRandomGame() {

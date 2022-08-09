@@ -13,8 +13,8 @@
 
 td  {
   border: 0px solid;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
 }
 
 .alive {
@@ -23,11 +23,12 @@ td  {
 }
 
 .dead {
-  background-color: rgb(62, 40, 63);
+  background-color: #A43A6A80;
 }
 
-#container-game-of-life { 
-  width: 800px;
+#container-game-of-life {
+ 
+  display: table;
   justify-content: center;
   text-align: center;
   margin-left:auto;
