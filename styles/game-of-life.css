@@ -1,0 +1,42 @@
+/*table {
+  border-collapse: collapse;
+
+}*/
+
+#inner-game-of-life-board{
+  width: 80%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+td  {
+  border: 0px solid;
+  width: 20px;
+  height: 20px;
+}
+
+.alive {
+  background-color:  lightpink;
+  
+}
+
+.dead {
+  background-color: rgb(62, 40, 63);
+}
+
+#container-game-of-life { 
+  width: 800px;
+  justify-content: center;
+  text-align: center;
+  margin-left:auto;
+  margin-right:auto;
+  position: relative;
+}
+
+.inner-game-of-life{
+  margin-left:auto;
+  margin-right:auto;
+  float: left;
+}

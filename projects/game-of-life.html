@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../styles/game-of-life.css">
+  <link rel="stylesheet" href="../styles/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
+  <title>Game of life</title>
+</head>
+<body>
+  <div id="container-game-of-life">
+    <div class="inner-game-of-life">
+      <h1>Game of life</h1>
+      <div id="inner-game-of-life-board">
+        <table id="game-board">
+        </table><br>
+      </div>
+      <div class="inner-game-of-life">
+        <button name="start-random" id="start-random" onclick="startRandomGame()">START RANDOM</button>
+        <button name="start-my" id="start-my" onclick=startCustomGame()>START</button>
+      </div>
+    </div>
+  </div>
+<script src="../js/game-of-life.js"  type="text/javascript"></script>
+</body>
+</html>
