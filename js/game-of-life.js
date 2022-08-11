@@ -1,5 +1,5 @@
 //const size = 50 // board size
-const size = [50, 50]
+const size = [30, 30]
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 
 // get random class - alive or dead  -for random board
@@ -175,16 +175,42 @@ function getNewBoard() {
 
 createEmptyBoard(size)
 
-function isSpaces() {
-  console.log(document.getElementById('is-spaces').checked)
-  if (document.getElementById('is-spaces').checked) {
+// if ticked there is no spaces between cells
+function isSpace() {
+  if (document.getElementById('is-space').checked) {
     document.getElementById('game-board').classList.add('game-board-no-spaces')
   } else {
     document
       .getElementById('game-board')
       .classList.remove('game-board-no-spaces')
   }
-  //document.getElementById('game-board').classList.add('game-board-no-spaces')
+}
+
+function isCircle() {
+  let allTD = document.getElementsByTagName('TD')
+  if (document.getElementById('is-circle').checked) {
+    console.log(document.getElementsByTagName('TD'))
+    for (let i = 0; i < allTD.length; i++) {
+      allTD.item(i).classList.add('circle')
+    }
+  } else {
+    for (let i = 0; i < allTD.length; i++) {
+      allTD.item(i).classList.remove('circle')
+    }
+  }
+}
+
+// if circles - link css file
+function tableWithCircles() {
+  if (document.getElementById('is-circle').checked) {
+    let newLink = document.createElement('link')
+    newLink.setAttribute('rel', 'stylesheet')
+    newLink.setAttribute('href', '../styles/circles.css')
+    newLink.setAttribute('id', 'round-cells')
+    document.getElementsByTagName('HEAD')[0].appendChild(newLink)
+  } else {
+    document.getElementById('round-cells').remove()
+  }
 }
 
 function startCustomGame() {
