@@ -1,5 +1,6 @@
-//const size = 50 // board size
-const size = [30, 30]
+//--- CONWAY's GAME OF LIFE ----//
+
+const size = [30, 30] // board size
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 
 // get random class - alive or dead  -for random board
@@ -58,7 +59,7 @@ function markDeadAlive(myTD) {
   }
 }
 
-// check if element exist
+// check if the cell exist on the board
 function isExist(x, y) {
   if (
     document.getElementById(`x${x}y${y}`) == undefined ||
@@ -186,19 +187,19 @@ function isSpace() {
   }
 }
 
-function isCircle() {
-  let allTD = document.getElementsByTagName('TD')
-  if (document.getElementById('is-circle').checked) {
-    console.log(document.getElementsByTagName('TD'))
-    for (let i = 0; i < allTD.length; i++) {
-      allTD.item(i).classList.add('circle')
-    }
-  } else {
-    for (let i = 0; i < allTD.length; i++) {
-      allTD.item(i).classList.remove('circle')
-    }
-  }
-}
+// function isCircle() {
+//   let allTD = document.getElementsByTagName('TD')
+//   if (document.getElementById('is-circle').checked) {
+//     console.log(document.getElementsByTagName('TD'))
+//     for (let i = 0; i < allTD.length; i++) {
+//       allTD.item(i).classList.add('circle')
+//     }
+//   } else {
+//     for (let i = 0; i < allTD.length; i++) {
+//       allTD.item(i).classList.remove('circle')
+//     }
+//   }
+// }
 
 // if circles - link css file
 function tableWithCircles() {

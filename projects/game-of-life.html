@@ -20,11 +20,15 @@
         </table><br>
       </div>
       <div class="inner-game-of-life">
-        <button name="start-random" id="start-random" onclick="startRandomGame()">RANDOM BOARD</button>
-        <button name="start-my" id="start-my" onclick=startCustomGame()>START</button>
-        <input type="checkbox" id="is-space" name="is-space" onclick="isSpace()">
-        <label for="is-space">no spaces</label>
-        
+        <div class="inner-game-of-life-grid-left">
+          <button name="start-random" id="start-random" onclick="startRandomGame()">RANDOM BOARD</button>
+          <button name="start-my" id="start-my" onclick=startCustomGame()>START</button>
+          <button name="reload-page" id="reload-page" onclick="window.location.reload()">RESTART</button>
+        </div>
+        <div class="inner-game-of-life-grid-left">
+          <input type="checkbox" id="is-space" name="is-space" onclick="isSpace()">
+          <label for="is-space">no spaces</label>
+        </div>
         <input type="checkbox" id="is-circle" name="is-circle" onclick="tableWithCircles()">
         <label for="is-circle">circles</label>
       </div>
