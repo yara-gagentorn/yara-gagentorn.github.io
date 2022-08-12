@@ -230,10 +230,6 @@ button {
 }
 
 button:hover {
-  /**background-color:rgba(108, 63, 70, 0.3);
- 
-  background-image: linear-gradient(to right, #734187 0%, #923B7280 100%);
-**/
   background-color:rgba(238, 142, 158, 0.1);
   transition: background-color 2s ease-out;
   transition: background-color 2s ease-out;
@@ -244,6 +240,25 @@ button:active {
   box-shadow: 1px 1px  #551d3940;
   transform: translate(1px, 1px);
 }
+
+button:disabled{
+  color: gray;
+  background-color: gray;
+  animation: none;
+}
+
+button:active:disabled {
+  box-shadow: 4px 4px #551d3940;
+  transform: none;
+}
+
+button:hover:disabled {
+  /* background-color:rgba(238, 142, 158, 0.1); */
+  transition: none;
+  transition: none;
+}
+
+
 
 .small-button {
   font-size: 0.6em ;

@@ -2,6 +2,7 @@
 
 const size = [40, 40] // board size
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
+let isGameGoing = false
 
 // get random class - alive or dead  -for random board
 let randomClass = () => {
@@ -187,20 +188,6 @@ function isSpace() {
   }
 }
 
-// function isCircle() {
-//   let allTD = document.getElementsByTagName('TD')
-//   if (document.getElementById('is-circle').checked) {
-//     console.log(document.getElementsByTagName('TD'))
-//     for (let i = 0; i < allTD.length; i++) {
-//       allTD.item(i).classList.add('circle')
-//     }
-//   } else {
-//     for (let i = 0; i < allTD.length; i++) {
-//       allTD.item(i).classList.remove('circle')
-//     }
-//   }
-// }
-
 // if circles - link css file
 function tableWithCircles() {
   if (document.getElementById('is-circle').checked) {
@@ -215,9 +202,12 @@ function tableWithCircles() {
 }
 
 function startCustomGame() {
+  document.getElementById('start-my').disabled = true
+  document.getElementById('start-random').disabled = true
   setInterval(getNewBoard, 200)
 }
 
 function startRandomGame() {
+  document.getElementById('start-my').disabled = false
   createRandomBoard(size)
 }
