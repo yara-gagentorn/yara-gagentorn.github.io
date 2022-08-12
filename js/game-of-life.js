@@ -1,6 +1,6 @@
 //--- CONWAY's GAME OF LIFE ----//
 
-const size = [30, 30] // board size
+const size = [40, 40] // board size
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 
 // get random class - alive or dead  -for random board
