@@ -1,6 +1,6 @@
 //--- CONWAY's GAME OF LIFE ----//
 
-const size = [40, 40] // board size
+const size = [30, 50] // board size, first number - rows, second - columns
 const array = ['dead', 'alive'] // add more "alive"/"dead" if you want change proportion on the random board
 let isGameGoing = false
 
@@ -33,7 +33,7 @@ function createRandomBoard(size) {
 
 // create an empty board for a custom game
 function createEmptyBoard(size) {
-  //console.log('here')
+  document.getElementById('start-my').disabled = false
   for (let y = 1; y <= size[0]; y++) {
     newTR = document.createElement('tr')
     newTR.setAttribute('id', 'row' + y)
@@ -177,7 +177,7 @@ function getNewBoard() {
 
 createEmptyBoard(size)
 
-// if ticked there is no spaces between cells
+// if ticked "no space" box there is no spaces between cells
 function isSpace() {
   if (document.getElementById('is-space').checked) {
     document.getElementById('game-board').classList.add('game-board-no-spaces')
@@ -188,7 +188,7 @@ function isSpace() {
   }
 }
 
-// if circles - link css file
+// if ticked "circles" box - link another css file
 function tableWithCircles() {
   if (document.getElementById('is-circle').checked) {
     let newLink = document.createElement('link')
