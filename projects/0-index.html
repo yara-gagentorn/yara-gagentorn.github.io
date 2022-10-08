@@ -1,31 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>My website</title>
+    <title>My projects</title>
     <meta name="description" content="My blog">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./styles/main.css" rel="stylesheet" type="text/css">
+    <link href="../styles/main.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="container">
-      <img id="logo-header" src="./media/logo.png" alt="logo">
+      <img id="logo-header" src="../media/logo.png" alt="logo">
       <div class="block" id="header"><!-- navigation -->
         <ul id="menu-header">
-          <li class="menu-header-el"><a href="#">About</a></li>
+          <li class="menu-header-el"><a href="../index.html">About</a></li>
           <li class="menu-header-el"><a href="./blog/blog-content.html">My Blog</a></li>
-          <li class="menu-header-el"><a href="./projects/0-index.html">My Projects</a></li>
+          <li class="menu-header-el"><a href="#">My Projects</a></li>
         </ul>
       </div>
       <div id="content"><!-- main content-->
-        <div class="block" id="blog"><!-- links to blog posts-->
-        </div>
+        
         <div class="block" id="welcome">
-          <h2>Welcome!</h2>
-          <p>I am Yara and this website is a reflection of my jorney with Dev Academy.</p>
-          <p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p>
+          <h2>My Projects</h2>
+          <table id="project-table">
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Picture</th>
+            </tr>
+          </table>
+         
         </div>
       </div>
       <div class="block" id="footer">

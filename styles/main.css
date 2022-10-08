@@ -277,6 +277,12 @@ pre {
   max-width:100%;
   height:auto;}
 
+
+#project-table{
+  width: 100%;
+}
+
+
 /** -------------- MEDIA ------------------- **/
 
 @media only screen and (min-width:1200px) {
