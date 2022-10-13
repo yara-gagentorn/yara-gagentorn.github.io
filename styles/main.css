@@ -159,6 +159,9 @@ h3 {
 }
 
 h4 {
+  filter: drop-shadow(0 0 0.1rem #ED3994);
+  color:white;
+  font-weight: 500;
   font-family: 'Quicksand', sans-serif;
 }
 
