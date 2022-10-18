@@ -1,0 +1,223 @@
+/*---- styles from main css ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Saira:wght@500&display=swap');
+
+:root {
+  --bradius:10px;
+}
+
+body {
+  color:#F2C6EE;
+  margin: 0;
+  background-color:#453a94;
+  background-image: linear-gradient(to bottom right, #453a94, #f43b47);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 14pt;
+  font-family: 'Quicksand', sans-serif;
+}
+ 
+ h1, h2, h3 {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  font-family: "Saira";
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+h3 {
+  text-align: center;
+  font-size: larger;
+}
+
+h4 {
+  filter: drop-shadow(0 0 0.1rem #ED3994);
+  color:white;
+  font-weight: 500;
+  font-family: 'Quicksand', sans-serif;
+}
+ 
+button {
+  box-shadow: 4px 4px #551d3940;
+  border: none;
+  border-radius: var(--bradius);
+  font-weight: 400;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  background-color:rgba(249, 151, 166, 0.5);
+  background-image: linear-gradient(to right, #923B7280 0%,   #A14273 100%);
+  color:white;
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:rgba(238, 142, 158, 0.1);
+  transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+button:active {
+  box-shadow: 1px 1px  #551d3940;
+  transform: translate(1px, 1px);
+}
+
+button:disabled{
+  color: gray;
+  background-color: gray;
+  animation: none;
+}
+
+button:active:disabled {
+  box-shadow: 4px 4px #551d3940;
+  transform: none;
+}
+
+button:hover:disabled {
+  transition: none;
+  transition: none;
+}
+ 
+.small-button {
+  font-size: 0.6em ;
+}
+
+ /*---- finish styles from main ----*/
+#records{
+  font-size: 0.7em;
+}
+ 
+#info {
+  border-radius: var(--bradius);
+  margin-right: 10px;
+  padding: 16px;
+  background-color: rgba(255,189,211 , 0.05);
+  backdrop-filter: blur(5px);
+  width: 15rem;
+  text-align: center;
+}
+
+ #hint-descr {
+  font-style: italic;
+  font-size: 0.7em;
+  width: 100%;
+  text-align: center;
+}
+
+
+ .num-div {
+   line-height: 4.5rem;
+   width:fit-content;
+   height: fit-content;
+   border: 0px solid;
+   margin-left: 0;
+   margin-right: 2px;
+   display:inline-block;
+   cursor: pointer;
+ }
+ 
+ #header {
+  width: 100%;
+  text-transform: lowercase;
+  font-weight: 400;
+  text-align: center;
+}
+ 
+ #container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+ }
+ 
+ #game-field {
+
+  background-color: white;
+  border-radius: 20px;
+   position: relative;
+   word-wrap:break-word;
+   padding: 0rem;
+   width: 30vw;
+   height: fit-content;
+   border: 0px solid black;
+   z-index: 1 ;
+   text-align: center;
+ }
+ 
+ #win-window {
+  border-radius: 10px;
+   visibility: hidden;
+   position:absolute;
+   margin-left: auto;
+   margin-right: auto;
+   margin-top: 5rem;
+   left: 0;
+   right: 0; 
+   text-align: center;
+   width: 300px;
+   height: 150px;
+   z-index: 5;
+   background-color: #453a94;
+   padding: 1rem;
+  
+ }
+ 
+ body{
+   font-size: 20pt;
+ }
+ 
+ #info {
+   float: left;
+ }
+ 
+ 
+ .clicked-num {
+   filter: drop-shadow(0 0 0.2rem #c7bcc2);
+   color: rgb(202, 202, 202) !important;
+ 
+ }
+ 
+ .pop {
+   animation: hint 1s;
+ }
+ 
+ @keyframes hint {
+   0% { transform: scale(1) }
+   50% { transform: scale(2) }
+   100% { transform: scale(1)}
+ }
+ 
+ @keyframes shakeNoRotate {
+   0% { transform: translate(1px, 1px) var(--rotation); }
+   10% { transform: translate(-1px, -2px) var(--rotation);}
+   20% { transform: translate(-3px, 0px) var(--rotation); }
+   30% { transform: translate(3px, 2px) var(--rotation); }
+   40% { transform: translate(1px, -1px) var(--rotation); }
+   50% { transform: translate(-1px, 2px) var(--rotation); }
+   60% { transform: translate(-3px, 1px) var(--rotation); }
+   70% { transform: translate(3px, 1px) var(--rotation); }
+   80% { transform: translate(-1px, -1px) var(--rotation); }
+   90% { transform: translate(1px, 2px) var(--rotation); }
+   100% { transform: translate(1px, -2px)var(--rotation); }
+ }
+ 
+ @keyframes winPopUp {
+   0%{transform: scale(0.3);}
+   50%{transform: scale(1.4);}
+   100%{transform: scale(1);}
+ }
+ 
+ @media screen and (max-width: 531px) {
+   #container { display: flex; flex-flow: column; }
+   #rules { order: 2; }
+   #game-field { 
+     order: 1; 
+     width: 90vw;
+     height: auto; 
+     padding-top: 0px;
+     padding-bottom: 1rem;}
+   #info { order: 3; }
+ }

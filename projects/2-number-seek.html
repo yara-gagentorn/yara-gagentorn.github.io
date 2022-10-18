@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Alfa+Slab+One&family=Anton&family=Barlow:wght@100&family=Comfortaa:wght@300&family=Edu+VIC+WA+NT+Beginner&family=Fredoka+One&family=Lobster&family=Lobster+Two&family=Mochiy+Pop+One&family=Orbitron&family=Parisienne&family=Quicksand&family=Rampart+One&family=Shadows+Into+Light&family=Titan+One&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/number-seek.css">
+
+  <title>Number Seek</title>
+</head>
+<body>
+  <div id="container">
+    <div id="header"><h1 id="game-name">Number Seek</h1></div>
+    
+    <div id="info">
+      <div id="rules">
+        <div id="click-hext-div">Click on <span id ="click-next-spn">1</span></div></div>
+      <div id="timer-div">Timer: <span id="timer-span">0</span> sec</div>
+      <div id="hint-div"><button  class="small-button" id="hint-btn">Show me a hint</button>
+        <div id="hint-descr">Every hint will add 5 sec to your time</div>
+      </div>
+      <div><input type="checkbox" id="is-rotate" name="is-rotate" checked>Rotate</div>
+      <div><input type="checkbox" id="is-border" name="is-border">Border</div>
+      <div><input type="checkbox" id="is-shaking" name="is-shaking" checked>Shake it!</div>
+      <div>
+        <input id="input-how-many-numbers" type="range" min="1" max="80" value="15"><span id="how-many-numbers">15</span>
+      </div>
+      <div><button class="small-button" id="start-over">Start Over</button></div>
+      <div id="records"></div>
+      <button  class="small-button" id="reset-records"> Reset Records</button>
+    </div>
+    <div id="win-window">Congrats! Your result is <span id="win-seconds"></span> seconds <br>
+      <span id="new-record"></span><br>
+      <button id="win-start-over" class="small-button">Play Again</button>
+    </div>
+    <div id="game-field"> </div>
+     
+  </div>  
+  <script src="../js/number-seek.js"></script>
+</body>
+</html>

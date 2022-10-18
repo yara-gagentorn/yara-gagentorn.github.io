@@ -27,7 +27,6 @@ body {
   text-transform: lowercase;
   font-weight: 400;
   text-align: center;
-  
 }
 
 #logo-header {
@@ -148,7 +147,6 @@ h1, h2, h3 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
   font-family: "Saira";
-  /* font-family: 'Fredoka One', cursive; */
   font-weight: 300;
   text-transform: lowercase;
 }
@@ -239,7 +237,6 @@ pre {
 
 button {
   box-shadow: 4px 4px #551d3940;
-  /**filter: drop-shadow(5px 5px 1px #551d39);**/
   border: none;
   border-radius: var(--bradius);
   font-weight: 400;
@@ -260,7 +257,6 @@ button:hover {
 }
 
 button:active {
-    
   box-shadow: 1px 1px  #551d3940;
   transform: translate(1px, 1px);
 }
@@ -281,8 +277,6 @@ button:hover:disabled {
   transition: none;
   transition: none;
 }
-
-
 
 .small-button {
   font-size: 0.6em ;
@@ -327,8 +321,6 @@ pre {
     flex-wrap: wrap;
     justify-content: center;  
   }
-
-
 }
 
 
@@ -342,7 +334,6 @@ pre {
     padding: 5px 10px 5px 20px;
     color:#dccdfd;
     font-weight: 600;
-   
   }
 
   #blog-current-item {
@@ -350,7 +341,6 @@ pre {
      margin: 5px 10px 5px 10px;
   }
 
-  
   #logo-header {
     width: 130px;
     margin: 10px 0 10px 0;
