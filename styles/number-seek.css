@@ -84,6 +84,11 @@ button:hover:disabled {
 }
 
  /*---- finish styles from main ----*/
+input {
+  background-color: #453a94;
+  color: #453a94;
+ }
+
 #records{
   font-size: 0.7em;
 }

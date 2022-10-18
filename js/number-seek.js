@@ -1,3 +1,7 @@
+//--- SOUNDS ---//
+const numberClick = new Audio('../media/click.wav')
+const winSound = new Audio('../media/winSound.mp3')
+
 //--- FONTS AND STYLES---//
 
 const fontFamilies = [
@@ -96,6 +100,7 @@ function generateGameField(howManyNumbers) {
   document.getElementById('game-field').innerHTML = ''
   document.getElementById('records').innerHTML = ''
   showRecord()
+  // document.getElementById(nextDivID).innerHTML = '1'
   let arr = getArray(1, howManyNumbers)
   let i = howManyNumbers
   let randomNum
@@ -160,13 +165,14 @@ function startGameTimer() {
 
 //--- CLICK ON NUMBER ---//
 
-let nextDivID
+let nextDivID = '1n'
 
 function clickOnNumber(number) {
   let clickedNumDiv = number.target
 
   if (parseInt(clickedNumDiv.innerHTML) === 1) {
     startGameTimer()
+    numberClick.play()
     document.getElementById('input-how-many-numbers').disabled = true
   }
 
@@ -179,6 +185,7 @@ function clickOnNumber(number) {
     finishTimeSec = gtm / 1000
     recordTheBest(finishTimeSec)
     showWin(finishTimeSec)
+    winSound.play()
     clearInterval(gameTime)
     return
   }
@@ -187,11 +194,12 @@ function clickOnNumber(number) {
   document.getElementById('click-next-spn').innerHTML =
     parseInt(clickedNumDiv.innerHTML) + 1
   document.getElementById(nextDivID).onclick = clickOnNumber
+  numberClick.play()
 }
 
 // show the next number as a hint
 function showHint() {
-  if (nextDivID === undefined) {
+  if (nextDivID === '1n') {
     document.getElementById('1n').style.animation = ''
     document.getElementById('1n').classList.add('pop')
     const deleteClass = setTimeout(() => {
@@ -343,6 +351,7 @@ document.getElementById('start-over').onclick = startOver
 
 function startOver() {
   gtm = 0
+  nextDivID = '1n'
   document.getElementById('timer-span').innerHTML = '0'
   document.getElementById('click-next-spn').innerHTML = '1'
   clearInterval(gameTime)
