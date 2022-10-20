@@ -100,7 +100,6 @@ function generateGameField(howManyNumbers) {
   document.getElementById('game-field').innerHTML = ''
   document.getElementById('records').innerHTML = ''
   showRecord()
-  // document.getElementById(nextDivID).innerHTML = '1'
   let arr = getArray(1, howManyNumbers)
   let i = howManyNumbers
   let randomNum
@@ -234,31 +233,29 @@ function recordTheBest(finishTimeSec) {
   let oldRecord = JSON.parse(
     localStorage.getItem(`bestRecordfor${howManyNumbers}`)
   )
+  console.log(oldRecord)
   let newResult = {
     howManyNumbers: howManyNumbers,
     timeInSeconds: finishTimeSec,
   }
 
   if (oldRecord) {
-    if (oldRecord.timeInSeconds > newResult.timeInSeconds) {
+    if (
+      oldRecord.timeInSeconds > newResult.timeInSeconds ||
+      oldRecord === undefined
+    ) {
       localStorage.setItem(
         `bestRecordfor${howManyNumbers}`,
         JSON.stringify(newResult)
       )
       document.getElementById('new-record').innerHTML = 'It is a new record!'
     }
-  } else if (!oldRecord) {
-    localStorage.setItem(
-      `bestRecordfor${howManyNumbers}`,
-      JSON.stringify(newResult)
-    )
-    document.getElementById('new-record').innerHTML = 'It is a new record!'
   } else {
     localStorage.setItem(
       `bestRecordfor${howManyNumbers}`,
       JSON.stringify(newResult)
     )
-    document.getElementById('new-record').innerHTML = ''
+    document.getElementById('new-record').innerHTML = 'It is a new record!'
   }
 }
 
@@ -376,7 +373,7 @@ function showWin(finishTimeSec) {
   document.getElementById('win-window').style.visibility = 'visible'
   document.getElementById('win-window').style.animation = 'winPopUp 1s'
   document.getElementById('win-seconds').innerHTML = finishTimeSec
-  document.getElementById('new-record').innerHTML = ''
+  // document.getElementById('new-record').innerHTML = ''
   document.getElementById('win-start-over').onclick = startOver
   document.addEventListener('click', handleClick)
 }
@@ -385,6 +382,7 @@ function hideWin() {
   document.getElementById('game-field').style.filter = ''
   document.getElementById('win-window').style.visibility = 'hidden'
   document.getElementById('win-window').style.animation = ''
+  document.getElementById('new-record').innerHTML = ''
   document.removeEventListener('click', handleClick)
   startOver()
 }
