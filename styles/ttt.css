@@ -1,0 +1,206 @@
+/* Game board and text not responsive yet*/
+
+:root {
+  --bradius:20px;
+}
+
+@keyframes jump {
+  0%   {transform: translate3d(0,0,0) scale3d(1,.7,1);}
+  40%  {transform: translate3d(0,10%,0) scale3d(.7,1.0,1);}
+  100% {transform: translate3d(0,30%,0) scale3d(1,.7,1);}
+}
+.jump {
+  margin-top: 0em;
+  margin-bottom: 0.4em;
+  transform-origin: 50% 50%;
+  animation: jump .3s linear alternate infinite;
+}
+
+.wiggle{
+  animation: wiggle 2s linear infinite;
+}
+
+@keyframes wiggle {
+  0%, 7% {
+    transform: rotateZ(0);
+  }
+  15% {
+    transform: rotateZ(-15deg);
+  }
+  20% {
+    transform: rotateZ(10deg);
+  }
+  25% {
+    transform: rotateZ(-10deg);
+  }
+  30% {
+    transform: rotateZ(6deg);
+  }
+  35% {
+    transform: rotateZ(-4deg);
+  }
+  40%, 100% {
+    transform: rotateZ(0);
+  }
+}
+
+table {
+  border-collapse: collapse;
+}
+table td, table th {
+  border-top: 0;
+}
+table tr:first-child th {
+  border-top: 0;
+}
+table tr:last-child td {
+  border-bottom: 0;
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 0;
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 0;
+}
+
+.animate.pop {
+  animation-name: animate-pop;
+  animation-timing-function: cubic-bezier(0.26, 0.53, 0.74, 1.48);
+  animation-duration: 0.5s;
+}
+
+@keyframes animate-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.5, 0.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1, 1);
+  }
+}
+
+.grid-style {
+  width: 80%;
+  height: 80%;
+}
+
+table {
+    margin-right: center;
+    margin-left: center;
+    margin: 0 auto;
+    border-spacing: 0;
+    border-collapse: collapse;  
+  }
+  
+  
+td {
+    width: 8vw;
+    height: 8vw;
+    text-align: center;
+    font-size: 300%;
+    border: #ffffff30 solid 5px;
+   
+  }
+
+h2 {
+  text-align: center;
+  font-size: 2vw;
+  color: #4c2c92;
+  filter: drop-shadow(0 0 0.75rem #ED3994);
+  font-family: 'Fredoka One', cursive;
+
+}  
+
+body {
+  margin: 0;
+  background-color:#453a94;
+  /*background-image: linear-gradient(to bottom right, #453a94, #f43b47);*/
+  background: radial-gradient(#f43b47, #453a94);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-size: 14pt;
+  font-family: 'Quicksand', sans-serif;
+}
+
+html, 
+body {
+    height: 100%;
+    color:#F2C6EE;
+}
+
+
+.block {
+  border-radius: var(--bradius);
+  margin: 10px;
+  padding: 16px;
+  background-color: rgba(255,189,211 , 0.05);
+  backdrop-filter: blur(5px);
+}
+
+
+#container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+}
+
+#btn-place{
+  text-align: center;
+}
+
+#subtitle{
+  height: 100px;
+ vertical-align: middle;
+}
+
+.img-turn {
+height: 50px;
+width: 50px;
+}
+
+
+h1, h2, h3 {
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+  font-family: 'Fredoka One', cursive;
+  font-weight: 300;
+  color: #E1ACCE;
+  
+}
+
+
+button {
+  box-shadow: 4px 4px #551d3940;
+  border: none;
+  border-radius: var(--bradius);
+  font-weight: 400;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  background-color:rgba(249, 151, 166, 0.5);
+  background-image: linear-gradient(to right, #923B7280 0%,   #A14273 100%);
+  color:white;
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:rgba(238, 142, 158, 0.1);
+  transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+button:active {
+    
+    box-shadow: 1px 1px  #551d3940;
+    transform: translate(1px, 1px);
+}
+
+
