@@ -225,4 +225,14 @@ input {
      padding-top: 0px;
      padding-bottom: 1rem;}
    #info { order: 3; }
+   h1, h2, h3 {
+    font-size: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    font-family: "Saira";
+    font-weight: 300;
+    text-transform: lowercase;
+  }
+
+
  }

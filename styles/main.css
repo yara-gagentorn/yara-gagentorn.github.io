@@ -342,7 +342,7 @@ pre {
   }
 
   #logo-header {
-    width: 130px;
+    width: 90%;
     margin: 10px 0 10px 0;
     filter: drop-shadow(0 0 0.75rem #ED3994);
   }
@@ -410,6 +410,9 @@ pre {
 
   
 @media only screen and (max-width: 320px) {
+
+
+
   body {
     width: 100%;
   }

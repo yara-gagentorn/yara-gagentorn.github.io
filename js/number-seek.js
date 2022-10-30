@@ -386,3 +386,5 @@ function hideWin() {
   document.removeEventListener('click', handleClick)
   startOver()
 }
+
+///-- STOP SELECTING ON DOUBLE CLICK ---//
