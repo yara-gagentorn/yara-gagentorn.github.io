@@ -112,6 +112,8 @@ input {
 
 
  .num-div {
+  user-select: none;
+
    line-height: 4.5rem;
    width:fit-content;
    height: fit-content;
@@ -216,7 +218,10 @@ input {
  }
  
  @media screen and (max-width: 531px) {
-   #container { display: flex; flex-flow: column; }
+   #container { 
+    display: flex;
+    width: 90%;  
+  }
    #rules { order: 2; }
    #game-field { 
      order: 1; 
@@ -232,6 +237,9 @@ input {
     font-family: "Saira";
     font-weight: 300;
     text-transform: lowercase;
+  }
+  
+  #win-window {
   }
 
 
