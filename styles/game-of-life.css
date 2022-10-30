@@ -68,3 +68,15 @@ td  {
   
 }
 
+
+@media screen and (max-width: 531px) {
+  #container-game-of-life {
+    
+  }
+tr {
+  height: 5px;
+}
+td {
+  width: 5px;
+  height: 5px;
+}}
