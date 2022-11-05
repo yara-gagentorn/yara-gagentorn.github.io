@@ -61,6 +61,7 @@ body {
   padding: 16px;
   background-color: rgba(255,189,211 , 0.05);
   backdrop-filter: blur(5px);
+  vertical-align: top;
 }
 
 #blog, #welcome {
@@ -300,6 +301,18 @@ pre {
   width: 100%;
 }
 
+.project-img {
+  object-fit: cover; 
+  width: 250px;
+  height:250px; 
+  float:right;
+}
+
+.descr {display: block;}
+
+.show-text-btn {
+  display: none;
+}
 
 /** -------------- MEDIA ------------------- **/
 
@@ -411,8 +424,6 @@ pre {
   
 @media only screen and (max-width: 320px) {
 
-
-
   body {
     width: 100%;
   }
@@ -462,4 +473,35 @@ pre {
   .sm {
     width: 80%;
   }
+
+  .project-img {
+    float:none;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .project-descr {
+    display: none;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  .block {
+    text-align: center;
+  }
+  
+  .descr {
+    text-align: left;
+    display: none;
+  }
+
+  .show-text-btn {
+display: block;  }
+
+#menu-header {
+  display: list-item;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 }
