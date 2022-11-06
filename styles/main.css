@@ -418,6 +418,37 @@ pre {
     display: none;
   }
 
+  
+  .project-img {
+    float:none;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .project-descr {
+    display: none;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+  .block {
+    text-align: center;
+  }
+  
+  .descr {
+    text-align: left;
+    display: none;
+  }
+
+  .show-text-btn {
+display: block;  }
+
+#menu-header {
+  display: list-item;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
 }
 
 
@@ -474,7 +505,7 @@ pre {
     width: 80%;
   }
 
-  .project-img {
+  /* .project-img {
     float:none;
     display: inline-block;
     vertical-align: middle;
@@ -502,6 +533,6 @@ display: block;  }
   display: list-item;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
+} */
 
 }
