@@ -305,7 +305,7 @@ pre {
   object-fit: cover; 
   width: 250px;
   height:250px; 
-  float:right;
+  
 }
 
 .descr {display: block;}
@@ -421,10 +421,10 @@ pre {
   
   .project-img {
     float:none;
-    display: inline-block;
     vertical-align: middle;
   }
-  .project-descr {
+
+  /* .project-descr {
     display: none;
   }
 
@@ -441,13 +441,13 @@ pre {
   }
 
   .show-text-btn {
-display: block;  }
+display: block;  }*/
 
 #menu-header {
   display: list-item;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
-}
+} 
 
 }
 

@@ -1,8 +1,12 @@
 //show element by id
-let flag = true //needs to be fixed (use check visibility in))
-
 function showText(idText, idButton) {
-  if (document.getElementById(idText).style.display === 'none') {
+  let isVisible = document.getElementById(idText).style.display === 'none'
+  console.log(
+    'first click',
+    document.getElementById(idText).style.display,
+    isVisible
+  )
+  if (isVisible) {
     document.getElementById(idText).style.display = 'block'
     document.getElementById(idButton).innerHTML = 'hide description'
   } else {
