@@ -1,19 +1,21 @@
-/* Game board and text not responsive yet*/
 
 :root {
   --bradius:20px;
+}
+
+
+
+.jump {
+  margin-top: 0em;
+  margin-bottom: 0.4em;
+  transform-origin: 50% 50%;
+  animation: jump .3s linear alternate infinite;
 }
 
 @keyframes jump {
   0%   {transform: translate3d(0,0,0) scale3d(1,.7,1);}
   40%  {transform: translate3d(0,10%,0) scale3d(.7,1.0,1);}
   100% {transform: translate3d(0,30%,0) scale3d(1,.7,1);}
-}
-.jump {
-  margin-top: 0em;
-  margin-bottom: 0.4em;
-  transform-origin: 50% 50%;
-  animation: jump .3s linear alternate infinite;
 }
 
 .wiggle{
@@ -108,7 +110,7 @@ td {
 
 h2 {
   text-align: center;
-  font-size: 2vw;
+  font-size: 2rem;
   color: #4c2c92;
   filter: drop-shadow(0 0 0.75rem #ED3994);
   font-family: 'Fredoka One', cursive;
@@ -202,5 +204,33 @@ button:active {
     box-shadow: 1px 1px  #551d3940;
     transform: translate(1px, 1px);
 }
+
+/**---------- MEDIA ------------**/
+
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: large;
+  }
+
+#container {
+  width: 98%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
+
+td {
+  width: 20vw;
+  height: 20vw;
+  text-align: center;
+  font-size: 300%;
+  border: #ffffff30 solid 5px;
+}
+
+h2 {
+  font-size: 2rem;
+}
+}
+
 
 
