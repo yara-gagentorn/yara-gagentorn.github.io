@@ -1,3 +1,6 @@
+// greetings
+console.log('Welcome to tic-toe-toe! Hope you enjoy the game.')
+
 // sound effects
 const xSound = new Audio('../media/ttt-x-sound.flac')
 const ySound = new Audio('../media/ttt-y-sound.wav')
@@ -152,7 +155,6 @@ let thisPage = window.location.href
 
 function placeSymbol(cell, symbol) {
   cell.innerHTML = symbol // put the symbol inside the cell
-  console.log(symbol)
   if (
     symbol ==
     '<object data="../media/Ximg.svg" class="grid-style animate pop"></object>'
