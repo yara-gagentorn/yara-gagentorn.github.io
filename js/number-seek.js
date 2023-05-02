@@ -1,4 +1,15 @@
+import {
+  createScore,
+  updateScore,
+  readRank,
+  testExp,
+  checkUserExist,
+} from './firebase/ns-leaderboard-helper.js'
+
+import { app, firestore } from './firebase/config.js'
+
 //--- SOUNDS ---//
+
 const numberClick = new Audio('../media/click.wav')
 const winSound = new Audio('../media/winSound.mp3')
 
@@ -22,6 +33,8 @@ const fontFamilies = [
   "'Shadows Into Light', cursive",
   "'Titan One', cursive",
 ]
+
+checkUserExist('yara', firestore)
 
 const fontStyles = ['normal', 'italic']
 
@@ -97,6 +110,7 @@ function getArray(firstNumber, lastNumber) {
 //----- GAME FIELD ----//
 
 function generateGameField(howManyNumbers) {
+  console.log('hehehehehehe')
   document.getElementById('game-field').innerHTML = ''
   document.getElementById('records').innerHTML = ''
   showRecord()
@@ -222,18 +236,18 @@ function showHint() {
         .getElementById(nextDivID)
         .style.setProperty('--rotation', `rotate(15deg)`)
     }, 1000)
-    gtm += 5000 // add 5 sec to a timer when use hint
+    gtm += 5000 // add 5 sec to a timer when use a hint
   }
 }
 
 document.getElementById('hint-btn').onclick = showHint
 
-//----- RECORDS -----//
+//----- LOCAL RECORDS -----//
+
 function recordTheBest(finishTimeSec) {
   let oldRecord = JSON.parse(
     localStorage.getItem(`bestRecordfor${howManyNumbers}`)
   )
-  console.log(oldRecord)
   let newResult = {
     howManyNumbers: howManyNumbers,
     timeInSeconds: finishTimeSec,
@@ -260,7 +274,6 @@ function recordTheBest(finishTimeSec) {
 }
 
 // show record for the current number
-
 function showRecord() {
   document.getElementById('reset-records').style.visibility = 'hidden'
   let oldRecord = JSON.parse(
@@ -373,7 +386,6 @@ function showWin(finishTimeSec) {
   document.getElementById('win-window').style.visibility = 'visible'
   document.getElementById('win-window').style.animation = 'winPopUp 1s'
   document.getElementById('win-seconds').innerHTML = finishTimeSec
-  // document.getElementById('new-record').innerHTML = ''
   document.getElementById('win-start-over').onclick = startOver
   document.addEventListener('click', handleClick)
 }
@@ -387,4 +399,64 @@ function hideWin() {
   startOver()
 }
 
-///-- STOP SELECTING ON DOUBLE CLICK ---//
+//--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
+console.log('export is next')
+testExp()
+//createScore('100', 'yara', firestore)
+
+function recordTheBestGlobal(finishTimeSec) {
+  // for testing
+  const nickname = 'yara'
+
+  // get the current best for the number
+  // check if it exist
+  // if it is empty - record the finishTimeSec
+  // if it is not empty - compare it with new number and record the bigger number
+}
+
+// function recordTheBest(finishTimeSec) {
+//   let oldRecord = JSON.parse(
+//     localStorage.getItem(`bestRecordfor${howManyNumbers}`)
+//   )
+//   console.log(oldRecord)
+//   let newResult = {
+//     howManyNumbers: howManyNumbers,
+//     timeInSeconds: finishTimeSec,
+//   }
+
+//   if (oldRecord) {
+//     if (
+//       oldRecord.timeInSeconds > newResult.timeInSeconds ||
+//       oldRecord === undefined
+//     ) {
+//       localStorage.setItem(
+//         `bestRecordfor${howManyNumbers}`,
+//         JSON.stringify(newResult)
+//       )
+//       document.getElementById('new-record').innerHTML = 'It is a new record!'
+//     }
+//   } else {
+//     localStorage.setItem(
+//       `bestRecordfor${howManyNumbers}`,
+//       JSON.stringify(newResult)
+//     )
+//     document.getElementById('new-record').innerHTML = 'It is a new record!'
+//   }
+// }
+
+// // show record for the current number
+// function showRecord() {
+//   document.getElementById('reset-records').style.visibility = 'hidden'
+//   let oldRecord = JSON.parse(
+//     localStorage.getItem(`bestRecordfor${howManyNumbers}`)
+//   )
+//   if (oldRecord) {
+//     let result = `Best time for  ${howManyNumbers} numbers is ${oldRecord.timeInSeconds} seconds`
+//     document.getElementById('records').innerHTML = result
+//     document.getElementById('reset-records').style.visibility = 'visible'
+//   } else {
+//     document.getElementById('reset-records').style.visibility = 'hidden'
+//   }
+// }
+
+// showRecord()
