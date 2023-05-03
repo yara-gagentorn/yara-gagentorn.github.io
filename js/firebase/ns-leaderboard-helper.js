@@ -3,11 +3,23 @@ import {
   collection,
   addDoc,
   getDoc,
+  getDocs,
+  setDoc,
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js'
 
-export async function checkUserExist(playerID, firestore) {
-  // read all user names from the rating and check if a current user exist
+export async function getAllRecords(colname, firestore) {
+  const colRef = collection(firestore, colname)
+  const docsSnap = await getDocs(colRef)
+  let allRecords = []
+  await docsSnap.forEach((doc) => {
+    allRecords.push(doc.data())
+  })
+  return allRecords
+}
+
+export async function getUserData(playerID, firestore) {
+  // read all user names from the rating
   const docRef = doc(firestore, 'scores', playerID)
   const docSnap = await getDoc(docRef)
 
@@ -20,12 +32,16 @@ export async function checkUserExist(playerID, firestore) {
 }
 
 export async function createScore(score, playerID, firestore) {
-  console.log('create scores')
-  console.log(firestore)
-  return addDoc(collection(firestore, 'scores'), {
+  console.log('create scores...')
+  return setDoc(doc(firestore, 'scores', playerID), {
     user: playerID,
     score: score,
   })
+
+  // return addDoc(collection(firestore, 'scores'), {
+  //   user: playerID,
+  //   score: score,
+  // })
 }
 
 export async function updateScore(playerID, newScore, firestore) {

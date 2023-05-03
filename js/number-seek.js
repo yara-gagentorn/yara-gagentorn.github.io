@@ -3,7 +3,8 @@ import {
   updateScore,
   readRank,
   testExp,
-  checkUserExist,
+  getUserData,
+  getAllRecords,
 } from './firebase/ns-leaderboard-helper.js'
 
 import { app, firestore } from './firebase/config.js'
@@ -33,8 +34,6 @@ const fontFamilies = [
   "'Shadows Into Light', cursive",
   "'Titan One', cursive",
 ]
-
-checkUserExist('yara', firestore)
 
 const fontStyles = ['normal', 'italic']
 
@@ -110,7 +109,6 @@ function getArray(firstNumber, lastNumber) {
 //----- GAME FIELD ----//
 
 function generateGameField(howManyNumbers) {
-  console.log('hehehehehehe')
   document.getElementById('game-field').innerHTML = ''
   document.getElementById('records').innerHTML = ''
   showRecord()
@@ -400,9 +398,54 @@ function hideWin() {
 }
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
-console.log('export is next')
-testExp()
-//createScore('100', 'yara', firestore)
+
+// show current rating till place in parameter
+async function getRating(place) {
+  const records = await getAllRecords('scores', firestore)
+  records.sort((a, b) => parseInt(a.score) - parseInt(b.score))
+  return records.slice(0, place)
+}
+
+async function displayRatingOnPage() {
+  const records = await getRating(3)
+  let i = 0
+  records.map((el) => {
+    el.place = i + 1
+    i++
+  })
+  console.log(records)
+
+  const table = document.createElement('table')
+  const headerRow = document.createElement('tr')
+  const userHeader = document.createElement('th')
+  userHeader.textContent = 'User'
+  const scoreHeader = document.createElement('th')
+  scoreHeader.textContent = 'Score'
+  headerRow.appendChild(userHeader)
+  headerRow.appendChild(scoreHeader)
+  table.appendChild(headerRow)
+
+  if (Array.isArray(records)) {
+    records.forEach((record) => {
+      const row = document.createElement('tr')
+      const userCell = document.createElement('td')
+      userCell.textContent = record.user
+      const scoreCell = document.createElement('td')
+      scoreCell.textContent = record.score
+      const placeCell = document.createElement('td')
+      placeCell.textContent = record.place
+      row.appendChild(placeCell)
+      row.appendChild(userCell)
+      row.appendChild(scoreCell)
+      table.appendChild(row)
+    })
+  }
+
+  const tableContainer = document.getElementById('leaderboard')
+  tableContainer.appendChild(table)
+}
+displayRatingOnPage()
+//createScore('999', 'test', firestore)
 
 function recordTheBestGlobal(finishTimeSec) {
   // for testing
@@ -413,50 +456,3 @@ function recordTheBestGlobal(finishTimeSec) {
   // if it is empty - record the finishTimeSec
   // if it is not empty - compare it with new number and record the bigger number
 }
-
-// function recordTheBest(finishTimeSec) {
-//   let oldRecord = JSON.parse(
-//     localStorage.getItem(`bestRecordfor${howManyNumbers}`)
-//   )
-//   console.log(oldRecord)
-//   let newResult = {
-//     howManyNumbers: howManyNumbers,
-//     timeInSeconds: finishTimeSec,
-//   }
-
-//   if (oldRecord) {
-//     if (
-//       oldRecord.timeInSeconds > newResult.timeInSeconds ||
-//       oldRecord === undefined
-//     ) {
-//       localStorage.setItem(
-//         `bestRecordfor${howManyNumbers}`,
-//         JSON.stringify(newResult)
-//       )
-//       document.getElementById('new-record').innerHTML = 'It is a new record!'
-//     }
-//   } else {
-//     localStorage.setItem(
-//       `bestRecordfor${howManyNumbers}`,
-//       JSON.stringify(newResult)
-//     )
-//     document.getElementById('new-record').innerHTML = 'It is a new record!'
-//   }
-// }
-
-// // show record for the current number
-// function showRecord() {
-//   document.getElementById('reset-records').style.visibility = 'hidden'
-//   let oldRecord = JSON.parse(
-//     localStorage.getItem(`bestRecordfor${howManyNumbers}`)
-//   )
-//   if (oldRecord) {
-//     let result = `Best time for  ${howManyNumbers} numbers is ${oldRecord.timeInSeconds} seconds`
-//     document.getElementById('records').innerHTML = result
-//     document.getElementById('reset-records').style.visibility = 'visible'
-//   } else {
-//     document.getElementById('reset-records').style.visibility = 'hidden'
-//   }
-// }
-
-// showRecord()
