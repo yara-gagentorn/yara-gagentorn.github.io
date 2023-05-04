@@ -92,6 +92,10 @@ input {
 #records{
   font-size: 0.7em;
 }
+
+#leaderboard {
+  font-size: 0.7em;
+}
  
 #info {
   border-radius: var(--bradius);

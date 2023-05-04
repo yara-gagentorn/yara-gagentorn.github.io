@@ -1,3 +1,5 @@
+//--- IMPORTS FOR GLOBAL LEADERBOARD ---//
+
 import {
   createScore,
   updateScore,
@@ -407,20 +409,25 @@ async function getRating(place) {
 }
 
 async function displayRatingOnPage() {
+  // get three first places
   const records = await getRating(3)
+  
+  // assigning place
   let i = 0
   records.map((el) => {
-    el.place = i + 1
+    el.place = i + 1 + '.'
     i++
   })
-  console.log(records)
 
   const table = document.createElement('table')
   const headerRow = document.createElement('tr')
   const userHeader = document.createElement('th')
-  userHeader.textContent = 'User'
+  userHeader.textContent = 'Name'
   const scoreHeader = document.createElement('th')
-  scoreHeader.textContent = 'Score'
+  scoreHeader.textContent = 'Time'
+  const placeHeader = document.createElement('th')
+  placeHeader.textContent = '#'
+  headerRow.appendChild(placeHeader)
   headerRow.appendChild(userHeader)
   headerRow.appendChild(scoreHeader)
   table.appendChild(headerRow)
@@ -444,8 +451,8 @@ async function displayRatingOnPage() {
   const tableContainer = document.getElementById('leaderboard')
   tableContainer.appendChild(table)
 }
+
 displayRatingOnPage()
-//createScore('999', 'test', firestore)
 
 function recordTheBestGlobal(finishTimeSec) {
   // for testing
