@@ -26,17 +26,29 @@
       <div><input type="checkbox" id="is-border" name="is-border">Border</div>
       <div><input type="checkbox" id="is-shaking" name="is-shaking" checked>Shake it!</div>
       <div>
-        <input id="input-how-many-numbers" type="range" min="1" max="80" value="20"><span id="how-many-numbers">20</span>
+        <input id="input-how-many-numbers" type="range" min="1" max="80" value="3"><span id="how-many-numbers">3</span>
       </div>
       <div><button class="small-button" id="start-over">Start Over</button></div>
       <div id="records"></div>
       <div id="leaderboard"></div>
-      <button  class="small-button" id="reset-records"> Reset Records</button>
+      <button  class="small-button" id="reset-records">Reset Records</button>
     </div>
-    <div id="win-window">Congrats! Your result is <span id="win-seconds"></span> seconds <br>
+
+    <!-- result window -->
+    <div id="win-window">
+      <button class= "close-button" id="close-button" ></button> 
+      Congrats! Your result is <span id="win-seconds"></span> seconds 
       <span id="new-record"></span><br>
-      <button id="win-start-over" class="small-button">Play Again</button>
+      <form id="userinfo">
+        <input type="text" id="name" name="name" value="Your name">
+        <input type="email" id="email" name="email" value="Your email">
+        <div class="button-container">
+         <button  class="small-button" id="save-game-data" type="button">Record my result</button>
+         <button id="win-start-over" class="small-button">Play Again</button>
+        </div>
+      </form>
     </div>
+
     <div id="game-field"> </div>
      
   </div>  

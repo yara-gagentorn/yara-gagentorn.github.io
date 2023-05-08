@@ -358,6 +358,7 @@ function handleHowMany() {
 //--- START NEW GAME ---//
 
 document.getElementById('start-over').onclick = startOver
+document.getElementById('close-button').onclick = hideWin
 
 function startOver() {
   gtm = 0
@@ -375,6 +376,7 @@ function startOver() {
 
 //--- WIN ---//
 
+// hide win window if clicked outside of it
 function handleClick(event) {
   if (event.target === document.querySelector('#game-field')) {
     hideWin()
@@ -399,7 +401,11 @@ function hideWin() {
   startOver()
 }
 
+document.getElementById('close-button').onclick = hideWin
+
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
+
+document.getElementById('save-game-data').onclick = recordTheBestGlobal
 
 // show current rating till place in parameter
 async function getRating(place) {
@@ -411,7 +417,7 @@ async function getRating(place) {
 async function displayRatingOnPage() {
   // get three first places
   const records = await getRating(3)
-  
+
   // assigning place
   let i = 0
   records.map((el) => {
