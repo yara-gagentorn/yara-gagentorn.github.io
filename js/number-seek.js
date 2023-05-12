@@ -446,7 +446,7 @@ async function displayRatingOnPage(places, destination) {
     records.forEach((record) => {
       const row = document.createElement('tr')
       const userCell = document.createElement('td')
-      userCell.textContent = record.user
+      userCell.textContent = record.username
       const scoreCell = document.createElement('td')
       scoreCell.textContent = record.score
       const placeCell = document.createElement('td')
