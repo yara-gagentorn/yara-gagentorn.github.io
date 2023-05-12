@@ -92,8 +92,10 @@ button:hover:disabled {
   cursor: pointer;
   font-size: 10px;
   background-color: transparent;
-  
-
+  box-shadow: none;
+  border: none;
+  border-radius: 1px;
+  background-image: none;
 
 }
 
@@ -204,6 +206,7 @@ button:hover:disabled {
    z-index: 5;
    background-color: #453a94;
    padding: 1rem;
+   padding-top: 1.5rem;
   
  }
 
@@ -213,6 +216,14 @@ button:hover:disabled {
   justify-content: space-between;
   align-items: center;
 }
+
+ #user-name {
+  border-radius: var(--bradius);
+  width: 100%;
+  font-size: 1.5rem;
+  padding: 2px;
+
+ }
  
  body{
    font-size: 20pt;

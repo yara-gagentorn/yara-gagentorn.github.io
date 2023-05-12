@@ -8,8 +8,13 @@ import {
   doc,
 } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js'
 
-export async function getAllRecords(colname, firestore) {
-  const colRef = collection(firestore, colname)
+export async function getAllRecords(numberOfnumbers, firestore) {
+  const colRef = collection(
+    firestore,
+    'scores',
+    'numberOfnumbers',
+    'number' + numberOfnumbers
+  )
   const docsSnap = await getDocs(colRef)
   let allRecords = []
   await docsSnap.forEach((doc) => {
@@ -31,12 +36,27 @@ export async function getUserData(playerID, firestore) {
   }
 }
 
-export async function createScore(score, playerID, firestore) {
-  console.log('create scores...')
-  return setDoc(doc(firestore, 'scores', playerID), {
-    user: playerID,
-    score: score,
-  })
+export async function createScore(numberOfnumbers, score, username, firestore) {
+  console.log('recording scores...')
+  const docRef = await addDoc(
+    collection(
+      firestore,
+      'scores',
+      'numberOfnumbers',
+      'number' + numberOfnumbers
+    ),
+    {
+      username: username,
+      score: score,
+    }
+  )
+  console.log(docRef)
+  return docRef
+  // console.log('create scores...')
+  // return setDoc(doc(firestore, 'scores', playerID), {
+  //   user: playerID,
+  //   score: score,
+  // })
 
   // return addDoc(collection(firestore, 'scores'), {
   //   user: playerID,

@@ -11,6 +11,9 @@ import {
 
 import { app, firestore } from './firebase/config.js'
 
+// createScore(numberOfnumbers, score, username, firestore)
+//createScore('10', '15', 'testfromapp', firestore)
+
 //--- SOUNDS ---//
 
 const numberClick = new Audio('../media/click.wav')
@@ -405,7 +408,7 @@ document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
 
-document.getElementById('save-game-data').onclick = recordTheBestGlobal
+document.getElementById('save-game-data').onclick = recordTheBestGlobal()
 
 // show current rating till place in parameter
 async function getRating(place) {
@@ -414,11 +417,12 @@ async function getRating(place) {
   return records.slice(0, place)
 }
 
-async function displayRatingOnPage() {
+async function displayRatingOnPage(places, destination) {
   // get three first places
-  const records = await getRating(3)
-
-  // assigning place
+  //const records = await getRating(places)
+  const records = await getAllRecords(places, firestore)
+  // assigning places
+  console.log(records)
   let i = 0
   records.map((el) => {
     el.place = i + 1 + '.'
@@ -454,18 +458,16 @@ async function displayRatingOnPage() {
     })
   }
 
-  const tableContainer = document.getElementById('leaderboard')
+  const tableContainer = document.getElementById(destination)
   tableContainer.appendChild(table)
 }
 
-displayRatingOnPage()
+displayRatingOnPage(10, 'leaderboard')
 
-function recordTheBestGlobal(finishTimeSec) {
-  // for testing
-  const nickname = 'yara'
-
-  // get the current best for the number
-  // check if it exist
-  // if it is empty - record the finishTimeSec
-  // if it is not empty - compare it with new number and record the bigger number
+function recordTheBestGlobal(finishTimeSec, userName, numberOfnumbers) {
+  // add new record
+  // createScore(numberOfnumbers, finishTimeSec, userName, firestore)
+  // get all records
+  // order by time
+  // if the list is longer than 20 - delete the last
 }
