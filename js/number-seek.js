@@ -295,7 +295,7 @@ function showRecord() {
   }
 }
 
-showRecord()
+//showRecord()
 
 document.getElementById('reset-records').onclick = resetRecords
 
@@ -363,7 +363,7 @@ function handleHowMany() {
 }
 
 //--- START NEW GAME ---//
-displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
+//displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
 document.getElementById('start-over').onclick = startOver
 document.getElementById('close-button').onclick = hideWin
 
@@ -413,63 +413,66 @@ document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
 
-//  recordTheBestGlobal(finishTimeSec, userName, numberOfnumbers)
 document.getElementById('save-game-data').onclick = recordTheBestGlobal
 
 // show current rating till place in parameter
 async function getRating(place) {
-  const records = await getAllRecords('scores', firestore)
-  records.sort((a, b) => parseInt(a.score) - parseInt(b.score))
-  return records.slice(0, place)
+  const records = await getAllRecords(howManyNumbers, firestore)
+  const sortedRecords = records.sort(
+    (a, b) => parseFloat(a.score) - parseFloat(b.score)
+  )
+  const slicedRecords = sortedRecords.slice(0, place)
+  console.log('sorted and sliced records:', slicedRecords)
+  return slicedRecords
 }
 
-async function displayRatingOnPage(places, destination, numberOfRecords) {
+async function displayRatingOnPage(places, location, numberOfRecords) {
   // get three first places
-  //const records = await getRating(places)
-  const records = await getAllRecords(places, firestore)
-  // assigning places
-  console.log(records)
-  let i = 0
-  records.map((el) => {
-    el.place = i + 1 + '.'
-    i++
-  })
-
-  const table = document.createElement('table')
-  const headerRow = document.createElement('tr')
-  const userHeader = document.createElement('th')
-  userHeader.textContent = 'Name'
-  const scoreHeader = document.createElement('th')
-  scoreHeader.textContent = 'Time'
-  const placeHeader = document.createElement('th')
-  placeHeader.textContent = '#'
-  headerRow.appendChild(placeHeader)
-  headerRow.appendChild(userHeader)
-  headerRow.appendChild(scoreHeader)
-  table.appendChild(headerRow)
-
-  if (Array.isArray(records)) {
-    records.forEach((record) => {
-      const row = document.createElement('tr')
-      const userCell = document.createElement('td')
-      userCell.textContent = record.username
-      const scoreCell = document.createElement('td')
-      scoreCell.textContent = record.score
-      const placeCell = document.createElement('td')
-      placeCell.textContent = record.place
-      row.appendChild(placeCell)
-      row.appendChild(userCell)
-      row.appendChild(scoreCell)
-      table.appendChild(row)
+  const tableContainer = document.getElementById(location)
+  //const records = await getAllRecords(places, firestore)
+  const records = await getRating(5)
+  if (records.length == 0) {
+    tableContainer.innerHTML = 'No records yet'
+  } else {
+    // assigning places
+    let i = 0
+    records.map((el) => {
+      el.place = i + 1 + '.'
+      i++
     })
+
+    const table = document.createElement('table')
+    const headerRow = document.createElement('tr')
+    const userHeader = document.createElement('th')
+    userHeader.textContent = 'Name'
+    const scoreHeader = document.createElement('th')
+    scoreHeader.textContent = 'Time'
+    const placeHeader = document.createElement('th')
+    placeHeader.textContent = '#'
+    headerRow.appendChild(placeHeader)
+    headerRow.appendChild(userHeader)
+    headerRow.appendChild(scoreHeader)
+    table.appendChild(headerRow)
+
+    if (Array.isArray(records)) {
+      records.forEach((record) => {
+        const row = document.createElement('tr')
+        const userCell = document.createElement('td')
+        userCell.textContent = record.username
+        const scoreCell = document.createElement('td')
+        scoreCell.textContent = record.score
+        const placeCell = document.createElement('td')
+        placeCell.textContent = record.place
+        row.appendChild(placeCell)
+        row.appendChild(userCell)
+        row.appendChild(scoreCell)
+        table.appendChild(row)
+      })
+    }
+
+    tableContainer.appendChild(table)
   }
-
-  const tableContainer = document.getElementById(destination)
-  tableContainer.appendChild(table)
 }
-
-//displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
-//createScore(7, 2.5, 'yara', firestore)
 
 function recordTheBestGlobal() {
   const userName = document.getElementById('user-name').value
