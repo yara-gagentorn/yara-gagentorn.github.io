@@ -43,6 +43,7 @@ const fontFamilies = [
 const fontStyles = ['normal', 'italic']
 
 let howManyNumbers = document.getElementById('input-how-many-numbers').value
+document.getElementById('leaderboard').innerHTML = ''
 generateGameField(howManyNumbers)
 
 let finishTimeSec = 0
@@ -87,7 +88,7 @@ function randomMargin(elem) {
 
 function randomRotate(elem) {
   //angle between -30deg and 30deg
-  let angle = Math.floor(Math.random() * 30)
+  let angle = Math.floor(Math.random() * 50)
   angle *= Math.round(Math.random()) ? 1 : -1
   elem.style.transform = `rotate(${angle}deg)`
 }
@@ -117,6 +118,9 @@ function generateGameField(howManyNumbers) {
   document.getElementById('game-field').innerHTML = ''
   document.getElementById('records').innerHTML = ''
   showRecord()
+  document.getElementById('leaderboard').innerHTML = ''
+  displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
+
   let arr = getArray(1, howManyNumbers)
   let i = howManyNumbers
   let randomNum
@@ -359,7 +363,7 @@ function handleHowMany() {
 }
 
 //--- START NEW GAME ---//
-
+displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
 document.getElementById('start-over').onclick = startOver
 document.getElementById('close-button').onclick = hideWin
 
@@ -392,6 +396,7 @@ function showWin(finishTimeSec) {
   document.getElementById('win-window').style.animation = 'winPopUp 1s'
   document.getElementById('win-seconds').innerHTML = finishTimeSec
   document.getElementById('win-start-over').onclick = startOver
+
   document.addEventListener('click', handleClick)
 }
 
@@ -408,7 +413,8 @@ document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
 
-document.getElementById('save-game-data').onclick = recordTheBestGlobal()
+//  recordTheBestGlobal(finishTimeSec, userName, numberOfnumbers)
+document.getElementById('save-game-data').onclick = recordTheBestGlobal
 
 // show current rating till place in parameter
 async function getRating(place) {
@@ -417,7 +423,7 @@ async function getRating(place) {
   return records.slice(0, place)
 }
 
-async function displayRatingOnPage(places, destination) {
+async function displayRatingOnPage(places, destination, numberOfRecords) {
   // get three first places
   //const records = await getRating(places)
   const records = await getAllRecords(places, firestore)
@@ -462,9 +468,14 @@ async function displayRatingOnPage(places, destination) {
   tableContainer.appendChild(table)
 }
 
-displayRatingOnPage(10, 'leaderboard')
+//displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
+//createScore(7, 2.5, 'yara', firestore)
 
-function recordTheBestGlobal(finishTimeSec, userName, numberOfnumbers) {
+function recordTheBestGlobal() {
+  const userName = document.getElementById('user-name').value
+  createScore(howManyNumbers, finishTimeSec, userName, firestore)
+  hideWin()
+
   // add new record
   // createScore(numberOfnumbers, finishTimeSec, userName, firestore)
   // get all records
