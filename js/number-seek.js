@@ -2,14 +2,11 @@
 
 import {
   createScore,
-  updateScore,
-  readRank,
-  testExp,
-  getUserData,
   getAllRecords,
+  deleteAllRecordsExcept,
 } from './firebase/ns-leaderboard-helper.js'
 
-import { app, firestore } from './firebase/config.js'
+import { firestore } from './firebase/config.js'
 
 // createScore(numberOfnumbers, score, username, firestore)
 //createScore('10', '15', 'testfromapp', firestore)
@@ -413,7 +410,7 @@ document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
 
-document.getElementById('save-game-data').onclick = recordTheBestGlobal
+document.getElementById('save-game-data').onclick = () => recordTheBestGlobal(5)
 
 // show current rating till place in parameter
 async function getRating(place) {
@@ -421,9 +418,12 @@ async function getRating(place) {
   const sortedRecords = records.sort(
     (a, b) => parseFloat(a.score) - parseFloat(b.score)
   )
-  const slicedRecords = sortedRecords.slice(0, place)
-  console.log('sorted and sliced records:', slicedRecords)
-  return slicedRecords
+  if (place == 0) {
+    return sortedRecords
+  } else {
+    const slicedRecords = sortedRecords.slice(0, place)
+    return slicedRecords
+  }
 }
 
 async function displayRatingOnPage(places, location, numberOfRecords) {
@@ -474,14 +474,21 @@ async function displayRatingOnPage(places, location, numberOfRecords) {
   }
 }
 
-function recordTheBestGlobal() {
+// record a new result and help to keep no more than "howManyPlaces" in the db
+async function recordTheBestGlobal(howManyPlaces) {
   const userName = document.getElementById('user-name').value
-  createScore(howManyNumbers, finishTimeSec, userName, firestore)
-  hideWin()
-
   // add new record
-  // createScore(numberOfnumbers, finishTimeSec, userName, firestore)
-  // get all records
-  // order by time
-  // if the list is longer than 20 - delete the last
+  createScore(howManyNumbers, finishTimeSec, userName, firestore)
+  const allSortedRecords = await getRating(0)
+  if (allSortedRecords.length > howManyPlaces) {
+    console.log(
+      'oops.. more than ' +
+        howManyPlaces +
+        ' records in database, we need to delete some'
+    )
+
+    const recordsToKeep = await getRating(howManyPlaces)
+    await deleteAllRecordsExcept(recordsToKeep, howManyNumbers, firestore)
+  }
+  hideWin()
 }

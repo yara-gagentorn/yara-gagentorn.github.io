@@ -1,11 +1,13 @@
 // based on 'build leaderboard with firebase'
 import {
+  writeBatch,
   collection,
   addDoc,
   getDoc,
   getDocs,
-  setDoc,
+  updateDoc,
   doc,
+  deleteDoc,
 } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js'
 
 export async function getAllRecords(numberOfnumbers, firestore) {
@@ -50,56 +52,42 @@ export async function createScore(numberOfnumbers, score, username, firestore) {
       score: score,
     }
   )
-  console.log(docRef)
+  console.log(docRef.path)
+  const lastSlashIndex = docRef.path.lastIndexOf('/')
+  const lastPart = docRef.path.slice(lastSlashIndex + 1)
+  await updateDoc(docRef, { id: lastPart })
+
   return docRef
-  // console.log('create scores...')
-  // return setDoc(doc(firestore, 'scores', playerID), {
-  //   user: playerID,
-  //   score: score,
-  // })
-
-  // return addDoc(collection(firestore, 'scores'), {
-  //   user: playerID,
-  //   score: score,
-  // })
 }
 
-export async function updateScore(playerID, newScore, firestore) {
-  const playerSnapshot = await firestore
-    .collection('scores')
-    .where('user', '==', playerID)
-    .get()
-  if (playerSnapshot.size !== 1) {
-    throw Error(`User not found in leaderboard: ${playerID}`)
-  }
-  const player = playerSnapshot.docs[0]
-  const doc = firestore.doc(player.id)
-  return doc.update({
-    score: newScore,
+export async function deleteAllRecordsExcept(
+  recordsToKeep,
+  numberOfnumbers,
+  firestore
+) {
+  //console.log('from deleting function...', firestore)
+  console.log('records to keep: ', recordsToKeep)
+  recordsToKeep.forEach((record) => console.log(record.id))
+  const allRecords = await getAllRecords(numberOfnumbers, firestore)
+  console.log('all records ', allRecords)
+  const recordsToDelete = allRecords.filter(
+    (record) => !recordsToKeep.some((keepRecord) => keepRecord.id === record.id)
+  )
+  //const batch = firestore.batch()
+  const batch = writeBatch(firestore)
+  console.log('records to delete: ', recordsToDelete)
+  recordsToDelete.forEach((record) => {
+    //const docRef = firestore.collection('collectionName').doc(record.id)
+    const docRef = doc(
+      firestore,
+      'scores',
+      'numberOfnumbers',
+      'number' + numberOfnumbers,
+      record.id
+    )
+
+    batch.delete(docRef)
   })
-}
 
-export async function readRank(playerID, firestore) {
-  const scores = await firestore
-    .collection('scores')
-    .orderBy('score', 'desc')
-    .get()
-  const player = `${playerID}`
-  let rank = 1
-  for (const doc of scores.docs) {
-    const user = `${doc.get('user')}`
-    if (user === player) {
-      return {
-        user: player,
-        rank: rank,
-        score: doc.get('score'),
-      }
-    }
-    rank++
-  }
-  // No user found
-  throw Error(`User not found in leaderboard: ${playerID}`)
-}
-export function testExp() {
-  console.log('export is working')
+  await batch.commit()
 }
