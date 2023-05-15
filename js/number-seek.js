@@ -410,7 +410,8 @@ document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
 
-document.getElementById('save-game-data').onclick = () => recordTheBestGlobal(5)
+document.getElementById('save-game-data').onclick = () =>
+  recordTheBestGlobal(30)
 
 // show current rating till place in parameter
 async function getRating(place) {

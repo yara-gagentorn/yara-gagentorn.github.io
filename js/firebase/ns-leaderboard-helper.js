@@ -52,7 +52,7 @@ export async function createScore(numberOfnumbers, score, username, firestore) {
       score: score,
     }
   )
-  console.log(docRef.path)
+  // adding an automatic ID as id property
   const lastSlashIndex = docRef.path.lastIndexOf('/')
   const lastPart = docRef.path.slice(lastSlashIndex + 1)
   await updateDoc(docRef, { id: lastPart })
@@ -65,7 +65,6 @@ export async function deleteAllRecordsExcept(
   numberOfnumbers,
   firestore
 ) {
-  //console.log('from deleting function...', firestore)
   console.log('records to keep: ', recordsToKeep)
   recordsToKeep.forEach((record) => console.log(record.id))
   const allRecords = await getAllRecords(numberOfnumbers, firestore)
