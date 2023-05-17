@@ -40,8 +40,22 @@ const fontFamilies = [
 const fontStyles = ['normal', 'italic']
 
 let howManyNumbers = document.getElementById('input-how-many-numbers').value
-document.getElementById('leaderboard').innerHTML = ''
 generateGameField(howManyNumbers)
+//let howManyNumbers = document.getElementById('input-how-many-numbers').value
+document.getElementById('leaderboard').innerHTML = ''
+
+// document.getElementById('input-how-many-numbers').oninput = () =>
+//   howManyNumbers(e)
+
+document
+  .getElementById('input-how-many-numbers')
+  .addEventListener('input', function () {
+    howManyNumbers = parseInt(
+      document.getElementById('input-how-many-numbers').value
+    )
+    console.log(howManyNumbers)
+    generateGameField(howManyNumbers)
+  })
 
 let finishTimeSec = 0
 
@@ -470,7 +484,9 @@ async function displayRatingOnPage(places, location, numberOfRecords) {
         table.appendChild(row)
       })
     }
-
+    const header = document.createElement('p')
+    header.innerHTML = 'LEADERBOARD FOR <b>' + howManyNumbers + '</b>'
+    tableContainer.appendChild(header)
     tableContainer.appendChild(table)
   }
 }

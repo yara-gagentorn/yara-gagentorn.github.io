@@ -7,9 +7,10 @@ import {
   getDocs,
   updateDoc,
   doc,
-  deleteDoc,
+  
 } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js'
 
+// getting all records for the specific number
 export async function getAllRecords(numberOfnumbers, firestore) {
   const colRef = collection(
     firestore,
@@ -39,7 +40,6 @@ export async function getUserData(playerID, firestore) {
 }
 
 export async function createScore(numberOfnumbers, score, username, firestore) {
-  console.log('recording scores...')
   const docRef = await addDoc(
     collection(
       firestore,
@@ -72,11 +72,9 @@ export async function deleteAllRecordsExcept(
   const recordsToDelete = allRecords.filter(
     (record) => !recordsToKeep.some((keepRecord) => keepRecord.id === record.id)
   )
-  //const batch = firestore.batch()
   const batch = writeBatch(firestore)
   console.log('records to delete: ', recordsToDelete)
   recordsToDelete.forEach((record) => {
-    //const docRef = firestore.collection('collectionName').doc(record.id)
     const docRef = doc(
       firestore,
       'scores',
@@ -84,7 +82,6 @@ export async function deleteAllRecordsExcept(
       'number' + numberOfnumbers,
       record.id
     )
-
     batch.delete(docRef)
   })
 
