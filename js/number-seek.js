@@ -40,22 +40,23 @@ const fontFamilies = [
 const fontStyles = ['normal', 'italic']
 
 let howManyNumbers = document.getElementById('input-how-many-numbers').value
-generateGameField(howManyNumbers)
+//generateGameField(howManyNumbers)
+
 //let howManyNumbers = document.getElementById('input-how-many-numbers').value
 document.getElementById('leaderboard').innerHTML = ''
 
 // document.getElementById('input-how-many-numbers').oninput = () =>
 //   howManyNumbers(e)
 
-document
-  .getElementById('input-how-many-numbers')
-  .addEventListener('input', function () {
-    howManyNumbers = parseInt(
-      document.getElementById('input-how-many-numbers').value
-    )
-    console.log(howManyNumbers)
-    generateGameField(howManyNumbers)
-  })
+// document
+//   .getElementById('input-how-many-numbers')
+//   .addEventListener('input', function () {
+//     howManyNumbers = parseInt(
+//       document.getElementById('input-how-many-numbers').value
+//     )
+//     console.log(howManyNumbers)
+//     generateGameField(howManyNumbers)
+//   })
 
 let finishTimeSec = 0
 
@@ -370,11 +371,12 @@ document
   .addEventListener('input', handleHowMany)
 
 function handleHowMany() {
-  // document.getElementById('input-how-many-numbers').innerHTML =
-  // document.getElementById('input-how-many-numbers').value
-  howManyNumbers = document.getElementById('input-how-many-numbers').value
+  howManyNumbers = Number(
+    document.getElementById('input-how-many-numbers').value
+  )
+  console.log('how many numbers:', howManyNumbers)
   // input validation
-  const regex = /^(?:[2-7]?[0-9]|80)$/
+  const regex = /^(?:[1-7]?[0-9]|80)$/
   if (regex.test(howManyNumbers)) {
     console.log('how many numbers: ', howManyNumbers)
     document.getElementById('validation-message').textContent = ''
@@ -383,6 +385,7 @@ function handleHowMany() {
     console.log('too much!')
     document.getElementById('validation-message').textContent =
       'You can only input numbers between 1 and 80.'
+    return
   }
 }
 
