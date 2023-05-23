@@ -14,7 +14,6 @@
 <body>
   <div id="container">
     <div id="header"><h1 id="game-name">Number Seek</h1></div>
-    
     <div id="info">
       <div id="rules">
         <div id="click-hext-div">Click on <span id ="click-next-spn">1</span></div></div>
@@ -26,9 +25,10 @@
       <div><input type="checkbox" id="is-border" name="is-border">Border</div>
       <div><input type="checkbox" id="is-shaking" name="is-shaking" checked>Shake it!</div>
       <div>
-        <!-- <input id="input-how-many-numbers" type="range" min="1" max="80" value="4"><span id="how-many-numbers">4</span> -->
         <span>How many numbers?</span>
+        <div id="buttonNumberContainer"></div>
         <input id="input-how-many-numbers"  min="3" max="80" value="4">
+        <span id="validation-message">here</span>
       </div>
       <div><button class="small-button" id="start-over">Start Over</button></div>
       <div id="records"></div>
@@ -42,8 +42,7 @@
       Congrats! Your result is <span id="win-seconds"></span> seconds 
       <span id="new-record"></span><br>
       <form id="userinfo">
-        <input type="text" id="user-name" name="name" placeholder="Enter your name" onblur="this.placeholder='Enter your name'" onfocus="this.placeholder=''" >
-        <!-- <input type="email" id="email" name="email" value="Your email"> -->
+        <input type="text" id="user-name" name="name" placeholder="Enter your name" onblur="this.placeholder='Enter your name'" onfocus="this.placeholder=''" >s
         <div class="button-container">
          <button  class="small-button" id="save-game-data" type="button">Record my result</button>
          <button id="win-start-over" class="small-button">Play Again</button>

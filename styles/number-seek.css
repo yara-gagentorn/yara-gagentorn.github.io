@@ -117,10 +117,10 @@ button:hover:disabled {
 
 
  /*---- finish styles from main ----*/
-/* input {
-  background-color: #453a94;
-  color: #453a94;
- } */
+ #input-how-many-numbers {
+  font-size: 0.6em ;
+width: 2em;
+ }
 
 #records{
   font-size: 0.7em;

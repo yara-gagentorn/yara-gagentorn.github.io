@@ -130,7 +130,7 @@ function generateGameField(howManyNumbers) {
   document.getElementById('records').innerHTML = ''
   showRecord()
   document.getElementById('leaderboard').innerHTML = ''
-  displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
+  displayRatingOnPage(5, 'leaderboard')
 
   let arr = getArray(1, howManyNumbers)
   let i = howManyNumbers
@@ -364,17 +364,29 @@ function toggleShake() {
 }
 
 // how many numbers
-document.getElementById('input-how-many-numbers').onchange = handleHowMany
+//document.getElementById('input-how-many-numbers').onchange = handleHowMany
+document
+  .getElementById('input-how-many-numbers')
+  .addEventListener('input', handleHowMany)
 
 function handleHowMany() {
-  document.getElementById('how-many-numbers').innerHTML =
-    document.getElementById('input-how-many-numbers').value
+  // document.getElementById('input-how-many-numbers').innerHTML =
+  // document.getElementById('input-how-many-numbers').value
   howManyNumbers = document.getElementById('input-how-many-numbers').value
-  generateGameField(howManyNumbers)
+  // input validation
+  const regex = /^(?:[2-7]?[0-9]|80)$/
+  if (regex.test(howManyNumbers)) {
+    console.log('how many numbers: ', howManyNumbers)
+    document.getElementById('validation-message').textContent = ''
+    generateGameField(howManyNumbers)
+  } else {
+    console.log('too much!')
+    document.getElementById('validation-message').textContent =
+      'You can only input numbers between 1 and 80.'
+  }
 }
 
 //--- START NEW GAME ---//
-//displayRatingOnPage(howManyNumbers, 'leaderboard', 3)
 document.getElementById('start-over').onclick = startOver
 document.getElementById('close-button').onclick = hideWin
 
@@ -423,9 +435,11 @@ function hideWin() {
 document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
+const howManyRecordsToKeep = 30
 
+// save the result to the data base after finishing the game
 document.getElementById('save-game-data').onclick = () =>
-  recordTheBestGlobal(30)
+  recordTheBestGlobal(howManyRecordsToKeep)
 
 // show current rating till place in parameter
 async function getRating(place) {
@@ -441,11 +455,10 @@ async function getRating(place) {
   }
 }
 
-async function displayRatingOnPage(places, location, numberOfRecords) {
-  // get three first places
+async function displayRatingOnPage(places, location) {
   const tableContainer = document.getElementById(location)
-  //const records = await getAllRecords(places, firestore)
-  const records = await getRating(5)
+  // get first n places
+  const records = await getRating(places)
   if (records.length == 0) {
     tableContainer.innerHTML = 'No records yet'
   } else {
@@ -491,21 +504,38 @@ async function displayRatingOnPage(places, location, numberOfRecords) {
   }
 }
 
-// record a new result and help to keep no more than "howManyPlaces" in the db
-async function recordTheBestGlobal(howManyPlaces) {
+// record a new result and  keep no more than "howManyPlaces" records in the db
+async function recordTheBestGlobal(howManyRecordsToKeep) {
   const userName = document.getElementById('user-name').value
-  // add new record
+  // add new record to the database
   createScore(howManyNumbers, finishTimeSec, userName, firestore)
+  // get all records from db
   const allSortedRecords = await getRating(0)
-  if (allSortedRecords.length > howManyPlaces) {
-    console.log(
-      'oops.. more than ' +
-        howManyPlaces +
-        ' records in database, we need to delete some'
-    )
-
-    const recordsToKeep = await getRating(howManyPlaces)
+  if (allSortedRecords.length > howManyRecordsToKeep) {
+    const recordsToKeep = await getRating(howManyRecordsToKeep)
     await deleteAllRecordsExcept(recordsToKeep, howManyNumbers, firestore)
   }
   hideWin()
 }
+
+//--- BUTTONS WITH NUMBERS ---//
+function createNumberButtons() {
+  const numbers = [10, 20, 30, 40, 50, 60, 70, 80]
+
+  // get the container element where the buttons will be placed
+  const container = document.getElementById('buttonNumberContainer')
+
+  // create buttons dynamically
+  numbers.forEach(function (number) {
+    var button = document.createElement('button')
+    button.textContent = number
+    button.classList.add('small-button')
+    button.addEventListener('click', function () {
+      document.getElementById('input-how-many-numbers').value = number
+      generateGameField(number)
+    })
+    container.appendChild(button)
+  })
+}
+
+createNumberButtons()
