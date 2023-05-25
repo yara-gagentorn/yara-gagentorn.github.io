@@ -19,21 +19,24 @@
         <div id="click-hext-div">Click on <span id ="click-next-spn">1</span></div></div>
       <div id="timer-div">Timer: <span id="timer-span">0</span> sec</div>
       <div id="hint-div"><button  class="small-button" id="hint-btn">Show me a hint</button>
-        <div id="hint-descr">Every hint will add 5 sec to your time</div>
+        <div class="hint-descr">Every hint will add 5 sec to your time</div>
       </div>
       <div><input type="checkbox" id="is-rotate" name="is-rotate" checked>Rotate</div>
       <div><input type="checkbox" id="is-border" name="is-border">Border</div>
       <div><input type="checkbox" id="is-shaking" name="is-shaking" checked>Shake it!</div>
-      <div>
+      <div id="how-many-container">
         <span>How many numbers?</span>
-        <div id="buttonNumberContainer"></div>
+        <div id="button-number-container"></div>
         <input id="input-how-many-numbers"  min="3" max="80" value="4">
-        <span id="validation-message">here</span>
+        <span id="validation-message" class="hint-descr"></span>
       </div>
       <div><button class="small-button" id="start-over">Start Over</button></div>
-      <div id="records"></div>
+      <!-- local records -->
+      <!--div id="records"></div-->
+      <!-- global records -->
       <div id="leaderboard"></div>
-      <button  class="small-button" id="reset-records">Reset Records</button>
+      <!-- reset local results (hidden for now) -->
+      <!-- <button  class="small-button" id="reset-records">Reset Records</button> -->
     </div>
 
     <!-- result window -->

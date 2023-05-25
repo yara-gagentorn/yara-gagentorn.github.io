@@ -8,9 +8,6 @@ import {
 
 import { firestore } from './firebase/config.js'
 
-// createScore(numberOfnumbers, score, username, firestore)
-//createScore('10', '15', 'testfromapp', firestore)
-
 //--- SOUNDS ---//
 
 const numberClick = new Audio('../media/click.wav')
@@ -39,7 +36,8 @@ const fontFamilies = [
 
 const fontStyles = ['normal', 'italic']
 
-let howManyNumbers = document.getElementById('input-how-many-numbers').value
+let howManyNumbers
+//let howManyNumbers = document.getElementById('input-how-many-numbers').value
 //generateGameField(howManyNumbers)
 
 //let howManyNumbers = document.getElementById('input-how-many-numbers').value
@@ -128,10 +126,12 @@ function getArray(firstNumber, lastNumber) {
 
 function generateGameField(howManyNumbers) {
   document.getElementById('game-field').innerHTML = ''
-  document.getElementById('records').innerHTML = ''
-  showRecord()
+  // local records (hidden for now)
+  //document.getElementById('records').innerHTML = ''
+  //showRecord()
   document.getElementById('leaderboard').innerHTML = ''
   displayRatingOnPage(5, 'leaderboard')
+  howManyNumbers = document.getElementById('input-how-many-numbers').value
 
   let arr = getArray(1, howManyNumbers)
   let i = howManyNumbers
@@ -215,7 +215,8 @@ function clickOnNumber(number) {
     document.getElementById('input-how-many-numbers').value
   ) {
     finishTimeSec = gtm / 1000
-    recordTheBest(finishTimeSec)
+    // record result to the local storage (hidden for now)
+    // recordTheBest(finishTimeSec)
     showWin(finishTimeSec)
     winSound.play()
     clearInterval(gameTime)
@@ -307,9 +308,8 @@ function showRecord() {
   }
 }
 
-//showRecord()
-
-document.getElementById('reset-records').onclick = resetRecords
+// reset local records button (hidden for now)
+//document.getElementById('reset-records').onclick = resetRecords
 
 function resetRecords() {
   localStorage.clear()
@@ -375,6 +375,8 @@ function handleHowMany() {
     document.getElementById('input-how-many-numbers').value
   )
   console.log('how many numbers:', howManyNumbers)
+  displayRatingOnPage(5, 'leaderboard')
+
   // input validation
   const regex = /^(?:[1-7]?[0-9]|80)$/
   if (regex.test(howManyNumbers)) {
@@ -399,12 +401,13 @@ function startOver() {
   document.getElementById('timer-span').innerHTML = '0'
   document.getElementById('click-next-spn').innerHTML = '1'
   clearInterval(gameTime)
-  generateGameField(document.getElementById('input-how-many-numbers').value)
+  generateGameField(howManyNumbers)
   document.getElementById('input-how-many-numbers').disabled = false
   if (document.getElementById('game-field').style.filter) {
     hideWin()
   }
-  showRecord()
+  // show local records (hidden for now)
+  // showRecord()
 }
 
 //--- WIN ---//
@@ -453,14 +456,14 @@ async function getRating(place) {
   if (place == 0) {
     return sortedRecords
   } else {
-    const slicedRecords = sortedRecords.slice(0, place)
-    return slicedRecords
+    return sortedRecords.slice(0, place)
   }
 }
 
 async function displayRatingOnPage(places, location) {
   const tableContainer = document.getElementById(location)
   // get first n places
+  console.log('leaderboard will be displayed in ', location)
   const records = await getRating(places)
   if (records.length == 0) {
     tableContainer.innerHTML = 'No records yet'
@@ -526,7 +529,7 @@ function createNumberButtons() {
   const numbers = [10, 20, 30, 40, 50, 60, 70, 80]
 
   // get the container element where the buttons will be placed
-  const container = document.getElementById('buttonNumberContainer')
+  const container = document.getElementById('button-number-container')
 
   // create buttons dynamically
   numbers.forEach(function (number) {

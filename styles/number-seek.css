@@ -118,6 +118,8 @@ button:hover:disabled {
 
  /*---- finish styles from main ----*/
  #input-how-many-numbers {
+  align-items: center;
+  display: block;
   font-size: 0.6em ;
 width: 2em;
  }
@@ -140,7 +142,7 @@ width: 2em;
   text-align: center;
 }
 
- #hint-descr {
+ .hint-descr {
   font-style: italic;
   font-size: 0.7em;
   width: 100%;
@@ -174,7 +176,7 @@ width: 2em;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;
+  justify-content: center;button
  }
  
  #game-field {
@@ -217,6 +219,13 @@ width: 2em;
   align-items: center;
 }
 
+#how-many-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
  #user-name {
   border-radius: var(--bradius);
   width: 100%;
@@ -231,6 +240,7 @@ width: 2em;
  
  #info {
    float: left;
+   
  }
 
  #win-window label {
