@@ -36,28 +36,6 @@ const fontFamilies = [
 
 const fontStyles = ['normal', 'italic']
 
-let howManyNumbers
-//let howManyNumbers = document.getElementById('input-how-many-numbers').value
-//generateGameField(howManyNumbers)
-
-//let howManyNumbers = document.getElementById('input-how-many-numbers').value
-document.getElementById('leaderboard').innerHTML = ''
-
-// document.getElementById('input-how-many-numbers').oninput = () =>
-//   howManyNumbers(e)
-
-// document
-//   .getElementById('input-how-many-numbers')
-//   .addEventListener('input', function () {
-//     howManyNumbers = parseInt(
-//       document.getElementById('input-how-many-numbers').value
-//     )
-//     console.log(howManyNumbers)
-//     generateGameField(howManyNumbers)
-//   })
-
-let finishTimeSec = 0
-
 // random element from array
 function getRandomElement(array) {
   let randomEl = array[Math.floor(Math.random() * array.length)]
@@ -122,19 +100,31 @@ function getArray(firstNumber, lastNumber) {
   return arr
 }
 
+// get number from the input
+function getNumberOfNumbers() {
+  return Number(document.getElementById('input-how-many-numbers').value)
+}
+
+//----- INITIAL SETTINGS ----//
+
+document.getElementById('leaderboard').innerHTML = ''
+let finishTimeSec = 0
+generateGameField(getNumberOfNumbers())
+
 //----- GAME FIELD ----//
 
-function generateGameField(howManyNumbers) {
+function generateGameField(numberOfnumbers) {
   document.getElementById('game-field').innerHTML = ''
+  if (numberOfnumbers === 0) {
+    document.getElementById('game-field').innerHTML = 'Choose the number'
+  }
   // local records (hidden for now)
   //document.getElementById('records').innerHTML = ''
   //showRecord()
   document.getElementById('leaderboard').innerHTML = ''
   displayRatingOnPage(5, 'leaderboard')
-  howManyNumbers = document.getElementById('input-how-many-numbers').value
-
-  let arr = getArray(1, howManyNumbers)
-  let i = howManyNumbers
+  let arr = getArray(1, numberOfnumbers)
+  let i = numberOfnumbers
   let randomNum
   let newDiv
   let randomEl
@@ -265,11 +255,12 @@ document.getElementById('hint-btn').onclick = showHint
 //----- LOCAL RECORDS -----//
 
 function recordTheBest(finishTimeSec) {
+  const numberOfnumbers = getNumberOfNumbers()
   let oldRecord = JSON.parse(
-    localStorage.getItem(`bestRecordfor${howManyNumbers}`)
+    localStorage.getItem(`bestRecordfor${numberOfnumbers}`)
   )
   let newResult = {
-    howManyNumbers: howManyNumbers,
+    howManyNumbers: numberOfnumbers,
     timeInSeconds: finishTimeSec,
   }
 
@@ -279,14 +270,14 @@ function recordTheBest(finishTimeSec) {
       oldRecord === undefined
     ) {
       localStorage.setItem(
-        `bestRecordfor${howManyNumbers}`,
+        `bestRecordfor${numberOfnumbers}`,
         JSON.stringify(newResult)
       )
       document.getElementById('new-record').innerHTML = 'It is a new record!'
     }
   } else {
     localStorage.setItem(
-      `bestRecordfor${howManyNumbers}`,
+      `bestRecordfor${numberOfnumbers}`,
       JSON.stringify(newResult)
     )
     document.getElementById('new-record').innerHTML = 'It is a new record!'
@@ -295,12 +286,13 @@ function recordTheBest(finishTimeSec) {
 
 // show record for the current number
 function showRecord() {
+  const numberOfnumbers = getNumberOfNumbers()
   document.getElementById('reset-records').style.visibility = 'hidden'
   let oldRecord = JSON.parse(
-    localStorage.getItem(`bestRecordfor${howManyNumbers}`)
+    localStorage.getItem(`bestRecordfor${numberOfnumbers}`)
   )
   if (oldRecord) {
-    let result = `Best time for  ${howManyNumbers} numbers is ${oldRecord.timeInSeconds} seconds`
+    let result = `Best time for  ${numberOfnumbers} numbers is ${oldRecord.timeInSeconds} seconds`
     document.getElementById('records').innerHTML = result
     document.getElementById('reset-records').style.visibility = 'visible'
   } else {
@@ -365,24 +357,22 @@ function toggleShake() {
 }
 
 // how many numbers
-//document.getElementById('input-how-many-numbers').onchange = handleHowMany
 document
   .getElementById('input-how-many-numbers')
   .addEventListener('input', handleHowMany)
 
 function handleHowMany() {
-  howManyNumbers = Number(
-    document.getElementById('input-how-many-numbers').value
-  )
-  console.log('how many numbers:', howManyNumbers)
+  const numberOfnumbers = getNumberOfNumbers()
+  console.log('how many numbers:', numberOfnumbers)
   displayRatingOnPage(5, 'leaderboard')
-
+  if (numberOfnumbers === 0) {
+  }
   // input validation
   const regex = /^(?:[1-7]?[0-9]|80)$/
-  if (regex.test(howManyNumbers)) {
-    console.log('how many numbers: ', howManyNumbers)
+  if (regex.test(numberOfnumbers)) {
+    console.log('how many numbers: ', numberOfnumbers)
     document.getElementById('validation-message').textContent = ''
-    generateGameField(howManyNumbers)
+    generateGameField(numberOfnumbers)
   } else {
     console.log('too much!')
     document.getElementById('validation-message').textContent =
@@ -396,12 +386,13 @@ document.getElementById('start-over').onclick = startOver
 document.getElementById('close-button').onclick = hideWin
 
 function startOver() {
+  const numberOfnumbers = getNumberOfNumbers()
   gtm = 0
   nextDivID = '1n'
   document.getElementById('timer-span').innerHTML = '0'
   document.getElementById('click-next-spn').innerHTML = '1'
   clearInterval(gameTime)
-  generateGameField(howManyNumbers)
+  generateGameField(numberOfnumbers)
   document.getElementById('input-how-many-numbers').disabled = false
   if (document.getElementById('game-field').style.filter) {
     hideWin()
@@ -441,15 +432,16 @@ function hideWin() {
 document.getElementById('close-button').onclick = hideWin
 
 //--- GLOBAL LEADERBOARD  WITH FIREBASE ---//
-const howManyRecordsToKeep = 30
 
 // save the result to the data base after finishing the game
 document.getElementById('save-game-data').onclick = () =>
-  recordTheBestGlobal(howManyRecordsToKeep)
+  recordTheBestGlobal(30) // <--how many records to keep in db for each number
 
 // show current rating till place in parameter
 async function getRating(place) {
-  const records = await getAllRecords(howManyNumbers, firestore)
+  let numberOfnumbers = getNumberOfNumbers()
+  console.log('There isnumber of numbers: ', numberOfnumbers)
+  let records = await getAllRecords(numberOfnumbers, firestore)
   const sortedRecords = records.sort(
     (a, b) => parseFloat(a.score) - parseFloat(b.score)
   )
@@ -465,6 +457,7 @@ async function displayRatingOnPage(places, location) {
   // get first n places
   console.log('leaderboard will be displayed in ', location)
   const records = await getRating(places)
+  console.log('records...', records)
   if (records.length == 0) {
     tableContainer.innerHTML = 'No records yet'
   } else {
@@ -504,7 +497,7 @@ async function displayRatingOnPage(places, location) {
       })
     }
     const header = document.createElement('p')
-    header.innerHTML = 'LEADERBOARD FOR <b>' + howManyNumbers + '</b>'
+    header.innerHTML = 'LEADERBOARD FOR <b>' + getNumberOfNumbers() + '</b>'
     tableContainer.appendChild(header)
     tableContainer.appendChild(table)
   }
@@ -513,13 +506,14 @@ async function displayRatingOnPage(places, location) {
 // record a new result and  keep no more than "howManyPlaces" records in the db
 async function recordTheBestGlobal(howManyRecordsToKeep) {
   const userName = document.getElementById('user-name').value
+  const numberOfnumbers = getNumberOfNumbers()
   // add new record to the database
-  createScore(howManyNumbers, finishTimeSec, userName, firestore)
+  createScore(numberOfnumbers, finishTimeSec, userName, firestore)
   // get all records from db
   const allSortedRecords = await getRating(0)
   if (allSortedRecords.length > howManyRecordsToKeep) {
     const recordsToKeep = await getRating(howManyRecordsToKeep)
-    await deleteAllRecordsExcept(recordsToKeep, howManyNumbers, firestore)
+    await deleteAllRecordsExcept(recordsToKeep, numberOfnumbers, firestore)
   }
   hideWin()
 }
