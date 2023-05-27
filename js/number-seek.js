@@ -363,18 +363,15 @@ document
 
 function handleHowMany() {
   const numberOfnumbers = getNumberOfNumbers()
-  console.log('how many numbers:', numberOfnumbers)
   displayRatingOnPage(5, 'leaderboard')
   if (numberOfnumbers === 0) {
   }
   // input validation
   const regex = /^(?:[1-7]?[0-9]|80)$/
   if (regex.test(numberOfnumbers)) {
-    console.log('how many numbers: ', numberOfnumbers)
     document.getElementById('validation-message').textContent = ''
     generateGameField(numberOfnumbers)
   } else {
-    console.log('too much!')
     document.getElementById('validation-message').textContent =
       'You can only input numbers between 1 and 80.'
     return
@@ -440,7 +437,6 @@ document.getElementById('save-game-data').onclick = () =>
 // show current rating till place in parameter
 async function getRating(place) {
   let numberOfnumbers = getNumberOfNumbers()
-  console.log('There isnumber of numbers: ', numberOfnumbers)
   let records = await getAllRecords(numberOfnumbers, firestore)
   const sortedRecords = records.sort(
     (a, b) => parseFloat(a.score) - parseFloat(b.score)
@@ -455,9 +451,7 @@ async function getRating(place) {
 async function displayRatingOnPage(places, location) {
   const tableContainer = document.getElementById(location)
   // get first n places
-  console.log('leaderboard will be displayed in ', location)
   const records = await getRating(places)
-  console.log('records...', records)
   if (records.length == 0) {
     tableContainer.innerHTML = 'No records yet'
   } else {
