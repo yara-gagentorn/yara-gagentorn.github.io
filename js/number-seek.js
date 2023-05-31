@@ -110,13 +110,15 @@ function getNumberOfNumbers() {
 document.getElementById('leaderboard').innerHTML = ''
 let finishTimeSec = 0
 generateGameField(getNumberOfNumbers())
+//generatePhrase('HELLO', 'test-location')
 
 //----- GAME FIELD ----//
 
 function generateGameField(numberOfnumbers) {
   document.getElementById('game-field').innerHTML = ''
   if (numberOfnumbers === 0) {
-    document.getElementById('game-field').innerHTML = 'Choose the number'
+    // generatePhrase('choose the number', 'game-field')
+    document.getElementById('game-field').innerHTML = 'Choose a number first'
   }
   // local records (hidden for now)
   //document.getElementById('records').innerHTML = ''
@@ -145,7 +147,7 @@ function generateGameField(numberOfnumbers) {
       newDiv.style.border = '2px solid'
       newDiv.style.margin = '-2px -1px -2px -1px'
     }
-    //  onClick function only for the first number is 1
+    //  onClick function only if the number is 1
     if (randomNum === 1) {
       newDiv.onclick = clickOnNumber
     }
@@ -154,6 +156,25 @@ function generateGameField(numberOfnumbers) {
       shakeIt()
     }
   }
+}
+
+function generatePhrase(phrase, location) {
+  console.log('starting phrase....')
+  console.log('phrase and location', phrase, location)
+  let arr = phrase.split('')
+  let locationDiv = document.getElementById(location)
+  let newDiv
+  for (let i = 0; i < arr.length; i++) {
+    newDiv = document.createElement('div')
+    console.log(newDiv)
+    newDiv.setAttribute('class', 'num-div')
+    newDiv.textContent = arr[i]
+    assignStyle(newDiv)
+    randomRotate(newDiv)
+    locationDiv.appendChild(newDiv)
+    shakeIt()
+  }
+  console.log(arr)
 }
 
 //------ SHAKE IT BABY -------//
@@ -284,7 +305,7 @@ function recordTheBest(finishTimeSec) {
   }
 }
 
-// show record for the current number
+// show local record for the current number (hidden for now)
 function showRecord() {
   const numberOfnumbers = getNumberOfNumbers()
   document.getElementById('reset-records').style.visibility = 'hidden'
@@ -363,8 +384,10 @@ document
 
 function handleHowMany() {
   const numberOfnumbers = getNumberOfNumbers()
-  displayRatingOnPage(5, 'leaderboard')
-  if (numberOfnumbers === 0) {
+  //displayRatingOnPage(5, 'leaderboard')
+  if (numberOfnumbers == 0) {
+    document.getElementById('game-field').innerHTML =
+      'Choose a number between 2 and 80'
   }
   // input validation
   const regex = /^(?:[1-7]?[0-9]|80)$/
@@ -491,7 +514,9 @@ async function displayRatingOnPage(places, location) {
       })
     }
     const header = document.createElement('p')
-    header.innerHTML = 'LEADERBOARD FOR <b>' + getNumberOfNumbers() + '</b>'
+    header.innerHTML =
+      'Leaderboard for number <b>' + getNumberOfNumbers() + '</b>'
+    header.setAttribute('id', 'leaderboard-header')
     tableContainer.appendChild(header)
     tableContainer.appendChild(table)
   }

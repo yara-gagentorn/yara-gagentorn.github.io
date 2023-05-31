@@ -130,6 +130,7 @@ width: 2em;
 
 #leaderboard {
   font-size: 0.7em;
+  text-transform: uppercase;
 }
  
 #info {
@@ -176,7 +177,7 @@ width: 2em;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
-  justify-content: center;button
+  justify-content: center;
  }
  
  #game-field {
@@ -193,6 +194,25 @@ width: 2em;
    text-align: center;
  }
  
+#leaderboard-header {
+  margin-top: 0.2em;
+  margin-bottom: 0.1em;
+}
+
+#field-options{
+  display: flex;
+  flex-direction: column;
+}
+
+#options {
+  display: flex;
+  flex-direction: row;
+}
+.option-class {
+  font-size: smaller;
+  margin-right: 0.5em;
+}
+
  #win-window {
   border-radius: 10px;
    visibility: hidden;

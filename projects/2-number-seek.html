@@ -21,13 +21,11 @@
       <div id="hint-div"><button  class="small-button" id="hint-btn">Show me a hint</button>
         <div class="hint-descr">Every hint will add 5 sec to your time</div>
       </div>
-      <div><input type="checkbox" id="is-rotate" name="is-rotate" checked>Rotate</div>
-      <div><input type="checkbox" id="is-border" name="is-border">Border</div>
-      <div><input type="checkbox" id="is-shaking" name="is-shaking" checked>Shake it!</div>
+      
       <div id="how-many-container">
         <span>How many numbers?</span>
         <div id="button-number-container"></div>
-        <input id="input-how-many-numbers"  min="3" max="80" value="4">
+        <input id="input-how-many-numbers"  min="2" max="80" value="10">
         <span id="validation-message" class="hint-descr"></span>
       </div>
       <div><button class="small-button" id="start-over">Start Over</button></div>
@@ -52,9 +50,15 @@
         </div>
       </form>
     </div>
-
+    <div id="field-options">
+    
     <div id="game-field"> </div>
-     
+    <div id="options">
+      <div class="option-class"><input type="checkbox" id="is-rotate" name="is-rotate" checked>rotate</div>
+      <div class="option-class"><input type="checkbox" id="is-border" name="is-border">border</div>
+      <div class="option-class"><input type="checkbox" id="is-shaking" name="is-shaking" checked>shake it!</div>
+    </div>
+     </div>
   </div>  
   <script type="module" src="../js/firebase/config.js"></script>
   <script type="module" src="../js/firebase/ns-leaderboard-helper.js"></script>
