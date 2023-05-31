@@ -110,6 +110,14 @@ function getNumberOfNumbers() {
 document.getElementById('leaderboard').innerHTML = ''
 let finishTimeSec = 0
 generateGameField(getNumberOfNumbers())
+document.getElementById('is-shaking').addEventListener('change', function () {
+  console.log(
+    document.getElementById('is-shaking'),
+    document.getElementById('is-rotate')
+  )
+  document.getElementById('is-rotate').disabled =
+    document.getElementById('is-shaking').checked
+})
 //generatePhrase('HELLO', 'test-location')
 
 //----- GAME FIELD ----//
@@ -118,7 +126,8 @@ function generateGameField(numberOfnumbers) {
   document.getElementById('game-field').innerHTML = ''
   if (numberOfnumbers === 0) {
     // generatePhrase('choose the number', 'game-field')
-    document.getElementById('game-field').innerHTML = 'Choose a number first'
+    document.getElementById('game-field').innerHTML =
+      '<div id="choose-first">Choose a number first</div>'
   }
   // local records (hidden for now)
   //document.getElementById('records').innerHTML = ''
@@ -478,6 +487,7 @@ async function displayRatingOnPage(places, location) {
   if (records.length == 0) {
     tableContainer.innerHTML = 'No records yet'
   } else {
+    tableContainer.innerHTML = ''
     // assigning places
     let i = 0
     records.map((el) => {

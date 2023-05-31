@@ -204,9 +204,14 @@ width: 2em;
   flex-direction: column;
 }
 
+#choose-first {
+  color: #A14273;
+}
+
 #options {
   display: flex;
   flex-direction: row;
+  margin-top: 0.5em;
 }
 .option-class {
   font-size: smaller;
