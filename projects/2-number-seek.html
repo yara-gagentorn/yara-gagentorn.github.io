@@ -15,24 +15,26 @@
   <div id="container">
     <div id="header"><h1 id="game-name">Number Seek</h1></div>
     <div id="info">
-      <div id="rules">
+      <div class="block" id="rules">
         <div id="click-hext-div">Click on <span id ="click-next-spn">1</span></div></div>
+      <div class="block">
       <div id="timer-div">Timer: <span id="timer-span">0</span> sec</div>
       <div id="hint-div"><button  class="small-button" id="hint-btn">Show me a hint</button>
         <div class="hint-descr">Every hint will add 5 sec to your time</div>
       </div>
-      
-      <div id="how-many-container">
-        <span>How many numbers?</span>
+      </div>
+
+      <div class="block" id="how-many-container">
+        <span>Choose a number:</span>
         <div id="button-number-container"></div>
         <input id="input-how-many-numbers"  min="2" max="80" value="10">
         <span id="validation-message" class="hint-descr"></span>
-      </div>
-      <div><button class="small-button" id="start-over">Start Over</button></div>
+      
+      <div><button class="small-button" id="start-over">Start Over</button></div></div>
       <!-- local records -->
       <!--div id="records"></div-->
       <!-- global records -->
-      <div id="leaderboard"></div>
+      <div class="block" id="leaderboard"></div>
       <!-- reset local results (hidden for now) -->
       <!-- <button  class="small-button" id="reset-records">Reset Records</button> -->
     </div>
