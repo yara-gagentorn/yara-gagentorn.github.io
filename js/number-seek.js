@@ -195,6 +195,7 @@ async function generateGameField(numberOfnumbers) {
   }
 }
 
+// generate phrase, letter by letter
 function generatePhrase(phrase, location) {
   console.log('starting phrase....')
   console.log('phrase and location', phrase, location)
@@ -203,7 +204,6 @@ function generatePhrase(phrase, location) {
   let newDiv
   for (let i = 0; i < arr.length; i++) {
     newDiv = document.createElement('div')
-    console.log(newDiv)
     newDiv.setAttribute('class', 'num-div')
     newDiv.textContent = arr[i]
     assignStyle(newDiv)
@@ -482,6 +482,7 @@ function hideWin() {
   document.getElementById('win-window').style.animation = ''
   document.getElementById('new-record').innerHTML = ''
   document.removeEventListener('click', handleClick)
+  document.getElementById('name-error-message').innerHTML = ''
   displayRatingOnPage(5, 'leaderboard')
   startOver()
 }
@@ -510,13 +511,13 @@ async function getRating(place) {
 
 async function displayRatingOnPage(places, location) {
   const tableContainer = document.getElementById(location)
-  // get first n places
   const records = await getRating(places)
+
   if (records.length === 0) {
     tableContainer.innerHTML = 'No records yet'
   } else {
     tableContainer.innerHTML = ''
-    // assigning places
+
     let i = 0
     records.map((el) => {
       el.place = i + 1 + '.'
@@ -531,13 +532,14 @@ async function displayRatingOnPage(places, location) {
     scoreHeader.textContent = 'Time'
     const placeHeader = document.createElement('th')
     placeHeader.textContent = '#'
+
     headerRow.appendChild(placeHeader)
     headerRow.appendChild(userHeader)
     headerRow.appendChild(scoreHeader)
     table.appendChild(headerRow)
 
     if (Array.isArray(records)) {
-      records.forEach((record) => {
+      records.forEach((record, index) => {
         const row = document.createElement('tr')
         const userCell = document.createElement('td')
         userCell.textContent =
@@ -548,16 +550,24 @@ async function displayRatingOnPage(places, location) {
         scoreCell.textContent = record.score
         const placeCell = document.createElement('td')
         placeCell.textContent = record.place
+
         row.appendChild(placeCell)
         row.appendChild(userCell)
         row.appendChild(scoreCell)
         table.appendChild(row)
+
+        // Apply alternate background color
+        if (index % 2 === 1) {
+          row.style.backgroundColor = '#9b3455' // Darker background color
+        }
       })
     }
+
     const header = document.createElement('p')
     header.innerHTML =
       'Leaderboard for number <b>' + getNumberOfNumbers() + '</b>'
     header.setAttribute('id', 'leaderboard-header')
+
     tableContainer.appendChild(header)
     tableContainer.appendChild(table)
   }
