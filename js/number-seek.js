@@ -568,3 +568,33 @@ function createNumberButtons() {
 }
 
 createNumberButtons()
+
+//--- LEADERBOARD WINDOW ---//
+
+document.getElementById('leaderboard').onclick = showFullLeaderboard
+document.getElementById('close-leaderboard').onclick = hideFullLeaderboard
+document.getElementById('close-leaderboard-button').onclick =
+  hideFullLeaderboard
+
+function hideFullLeaderboard() {
+  document.getElementById('leaderboard-window').style.visibility = 'hidden'
+  document.getElementById('game-field').style.filter = 'none'
+  document.getElementById('info').style.filter = 'none'
+  document.getElementById('leaderboard-window').style.animation = ''
+}
+
+async function showFullLeaderboard() {
+  document.getElementById('game-field').style.filter = 'blur(5px)'
+  document.getElementById('info').style.filter = 'blur(5px)'
+  document.getElementById('leaderboard-window').style.animation = 'winPopUp 1s'
+
+  console.log('click')
+  document.getElementById('leaderboard-window').style.visibility = 'visible'
+  const numberOfnumbers = getNumberOfNumbers()
+  const fullLeaderboard = await getRating(30)
+  displayRatingOnPage(30, 'full-leaderboard')
+}
+
+
+//--- LOADER ---//
+

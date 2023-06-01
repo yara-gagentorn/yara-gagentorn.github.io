@@ -139,6 +139,23 @@ width: 2em;
   text-align: center;
 }
 
+
+.loader {
+  width: 30px;
+  height: 30px;
+  border: 7px solid rgba(255,189,211 , 0.05);
+  border-top: 7px solid #F2C6EE;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .block {
   border-radius: var(--bradius);
   margin: 10px;
@@ -224,7 +241,7 @@ width: 2em;
   margin-right: 0.5em;
 }
 
- #win-window {
+ .modal-window {
   border-radius: 10px;
    visibility: hidden;
    position:absolute;
@@ -241,6 +258,10 @@ width: 2em;
    padding: 1rem;
    padding-top: 1.5rem;
   
+ }
+
+ #leaderboard-window {
+  visibility:hidden;
  }
 
  .button-container {
