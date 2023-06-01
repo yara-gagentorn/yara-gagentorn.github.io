@@ -34,7 +34,7 @@
       <!--div id="records"></div-->
       <!-- global records -->
       <div class="block">
-        <div id="loader" class="loader"></div>
+        
         <div  id="leaderboard"></div>
       </div>
       <!-- reset local results (hidden for now) -->
@@ -48,22 +48,20 @@
       <span id="new-record"></span><br>
       <form id="userinfo">
         <input type="text" id="user-name" name="name" placeholder="Enter your name" onblur="this.placeholder='Enter your name'" onfocus="this.placeholder=''" >
+        <span id="name-error-message" class="hint-descr"></span>
         <div class="button-container">
          <button  class="small-button" id="save-game-data" type="button">Record my result</button>
          <button id="win-start-over" class="small-button">Play Again</button>
         </div>
       </form>
+      
     </div>
 
     <!-- open leaderboard in separate window -->
     <div id="leaderboard-window" class="modal-window">
-      
-
       <button class= "close-button" id="close-leaderboard-button" ></button> 
-      <div id="full-leaderboard"></div>
+      <div id="full-leaderboard"><div id="loader" class="loader"></div></div>
          <button id="close-leaderboard" class="small-button">Close</button>
-        
-      
     </div>
 
 

@@ -7,7 +7,6 @@ import {
   getDocs,
   updateDoc,
   doc,
-  
 } from 'https://www.gstatic.com/firebasejs/9.21.0/firebase-firestore.js'
 
 // getting all records for the specific number
@@ -66,7 +65,7 @@ export async function deleteAllRecordsExcept(
   firestore
 ) {
   console.log('records to keep: ', recordsToKeep)
-  recordsToKeep.forEach((record) => console.log(record.id))
+  //recordsToKeep.forEach((record) => console.log(record.id))
   const allRecords = await getAllRecords(numberOfnumbers, firestore)
   console.log('all records ', allRecords)
   const recordsToDelete = allRecords.filter(

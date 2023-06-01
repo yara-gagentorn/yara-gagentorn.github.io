@@ -262,6 +262,7 @@ width: 2em;
 
  #leaderboard-window {
   visibility:hidden;
+  width:320px;
  }
 
  .button-container {

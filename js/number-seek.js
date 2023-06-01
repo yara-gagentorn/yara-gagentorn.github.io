@@ -43,9 +43,35 @@ function getRandomElement(array) {
 }
 
 // generate random color
+// function randomColor(elem) {
+//   let someColor = Math.floor(Math.random() * 16777215).toString(16)
+//   elem.style.color = '#' + someColor
+// }
+
+// generate random color which is not close to white (thanks to GPT)
 function randomColor(elem) {
-  let someColor = Math.floor(Math.random() * 16777215).toString(16)
+  const minDistance = 50 // Adjust this value to control the minimum RGB distance from white
+  let someColor
+  do {
+    someColor = Math.floor(Math.random() * 16777215).toString(16)
+  } while (isColorTooCloseToWhite(someColor, minDistance))
+
   elem.style.color = '#' + someColor
+}
+
+function isColorTooCloseToWhite(color, minDistance) {
+  // Convert the color to RGB values
+  const red = parseInt(color.substr(0, 2), 16)
+  const green = parseInt(color.substr(2, 2), 16)
+  const blue = parseInt(color.substr(4, 2), 16)
+
+  // Calculate the Euclidean distance between the color and white (255, 255, 255)
+  const distance = Math.sqrt(
+    Math.pow(255 - red, 2) + Math.pow(255 - green, 2) + Math.pow(255 - blue, 2)
+  )
+
+  // Check if the distance is less than the minimum distance
+  return distance < minDistance
 }
 
 // generate random font style and weight
@@ -122,7 +148,7 @@ document.getElementById('is-shaking').addEventListener('change', function () {
 
 //----- GAME FIELD ----//
 
-function generateGameField(numberOfnumbers) {
+async function generateGameField(numberOfnumbers) {
   document.getElementById('game-field').innerHTML = ''
   if (numberOfnumbers === 0) {
     // generatePhrase('choose the number', 'game-field')
@@ -132,8 +158,10 @@ function generateGameField(numberOfnumbers) {
   // local records (hidden for now)
   //document.getElementById('records').innerHTML = ''
   //showRecord()
-  document.getElementById('leaderboard').innerHTML = ''
-  displayRatingOnPage(5, 'leaderboard')
+  document.getElementById('leaderboard').innerHTML =
+    '<div id="loader" class="loader"></div>'
+
+  await displayRatingOnPage(5, 'leaderboard')
   let arr = getArray(1, numberOfnumbers)
   let i = numberOfnumbers
   let randomNum
@@ -393,7 +421,6 @@ document
 
 function handleHowMany() {
   const numberOfnumbers = getNumberOfNumbers()
-  //displayRatingOnPage(5, 'leaderboard')
   if (numberOfnumbers == 0) {
     document.getElementById('game-field').innerHTML =
       'Choose a number between 2 and 80'
@@ -455,6 +482,7 @@ function hideWin() {
   document.getElementById('win-window').style.animation = ''
   document.getElementById('new-record').innerHTML = ''
   document.removeEventListener('click', handleClick)
+  displayRatingOnPage(5, 'leaderboard')
   startOver()
 }
 
@@ -484,7 +512,7 @@ async function displayRatingOnPage(places, location) {
   const tableContainer = document.getElementById(location)
   // get first n places
   const records = await getRating(places)
-  if (records.length == 0) {
+  if (records.length === 0) {
     tableContainer.innerHTML = 'No records yet'
   } else {
     tableContainer.innerHTML = ''
@@ -512,7 +540,10 @@ async function displayRatingOnPage(places, location) {
       records.forEach((record) => {
         const row = document.createElement('tr')
         const userCell = document.createElement('td')
-        userCell.textContent = record.username
+        userCell.textContent =
+          record.username.length > 10
+            ? record.username.substring(0, 10) + '...'
+            : record.username
         const scoreCell = document.createElement('td')
         scoreCell.textContent = record.score
         const placeCell = document.createElement('td')
@@ -536,6 +567,13 @@ async function displayRatingOnPage(places, location) {
 async function recordTheBestGlobal(howManyRecordsToKeep) {
   const userName = document.getElementById('user-name').value
   const numberOfnumbers = getNumberOfNumbers()
+  if (userName.length > 14) {
+    // Display an error message or handle the case where the name is too long
+    document.getElementById(
+      'name-error-message'
+    ).innerHTML = `Name must be  no longer than 14 characters (currently ${userName.length})`
+    return
+  }
   // add new record to the database
   createScore(numberOfnumbers, finishTimeSec, userName, firestore)
   // get all records from db
@@ -548,6 +586,7 @@ async function recordTheBestGlobal(howManyRecordsToKeep) {
 }
 
 //--- BUTTONS WITH NUMBERS ---//
+
 function createNumberButtons() {
   const numbers = [10, 20, 30, 40, 50, 60, 70, 80]
 
@@ -581,20 +620,19 @@ function hideFullLeaderboard() {
   document.getElementById('game-field').style.filter = 'none'
   document.getElementById('info').style.filter = 'none'
   document.getElementById('leaderboard-window').style.animation = ''
+  document.getElementById('full-leaderboard').innerHTML =
+    '<div id="loader" class="loader"></div>'
 }
 
 async function showFullLeaderboard() {
   document.getElementById('game-field').style.filter = 'blur(5px)'
   document.getElementById('info').style.filter = 'blur(5px)'
   document.getElementById('leaderboard-window').style.animation = 'winPopUp 1s'
-
-  console.log('click')
   document.getElementById('leaderboard-window').style.visibility = 'visible'
   const numberOfnumbers = getNumberOfNumbers()
   const fullLeaderboard = await getRating(30)
+  //'<div id="loader" class="loader"></div>'
   displayRatingOnPage(30, 'full-leaderboard')
 }
 
-
 //--- LOADER ---//
-
