@@ -16,6 +16,7 @@ body {
   background-image: linear-gradient(to bottom right, #453a94, #f43b47);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   font-size: 14pt;
   font-family: 'Quicksand', sans-serif;
 }
@@ -33,18 +34,22 @@ body {
   width: 70%;
   margin: 10px 0 10px 0;
   filter: drop-shadow(0 0 0.75rem #ED3994);
+  animation: shine 8s cubic-bezier(0.1, -0.6, 0.2, 0)  infinite;
   
 }
 
 @keyframes shine {
   0% {
     filter: drop-shadow(0 0 0.75rem #ED3994);
+    transform: scale(1);
   }
   50% {
-    filter: drop-shadow(0 0 0.25rem #ED3994);
+    filter: drop-shadow(0 0 0.45rem #ED3994);
+    transform: scale(1.002);
   }
   100% {
     filter: drop-shadow(0 0 0.75rem #ED3994);
+    transform: scale(1);
   }
 }
 
