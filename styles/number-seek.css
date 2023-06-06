@@ -13,6 +13,7 @@ body {
   background-image: linear-gradient(to bottom right, #453a94, #f43b47);
   background-repeat: no-repeat;
   background-attachment: fixed;
+  background-size: cover;
   font-size: 14pt;
   font-family: 'Quicksand', sans-serif;
 }
