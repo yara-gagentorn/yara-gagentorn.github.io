@@ -28,14 +28,25 @@ body {
   text-transform: lowercase;
   font-weight: 400;
   text-align: center;
+  position: sticky;
+  top: 20px;
+  z-index: 20;
+  transition: all 0.3s ease;
+
 }
 
 #logo-header {
   width: 70%;
   margin: 10px 0 10px 0;
   filter: drop-shadow(0 0 0.75rem #ED3994);
-  animation: shine 8s cubic-bezier(0.1, -0.6, 0.2, 0)  infinite;
+  /* animation: shine 8s cubic-bezier(0.1, -0.6, 0.2, 0)  infinite; */
+  transition: width 2s;
   
+}
+
+#logo-header:hover {
+  width: 30%;
+
 }
 
 @keyframes shine {
@@ -51,10 +62,6 @@ body {
     filter: drop-shadow(0 0 0.75rem #ED3994);
     transform: scale(1);
   }
-}
-
-#logo-header:hover {
-  animation: shine 3s linear  infinite;
 }
 
 
@@ -93,6 +100,8 @@ body {
   display: inline;
   list-style-type: none;
   font-size: 16pt;
+  /* transform: translateX(-50%); */
+  transition: all 0.3s ease;
 }
 
 li.menu-header-el {
@@ -148,7 +157,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-  margin-top: 0.5em;
+  margin-top: 0.1em;
   margin-bottom: 0.5em;
   font-family: "Saira";
   font-weight: 300;
@@ -361,7 +370,10 @@ pre {
     width: 90%;
     margin: 10px 0 10px 0;
     filter: drop-shadow(0 0 0.75rem #ED3994);
+    transition: brightness 0.3s ease;
+
   }
+
 
   #container {
     width: 98%;
