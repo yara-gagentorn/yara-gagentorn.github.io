@@ -412,65 +412,84 @@ display: none;  }
   }
 }
 
-.menu-toggle-bar {
-  display: block;
-  position: absolute;
-  top: 50%;
-  margin-top: -1px;
-  right: 0;
-  width: 100%;
-  height: 4px;
-  border-radius: 4px;
-  background-color: black;
-  transition: all 0.3s ease;
 
-  &.menu-toggle-bar--top {
-    transform: translate(0, -8px);
-  }
-  &.menu-toggle-bar--middle {
-  }
-  &.menu-toggle-bar--bottom {
-    transform: translate(0, 8px);
-  }
 
-  .nav-open & {
-    &.menu-toggle-bar--top {
-      transform: translate(0, 0) rotate(45deg);
-    }
-    &.menu-toggle-bar--middle {
-      opacity: 0;
-    }
-    &.menu-toggle-bar--bottom {
-      transform: translate(0, 0) rotate(-45deg);
-    }
-  }
+
+/*----*/
+#menu_checkbox {
+  display: none;
 }
 
-
-
-
-.burger-icon {
-  width: 32px;
-  height: 32px;
-  fill: #dccdfd;
- position: absolute;
- right:10px;
- top: 5px;
- transition: transform 0.3s ease;
+label {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  display: block;
+  width: 26px;
+  height: 26px;
+  margin: -30px auto 0 auto;
   cursor: pointer;
 }
 
-.burger-icon.open .line-1 {
-  transform: rotate(45deg) translate(6px, 6px);
+label:before {
+  content: "";
+  position: fixed;
+  top: 0;
+  right: 0;
+  /* bottom: 0; */
+  /* left: 0; */
+  /* background-color: #f44336; */
+  transition: 1.2s cubic-bezier(0, 0.96, 1, 0.02) background-color;
 }
 
-.burger-icon.open .line-2 {
-  opacity: 0;
+label div {
+  position: relative;
+  top: 0;
+  height: 6px;
+  background-color: #fff;
+  margin-bottom: 12px;
+  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width,
+    0.3s ease right;
+  border-radius: 2px;
 }
 
-.burger-icon.open .line-3 {
-  transform: rotate(-45deg) translate(6px, -6px);
+label div:first-child {
+  transform-origin: 0;
 }
+
+label div:last-child {
+  margin-bottom: 0;
+  transform-origin: 26px;
+}
+
+label div:nth-child(2) {
+  right: 0;
+  width: 26px;
+}
+
+#menu_checkbox:checked + label:before {
+  /* background-color: #4caf50; */
+}
+
+#menu_checkbox:checked + label div:first-child {
+  top: -6px;
+  transform: rotateZ(45deg);
+}
+
+#menu_checkbox:checked + label div:last-child {
+  top: 6px;
+  transform: rotateZ(45deg);
+}
+
+#menu_checkbox:checked + label div:nth-child(2) {
+  width: 85px;
+  top: 0;
+  right: 13px;
+  transform: rotateZ(-45deg);
+}
+
+
 
 /*--------------BURGER MENU ENDS----------------*/
 

@@ -33,9 +33,3 @@ window.addEventListener('scroll', function () {
 })
 
 //---BURGER MENU----//
-const menu = document.getElementById('menu-toggle')
-menu.addEventListener('click', function () {
-  document
-    .getElementsByClassName(menu - toggle - bar)
-    .classList.toggle('nav-open')
-})
