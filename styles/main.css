@@ -84,10 +84,12 @@ body {
   text-transform: lowercase;
   font-weight: 400;
   position: sticky;
-  top: 20px;
+  top: 0px;
+
   z-index: 20;
+  
   transition: background-color 0.9s ease;
- 
+
 }
 
 #menu-header {
@@ -96,7 +98,8 @@ body {
   position: relative;
   display: inline;
   list-style-type: none;
-  font-size: 16pt;	
+  font-size: 16pt;
+  padding-left: 0;	
 }
 
 li.menu-header-el {
@@ -116,12 +119,14 @@ li.blog-links-el {
 
 #small-logo{
   margin-top: -12px;
-  margin-bottom: -5px;
+  margin-bottom: -10px;
   width: 300px;
   position: relative;
   left:0px;
   filter: drop-shadow(0 0 0.75rem #ED3994) brightness(1.6);
   opacity: 0;
+  display: none;
+  display: ;
   transition: opacity 1s ease;
 
 }
@@ -334,6 +339,11 @@ pre {
   display: none;
 }
 
+#menu_checkbox {
+  display: none;
+}
+
+
 
 
 /** -------------- MEDIA ------------------- **/
@@ -399,36 +409,18 @@ display: none;  }
 
 /*--------------BURGER MENU----------------*/
 
-.menu-toggle {
-  position: absolute;
-  right: 1.5rem;
-  top: 49%;
-  transform: translate(0, -50%);
-  height: 26px;
-  width: 29px;
-
-  &, &:hover {
-    color: #000;
-  }
-}
-
-
-
-
-/*----*/
 #menu_checkbox {
   display: none;
 }
 
 label {
   position: absolute;
-  top: 50%;
-  right: 0;
-  left: 0;
+  top: 55%;
+  right: 10px;
   display: block;
   width: 26px;
   height: 26px;
-  margin: -30px auto 0 auto;
+  margin: -13px auto 0 auto;
   cursor: pointer;
 }
 
@@ -437,7 +429,7 @@ label:before {
   position: fixed;
   top: 0;
   right: 0;
-  /* bottom: 0; */
+  bottom: 0;
   /* left: 0; */
   /* background-color: #f44336; */
   transition: 1.2s cubic-bezier(0, 0.96, 1, 0.02) background-color;
@@ -446,11 +438,10 @@ label:before {
 label div {
   position: relative;
   top: 0;
-  height: 6px;
+  height: 4px;
   background-color: #fff;
-  margin-bottom: 12px;
-  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width,
-    0.3s ease right;
+  margin-bottom: 4px;
+  transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
   border-radius: 2px;
 }
 
@@ -469,26 +460,25 @@ label div:nth-child(2) {
 }
 
 #menu_checkbox:checked + label:before {
-  /* background-color: #4caf50; */
+ 
 }
 
 #menu_checkbox:checked + label div:first-child {
-  top: -6px;
+  top: -5px;
   transform: rotateZ(45deg);
 }
 
 #menu_checkbox:checked + label div:last-child {
-  top: 6px;
+  top: 5px;
   transform: rotateZ(45deg);
 }
 
 #menu_checkbox:checked + label div:nth-child(2) {
-  width: 85px;
+  width: 37px;
   top: 0;
-  right: 13px;
+  right: 5px;
   transform: rotateZ(-45deg);
 }
-
 
 
 /*--------------BURGER MENU ENDS----------------*/
@@ -507,6 +497,7 @@ label div:nth-child(2) {
     text-transform: lowercase;
     font-weight: 400;
     text-align: left;
+    
   }
   
   #blog, #welcome {
@@ -557,31 +548,6 @@ label div:nth-child(2) {
     float:none;
     vertical-align: middle;
   }
-
-  /* .project-descr {
-    display: none;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-  .block {
-    text-align: center;
-  }
-  
-  .descr {
-    text-align: left;
-    display: none;
-  }
-
-  .show-text-btn {
-display: block;  }*/
-
-/* #menu-header {
-  display: list-item;
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}  */
 
 }
 
