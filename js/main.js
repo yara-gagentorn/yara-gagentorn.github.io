@@ -11,23 +11,19 @@ window.addEventListener('scroll', function () {
   var offsetTop = rect.top
 
   if (offsetTop <= 20 && !isSticky) {
+    // The sticky element is sticky
+    smallLogo.style.visibility = 'visible'
+    smallLogo.style.opacity = '100%'
     stickyElement.classList.add('is-sticky')
-    smallLogo.classList.add('logo-is-sticky')
-    // menuHeader.style.left = '25%'
-
-    // smallLogo.style.opacity = '100%'
-    // smallLogo.style.display = 'inline-block'
+    // smallLogo.classList.add('logo-is-sticky')
 
     isSticky = true
   } else if (offsetTop > 20 && isSticky) {
     // The sticky element is no longer sticky
+    smallLogo.style.visibility = 'hidden'
+    smallLogo.style.opacity = '0'
     stickyElement.classList.remove('is-sticky')
-    smallLogo.classList.remove('logo-is-sticky')
-
-    // menuHeader.style.left = '0'
-
-    // smallLogo.style.opacity = '0'
-    // smallLogo.style.display = 'none'
+    // smallLogo.classList.remove('logo-is-sticky')
 
     isSticky = false
   }
