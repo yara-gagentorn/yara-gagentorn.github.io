@@ -12,9 +12,9 @@
   <body>
     <div id="container">
       <img id="logo-header" src="./media/logo.png" alt="logo">
-      <div class="block" id="header"><!-- navigation -->
+      <div class="block header" id="header"><!-- navigation -->
       <!-- <div id="menu-header">hello there</div> -->
-      <img id="small-logo" src="./media/logo.png">
+      <img id="small-logo" class="small-logo" src="./media/logo.png">
         <ul id="menu-header">
           <li class="menu-header-el"><a href="#">About</a></li>
           <li class="menu-header-el"><a href="./blog/blog-content.html">My Blog</a></li>
@@ -23,13 +23,14 @@
           <li class="menu-header-el"><a href="./projects/contacts.html">Contacts</a></li>
         </ul>
 
-        <input type="checkbox" id="menu_checkbox">
-        <label for="menu_checkbox">
-          <div></div>
-          <div></div>
-          <div></div>
+        <div class="burger-invisible" >
+          <input type="checkbox" id="menu-checkbox" >
+          <label for="menu-checkbox">
+            <div></div>
+            <div></div>
+            <div></div>
         </label>
-       
+       </div>
 
         <!-- <svg id="burger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M3 12h18M3 6h18M3 18h18"></path>
