@@ -15,7 +15,7 @@
       <div class="block header" id="header"><!-- navigation -->
       <!-- <div id="menu-header">hello there</div> -->
       <img id="small-logo" class="small-logo" src="./media/logo.png">
-        <ul id="menu-header">
+        <ul id="menu-header" class="menu-header">
           <li class="menu-header-el"><a href="#">About</a></li>
           <li class="menu-header-el"><a href="./blog/blog-content.html">My Blog</a></li>
           <li class="menu-header-el"><a href="./projects/projects-content.html">My Projects</a></li>
@@ -23,7 +23,7 @@
           <li class="menu-header-el"><a href="./projects/contacts.html">Contacts</a></li>
         </ul>
 
-        <div class="burger-invisible" >
+        <div class="burger-invisible" onclick="toggleMenu()">
           <input type="checkbox" id="menu-checkbox" >
           <label for="menu-checkbox">
             <div></div>
@@ -31,7 +31,17 @@
             <div></div>
         </label>
        </div>
+       
       </div>
+      <!-- <div id="menu-window" class="modal block">
+        <ul class="menu-win">
+          <li class="menu-win-el"><a href="#">About</a></li>
+          <li class="menu-win-el"><a href="./blog/blog-content.html">My Blog</a></li>
+          <li class="menu-win-el"><a href="./projects/projects-content.html">My Projects</a></li>
+          <li class="menu-win-el"><a href="./projects/cv.html">My CV</a></li>
+          <li class="menu-win-el"><a href="./projects/contacts.html">Contacts</a></li>
+        </ul>
+       </div> -->
       <div id="content"><!-- main content-->
         <div class="block" id="blog"><!-- links to blog posts-->
         </div>

@@ -12,19 +12,33 @@ window.addEventListener('scroll', function () {
 
   if (offsetTop <= 20 && !isSticky) {
     // The sticky element is sticky
-    smallLogo.style.visibility = 'visible'
+    menuHeader.classList.add('menu-header-is-sticky')
+
     smallLogo.style.opacity = '100%'
+    smallLogo.style.width = '300px'
     stickyElement.classList.add('is-sticky')
-    // smallLogo.classList.add('logo-is-sticky')
+    smallLogo.classList.add('logo-is-sticky')
 
     isSticky = true
   } else if (offsetTop > 20 && isSticky) {
     // The sticky element is no longer sticky
-    smallLogo.style.visibility = 'hidden'
     smallLogo.style.opacity = '0'
+    smallLogo.style.width = '0px'
     stickyElement.classList.remove('is-sticky')
-    // smallLogo.classList.remove('logo-is-sticky')
+    menuHeader.classList.remove('menu-header-is-sticky')
+
+    smallLogo.classList.remove('logo-is-sticky')
 
     isSticky = false
   }
 })
+
+// function toggleModal() {
+//   const modal = document.querySelector('.modal')
+//   console.log(modal)
+//   modal.classList.add('active')
+// }
+
+function toggleMenu() {
+  stickyElement.classList.add('open-menu')
+}
