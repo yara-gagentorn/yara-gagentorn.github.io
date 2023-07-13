@@ -1,251 +1,65 @@
-<!--testing chats GPT ideas-->
-
 <!DOCTYPE html>
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="./styles/fortest.css">
-  
-</head>
-<body>
-  <div id="header">
-    <div id="logo">
-      <img src="./media/logo.png" alt="Logo" id="largeLogo">
-      <img src="./media/logo.png" alt="Logo" id="smallLogo">
-    </div>
-    <div id="menu">
-      <ul id="menu-header">
-        <li class="menu-header-el"><a href="#">About</a></li>
-        <li class="menu-header-el"><a href="./blog/blog-content.html">My Blog</a></li>
-        <li class="menu-header-el"><a href="./projects/projects-content.html">My Projects</a></li>
-      </ul>
-      <!-- Your menu items here -->
-    </div>
-  </div>
-  <div id="content">
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
+<html lang="en">
+  <head>
+    <title>My website</title>
+    <meta name="description" content="My blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./styles/fortest.css" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <div class="mobile-header">
+        <div class="row">
+          <div class="cell small-logo-cell"><img class="small-logo" src="./media/logo.png"></div>
+          <div class="cell">
+            <div class="burger-invisible">
+              <input type="checkbox" id="menu-checkbox" onclick="toggleMenu()" >
+              <label for="menu-checkbox">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+           </div>
+          </div>
+        </div>
+        <div class="row menu-closed" id="menu">
+          <div  class="cell">
+            <nav id="menu-open" class="menu-open-list" >
+              <a href="#">About</a>
+              <a href="./blog/blog-content.html">My Blog</a>
+              <a href="./projects/projects-content.html">My Projects</a>
+              <a href="./projects/cv.html">My CV</a>
+              <a href="./projects/contacts.html">Contacts</a>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="desktop-header">This is for desktop</div>
+      <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec orci eros. Nam pulvinar lacus eros, sed commodo eros blandit at. Praesent risus nisi, eleifend eget ipsum quis, finibus maximus enim. Vestibulum dignissim ex sit amet lorem ultricies ornare. Vestibulum tristique tristique sem, eget interdum leo feugiat at. Nam enim elit, cursus at justo et, elementum dignissim felis. Quisque quis consequat lorem, sit amet condimentum sapien. Mauris a sodales metus. Donec ornare eros nisl, a venenatis massa commodo eu. Morbi tincidunt maximus feugiat. Morbi congue nisl quis nunc ultricies dictum.
 
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
+        Duis et odio orci. Maecenas a nulla rhoncus, pharetra turpis eget, tincidunt felis. Aliquam id urna diam. Sed vitae massa eget sapien vulputate tempus sed ut tortor. Fusce tempus suscipit lectus, pellentesque congue nibh hendrerit at. Vivamus sit amet dui sagittis magna egestas porta non at ligula. Phasellus tempor molestie libero, congue vestibulum ligula faucibus non. Curabitur luctus lectus est, a elementum erat consequat ut. Maecenas vitae justo auctor, blandit justo a, ullamcorper libero. Curabitur nisl massa, consequat quis tortor non, luctus venenatis felis. Maecenas sollicitudin sapien quis magna pharetra ornare. Fusce sodales urna vitae dignissim egestas. Phasellus condimentum tortor eu odio fermentum molestie. Nunc egestas tempor ante nec sagittis. Phasellus varius, elit in egestas fringilla, mauris sem ullamcorper ante, eu laoreet urna dui ac ipsum.
+        
+        Vestibulum vitae sapien facilisis, aliquet lacus et, hendrerit diam. Vivamus metus ligula, viverra non sem quis, dignissim posuere dolor. Nunc eget turpis in quam dignissim consequat et id libero. Sed a turpis non turpis laoreet congue ut id sem. Morbi vel massa velit. Nulla mollis feugiat consequat. Pellentesque eget velit quis ante hendrerit semper sed quis ex. Phasellus vel mattis tortor. Ut quis luctus odio. Proin sodales luctus nunc, sed rutrum tortor eleifend ac.
+        
+        Pellentesque pharetra, elit ut mattis commodo, orci dolor faucibus nisl, ut vulputate leo dolor quis justo. Donec eu facilisis risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis accumsan lacus vel elit congue, pellentesque volutpat augue dictum. Maecenas blandit viverra arcu ullamcorper pharetra. Sed a eros quam. Cras dictum, tellus et hendrerit feugiat, sapien massa rhoncus diam, eu porttitor sapien lorem quis tellus. Vestibulum in odio tincidunt, condimentum lorem in, consequat massa. Aenean consectetur eleifend urna vitae pretium. Suspendisse potenti.
+        
+        Duis leo metus, porta quis est ut, suscipit aliquam urna. Suspendisse pulvinar massa metus, vel pellentesque tortor tempus in. Duis non mi id dolor convallis interdum. Mauris rhoncus ligula vitae odio pellentesque vehicula. Nulla interdum turpis aliquet dui iaculis pharetra. Integer a nunc viverra, ultricies justo in, fringilla nibh. Integer at arcu condimentum, dignissim ex vitae, iaculis ante. Praesent malesuada vel quam vel tincidunt. Nam ultrices risus id purus accumsan, ac pharetra nisl rhoncus. Quisque sit amet efficitur libero, quis accumsan velit. Integer pharetra quam at turpis ultricies, id vulputate est viverra. Curabitur quis urna tempus, maximus lorem ac, luctus turpis. Vestibulum molestie nibh sed ultrices malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam dignissim est nulla, nec dapibus libero pulvinar vel.
+        
+        Sed vel porta lorem. Sed egestas leo in metus aliquam congue. Proin ornare fermentum tincidunt. Nunc gravida lectus ligula, sit amet ornare elit sagittis a. In hac habitasse platea dictumst. Aliquam erat volutpat. Suspendisse dictum, tellus id congue finibus, sapien ex pharetra nulla, ut facilisis justo sem at dolor. Donec posuere ipsum eget sodales ultrices. Aenean rutrum magna volutpat, aliquam mauris sit amet, laoreet metus. Suspendisse facilisis libero eleifend magna rutrum blandit.
+        
+        Suspendisse a pellentesque mi, eu lobortis eros. Nulla fermentum consectetur urna vel molestie. Morbi rutrum arcu sed nulla varius, vitae sodales massa pharetra. Sed aliquam, nunc at pellentesque ultrices, magna mauris cursus tortor, nec sodales mauris odio eu risus. Nam tincidunt eget arcu in pulvinar. Sed eu urna orci. Donec id purus nunc. Duis enim ante, tincidunt vel placerat sed, iaculis ac nunc. Integer dui libero, sollicitudin vitae ultrices vel, maximus nec est. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Maecenas id eros non mauris sodales vestibulum id in dolor. Nam molestie vulputate nisi vel maximus. Pellentesque diam nunc, tempor nec aliquet eget, ornare sed turpis.
+        
+        Nam vestibulum erat ac nunc luctus, quis lacinia eros volutpat. Maecenas interdum at mauris a gravida. Mauris ut malesuada felis. Cras ut dictum velit, sed varius nisl. Vivamus non accumsan eros. Proin vitae facilisis felis, ut placerat turpis. Donec semper ultrices sem ut vestibulum. Fusce quis metus vitae velit tristique bibendum a ac magna.
+        
+        Nunc justo dolor, elementum condimentum ullamcorper vitae, facilisis vitae est. Curabitur nec tincidunt felis. Cras dignissim ligula orci, et imperdiet ipsum sodales quis. Ut ac diam augue. Vivamus accumsan vel erat a egestas. Quisque tempor vulputate urna et elementum. Cras quis arcu nec turpis pulvinar finibus sit amet et enim. Nunc vehicula vestibulum tellus eget egestas. Nulla at risus id metus ultricies dictum. Donec pharetra ipsum quis erat semper tristique. Suspendisse id dolor sit amet lorem dapibus dictum. Mauris id finibus metus, nec porttitor justo. Proin nisi mauris, vulputate nec viverra sit amet, pulvinar eget nisi. Duis finibus bibendum magna, eu gravida odio suscipit id. Ut faucibus justo in placerat faucibus.
+        
+        Proin non massa in ligula convallis pretium eget ac nunc. Nulla ullamcorper neque vitae urna dapibus egestas. Phasellus sit amet bibendum dolor, sed mattis lectus. Donec ut tincidunt felis, a viverra purus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque eu mauris id mi mattis euismod ac et velit. Donec congue metus quis tortor molestie porta. Aliquam non fringilla eros. Ut lacinia, est vitae blandit vulputate, lorem enim condimentum ipsum, vitae suscipit enim sem at est. Vivamus blandit rhoncus odio non accumsan. Suspendisse potenti. Nam maximus sem mi, eu dapibus nibh interdum vitae. In iaculis aliquet facilisis. Donec vehicula enim id eros cursus, id dictum lectus aliquam. Fusce feugiat nunc quis iaculis posuere. Mauris a lacinia velit.</div>
     </div>
+    <!-- <script src="./js/blog-content-table.js"></script> -->
+    <script src="./js/fortest.js"></script>
 
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-
-    <div class="block">
-      <h2>Welcome!</h2>
-      <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-      <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-      <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-    </div>
-  </div>
-</body>
-<script src="./js/fortest.js"></script>
+  </body>
 </html>

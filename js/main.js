@@ -15,7 +15,7 @@ window.addEventListener('scroll', function () {
     menuHeader.classList.add('menu-header-is-sticky')
 
     smallLogo.style.opacity = '100%'
-    smallLogo.style.width = '300px'
+    // smallLogo.style.width = '300px'
     stickyElement.classList.add('is-sticky')
     smallLogo.classList.add('logo-is-sticky')
 
@@ -40,5 +40,13 @@ window.addEventListener('scroll', function () {
 // }
 
 function toggleMenu() {
-  stickyElement.classList.add('open-menu')
+  if (stickyElement.classList.contains('open-menu')) {
+    console.log('hereeeee')
+    stickyElement.classList.remove('open-menu')
+    open=false
+  } else {
+    console.log('thereeeee')
+
+    stickyElement.classList.add('open-menu')
+  }
 }

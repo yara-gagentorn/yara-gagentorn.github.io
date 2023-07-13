@@ -1,32 +1,191 @@
-#header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background-color: #f1f1f1;
-  z-index: 1;
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Saira:wght@500&display=swap');
+
+:root {
+  --bradius:10px;
 }
 
-#logo {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: height 0.5s;
+html, 
+body {
+    height: 100%;
+    color:#F2C6EE;
 }
 
-#largeLogo {
-  height: 100px; /* Adjust this value according to your needs */
+body {
+  margin: 0;
+  background-color:#453a94;
+  background-image: linear-gradient(to bottom right, #453a94, #f43b47);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 14pt;
+  font-family: 'Quicksand', sans-serif;
 }
 
-#smallLogo {
-  height: 50px; /* Adjust this value according to your needs */
-  opacity: 0;
-  transition: opacity 0.5s;
+a {
+  text-decoration: none;
+  color: white;
 }
 
-#menu {
-  /* Your menu styles */
+/*------- MAIN STYLES -------*/
+
+div {
+  border-style: dashed;
+  border-width: 1px;
 }
 
-#content {
-  margin-top: 150px; /* Adjust this value according to your needs */
+
+/*------- MEDIA QUERIES -------*/
+
+@media only screen and (max-width: 320px) { 
+
 }
+ 
+@media only screen and (max-width:767px) {
+  .desktop-header{
+    display: none;
+  }
+
+  .mobile-header{
+    position: sticky;
+    top: 0px;
+    z-index: 20;
+  }
+
+  #container{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+  }
+
+  .row {
+    display: flex;
+  }
+  
+  .cell {
+    flex: 1;
+    padding: 7px;
+    
+  }
+
+  .small-logo-cell{
+    flex: 1 0 30%;
+    
+  }
+
+  .small-logo{
+    max-width: 100%;
+    filter: drop-shadow(0 0 0.75rem #ED3994) brightness(1.6);
+  }
+    
+  /*--------------BURGER MENU----------------*/
+  .burger-invisible {
+    width: 100%;
+    margin-right: 0px;
+    margin-left: auto;
+  }
+
+
+  #menu-checkbox {
+    display: none;
+  }
+
+  label {
+    top: 55%;
+    right: 10px;
+    display: block;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    margin-right: 0;
+    margin-left: auto;
+    margin-top: 5px;
+  }
+
+  label:before {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transition: 1.2s cubic-bezier(0, 0.96, 1, 0.02) background-color;
+  }
+
+  label div {
+    position: relative;
+    top: 0;
+    height: 4px;
+    background-color: #dccdfd;
+    margin-bottom: 4px;
+    transition: 0.3s ease transform, 0.3s ease top, 0.3s ease width, 0.3s ease right;
+    border-radius: 2px;
+  }
+
+  label div:first-child {
+    transform-origin: 0;
+  }
+
+  label div:last-child {
+    margin-bottom: 0;
+    transform-origin: 26px;
+  }
+
+  label div:nth-child(2) {
+    right: 0;
+    width: 26px;
+  }
+
+  #menu-checkbox:checked + label div:first-child {
+    top: -5px;
+    transform: rotateZ(45deg);
+  }
+
+  #menu-checkbox:checked + label div:last-child {
+    top: 5px;
+    transform: rotateZ(45deg);
+  }
+
+  #menu-checkbox:checked + label div:nth-child(2) {
+    width: 37px;
+    top: 0;
+    right: 5px;
+    transform: rotateZ(-45deg);
+  }
+
+
+  /*--------------BURGER MENU ENDS----------------*/
+
+
+  .menu-closed{
+    position: relative;
+    top:-300px;
+    transition: top 0.3s ease;
+    height: 0px;
+  }
+  
+  .menu-open {
+    top:0px;
+    height: auto;
+  }
+
+  .menu-open-list{
+    text-decoration: none;
+    text-transform: uppercase;
+    list-style: none;
+  }
+
+  nav a {
+    display: block;
+  }
+
+  
+}
+
+@media only screen and (min-width: 768px) {
+  .mobile-header {
+    display: none;
+  }
+}
+
+
+

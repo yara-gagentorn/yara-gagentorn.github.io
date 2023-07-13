@@ -1,15 +1,21 @@
-window.addEventListener('scroll', function () {
-  var logo = document.getElementById('logo')
-  var largeLogo = document.getElementById('largeLogo')
-  var smallLogo = document.getElementById('smallLogo')
+// function toggleMenu() {
+//   var menu = document.getElementById('menu')
+//   if (menu.style.display === 'none') {
+//     menu.style.display = 'block' // Show the menu
+//     menu.classList.toggle('show')
+//   } else {
+//     menu.classList.toggle('show')
 
-  if (window.scrollY > 0) {
-    logo.style.height = '50px' // Adjust this value to match smallLogo height
-    smallLogo.style.opacity = '1'
-    largeLogo.style.opacity = '0'
+//     menu.style.display = 'none' // Hide the menu
+//   }
+// }
+
+function toggleMenu(){
+  var menu = document.getElementById('menu')
+  if (menu.classList.contains("menu-open")){
+    menu.classList.remove("menu-open")
   } else {
-    logo.style.height = '100px' // Adjust this value to match largeLogo height
-    smallLogo.style.opacity = '0'
-    largeLogo.style.opacity = '1'
+    menu.classList.add("menu-open")
   }
-})
+
+}

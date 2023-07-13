@@ -346,9 +346,9 @@ pre {
 
 .burger-invisible{
   display: none;
-  position: relative;
-  top:-18px;
-  right:0px;
+  /* position: relative; */
+  /* top:-18px; */
+  /* right:0px; */
 }
 
 /* --- STICKY NAVIGATION STYLE --- */
@@ -383,29 +383,6 @@ pre {
 
 /*--- MENU WINDOW ---*/
 
-.modal {
-  position: fixed;
-  top: 38px;
-  right: -100%; /* Initially hidden outside the viewport */
-  width: 150px; /* Adjust width as needed */
-  height: 200px;
-  background: #660168;
-  transition: right 0.3s ease;
-  z-index: 23;
-}
-
-.modal ul{
-  list-style: none;
-  text-transform:uppercase;
-  margin-bottom: 10px;
-  padding-left: 10px;
-
-
-}
-
-.modal.active {
-  right: 0; /* Slides in from the right */
-}
 
 .open-menu{
   height: 200px;
@@ -487,7 +464,7 @@ pre {
   }
 
   .header {
-    padding: 10px 5px 10px 5px;
+    padding: 10px 15px 10px 15px;
     text-align: center;
     flex-grow: 0;
   }
@@ -536,7 +513,7 @@ pre {
     position: relative;
     left:0;
     margin-left: 0;
-    margin-top: 10px;
+   
     transition: opacity 1s ease;}
 
   #blog-current-item {
@@ -551,6 +528,8 @@ pre {
 
   #menu-header{
   display: none;  }
+
+
 
 /*--------------BURGER MENU----------------*/
 
@@ -654,13 +633,29 @@ label div:nth-child(2) {
   } 
   
   .header {
+    display: flex;
+    /* flex-direction: column; */
     width: 100%;
     margin-top: 0px;
-    padding: 10px 10px 10px 10px;
+    padding: 17px 10px 17px 10px;
     text-transform: lowercase;
     font-weight: 400;
     text-align: left;
     
+  }
+
+  .logo-and-nav{
+    display: flex;
+    width: 100%;
+  }
+
+  .menu-open {
+    height: 0px;
+    display: flex;
+  }
+
+  .column {
+    flex: 1;
   }
 
   li.blog-links-el {
