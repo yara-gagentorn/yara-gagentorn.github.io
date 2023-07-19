@@ -11,9 +11,9 @@
   </head>
   <body>
     <div id="container">
-      <div class="block mobile-header">
+      <div class="block mobile-header" id="mobile-header">
         <div class="row">
-          <div class="cell small-logo-cell"><img class="small-logo" src="./media/logo.png"></div>
+          <div class="cell small-logo-cell" id="mobile-logo-cell"><img class="small-logo" src="./media/logo.png"></div>
           <div class="cell">
             <div class="burger-invisible">
               <input type="checkbox" id="menu-checkbox" onclick="toggleMenu()" >
@@ -28,24 +28,33 @@
         <div class="row menu-closed" id="menu">
           <div  class="cell">
             <nav id="menu-open" class="menu-open-list" >
-              <a href="#">About</a>
-              <a href="./blog/blog-content.html">My Blog</a>
-              <a href="./projects/projects-content.html">My Projects</a>
-              <a href="./projects/cv.html">My CV</a>
-              <a href="./projects/contacts.html">Contacts</a>
+              <a href="#about-link" onclick="toggleMenu()">About</a>
+              <a href="#projects-link" onclick="toggleMenu()">My Projects</a>
+              <a href="#blog-link" onclick="toggleMenu()">My Blog</a> 
+              <a href="#cv-link" onclick="toggleMenu()">My CV</a>
+              <a href="#contacts-link" onclick="toggleMenu()">Contacts</a>
             </nav>
           </div>
         </div>
       </div>
       <div class="desktop-header">This is for desktop</div>
       <div id="content">
-        <div id="about" class="block">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec orci eros. Nam pulvinar lacus eros, sed commodo eros blandit at. Praesent risus nisi, eleifend eget ipsum quis, finibus maximus enim. Vestibulum dignissim ex sit amet lorem ultricies ornare. Vestibulum tristique tristique sem, eget interdum leo feugiat at. Nam enim elit, cursus at justo et, elementum dignissim felis. Quisque quis consequat lorem, sit amet condimentum sapien. Mauris a sodales metus. Donec ornare eros nisl, a venenatis massa commodo eu. Morbi tincidunt maximus feugiat. Morbi congue nisl quis nunc ultricies dictum.</div>
+        <div id="about" class="block animation-div">
+          <!-- <span id="about-link" style="position: relative; top:-70px;"></span> -->
+          <h2>About</h2>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec orci eros. Nam pulvinar lacus eros, sed commodo eros blandit at. Praesent risus nisi, eleifend eget ipsum quis, finibus maximus enim. Vestibulum dignissim ex sit amet lorem ultricies ornare. Vestibulum tristique tristique sem, eget interdum leo feugiat at. Nam enim elit, cursus at justo et, elementum dignissim felis. Quisque quis consequat lorem, sit amet condimentum sapien. Mauris a sodales metus. Donec ornare eros nisl, a venenatis massa commodo eu. Morbi tincidunt maximus feugiat. Morbi congue nisl quis nunc ultricies dictum.<span id="projects-link"></span></div>
         
-        <div id="projects" class="block">Duis et odio orci. Maecenas a nulla rhoncus, pharetra turpis eget, tincidunt felis. Aliquam id urna diam. Sed vitae massa eget sapien vulputate tempus sed ut tortor. Fusce tempus suscipit lectus, pellentesque congue nibh hendrerit at. Vivamus sit amet dui sagittis magna egestas porta non at ligula. Phasellus tempor molestie libero, congue vestibulum ligula faucibus non. Curabitur luctus lectus est, a elementum erat consequat ut. Maecenas vitae justo auctor, blandit justo a, ullamcorper libero. Curabitur nisl massa, consequat quis tortor non, luctus venenatis felis. Maecenas sollicitudin sapien quis magna pharetra ornare. Fusce sodales urna vitae dignissim egestas. Phasellus condimentum tortor eu odio fermentum molestie. Nunc egestas tempor ante nec sagittis. Phasellus varius, elit in egestas fringilla, mauris sem ullamcorper ante, eu laoreet urna dui ac ipsum.</div>
+        <div id="projects" class="block animation-div">
+          <h2>Projects</h2>
+          Duis et odio orci. Maecenas a nulla rhoncus, pharetra turpis eget, tincidunt felis. Aliquam id urna diam. Sed vitae massa eget sapien vulputate tempus sed ut tortor. Fusce tempus suscipit lectus, pellentesque congue nibh hendrerit at. Vivamus sit amet dui sagittis magna egestas porta non at ligula. Phasellus tempor molestie libero, congue vestibulum ligula faucibus non. Curabitur luctus lectus est, a elementum erat consequat ut. Maecenas vitae justo auctor, blandit justo a, ullamcorper libero. Curabitur nisl massa, consequat quis tortor non, luctus venenatis felis. Maecenas sollicitudin sapien quis magna pharetra ornare. Fusce sodales urna vitae dignissim egestas. Phasellus condimentum tortor eu odio fermentum molestie. Nunc egestas tempor ante nec sagittis. Phasellus varius, elit in egestas fringilla, mauris sem ullamcorper ante, eu laoreet urna dui ac ipsum.<span id="cv-link"></span></div>
         
-        <div id="cv" class="block">Vestibulum vitae sapien facilisis, aliquet lacus et, hendrerit diam. Vivamus metus ligula, viverra non sem quis, dignissim posuere dolor. Nunc eget turpis in quam dignissim consequat et id libero. Sed a turpis non turpis laoreet congue ut id sem. Morbi vel massa velit. Nulla mollis feugiat consequat. Pellentesque eget velit quis ante hendrerit semper sed quis ex. Phasellus vel mattis tortor. Ut quis luctus odio. Proin sodales luctus nunc, sed rutrum tortor eleifend ac.</div>
+        <div id="cv" class="block animation-div">
+          <h2>CV</h2>
+          Vestibulum vitae sapien facilisis, aliquet lacus et, hendrerit diam. Vivamus metus ligula, viverra non sem quis, dignissim posuere dolor. Nunc eget turpis in quam dignissim consequat et id libero. Sed a turpis non turpis laoreet congue ut id sem. Morbi vel massa velit. Nulla mollis feugiat consequat. Pellentesque eget velit quis ante hendrerit semper sed quis ex. Phasellus vel mattis tortor. Ut quis luctus odio. Proin sodales luctus nunc, sed rutrum tortor eleifend ac.</div>
         
-        <div id="contacts" class="block">Pellentesque pharetra, elit ut mattis commodo, orci dolor faucibus nisl, ut vulputate leo dolor quis justo. Donec eu facilisis risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis accumsan lacus vel elit congue, pellentesque volutpat augue dictum. Maecenas blandit viverra arcu ullamcorper pharetra. Sed a eros quam. Cras dictum, tellus et hendrerit feugiat, sapien massa rhoncus diam, eu porttitor sapien lorem quis tellus. Vestibulum in odio tincidunt, condimentum lorem in, consequat massa. Aenean consectetur eleifend urna vitae pretium. Suspendisse potenti.</div>
+        <div id="contacts" class="block animation-div"> 
+          <h2>Contacts</h2>
+          Pellentesque pharetra, elit ut mattis commodo, orci dolor faucibus nisl, ut vulputate leo dolor quis justo. Donec eu facilisis risus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis accumsan lacus vel elit congue, pellentesque volutpat augue dictum. Maecenas blandit viverra arcu ullamcorper pharetra. Sed a eros quam. Cras dictum, tellus et hendrerit feugiat, sapien massa rhoncus diam, eu porttitor sapien lorem quis tellus. Vestibulum in odio tincidunt, condimentum lorem in, consequat massa. Aenean consectetur eleifend urna vitae pretium. Suspendisse potenti.</div>
       </div>
     </div>
     <!-- <script src="./js/blog-content-table.js"></script> -->

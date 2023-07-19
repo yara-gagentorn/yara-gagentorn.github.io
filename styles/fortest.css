@@ -42,6 +42,29 @@ div {
   vertical-align: top;
 }
 
+h1, h2, h3 {
+  margin-top: 0.1em;
+  margin-bottom: 0.5em;
+  font-family: "Saira";
+  font-weight: 300;
+  text-transform: lowercase;
+}
+
+/*---- SMOOTH appear ----*/
+.animation-div {
+  opacity: 0;
+  
+}
+
+.animation-div-fade-in {
+  animation: fade-in 0.5s ease forwards
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
 /*------- MEDIA QUERIES -------*/
 
 @media only screen and (max-width: 320px) { 
@@ -60,10 +83,24 @@ div {
     background-color: #8C417C;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
-    box-shadow: rgba(69, 58, 148, 0.17) 0px -23px 25px 0px inset, rgba(69, 58, 148, 0.15) 0px -36px 30px 0px inset, rgba(69, 58, 148, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px ;
     margin-top: 0;
-    padding: 5px 3px 5px 3px;
+    padding: 5px 3px 1px 5px;
+    transition: box-shadow 1s ease;
+    
+    
+  }
 
+  .mobile-header-is-sticky {
+  
+    top:0px;
+    box-shadow: rgba(69, 58, 148, 0.17) 0px -23px 25px 0px inset,
+    rgba(69, 58, 148, 0.15) 0px -36px 30px 0px inset,
+    rgba(69, 58, 148, 0.1) 0px -79px 40px 0px inset,
+    rgba(0, 0, 0, 0.06) 0px 2px 1px,
+    rgba(0, 0, 0, 0.09) 0px 4px 2px,
+    rgba(0, 0, 0, 0.09) 0px 8px 4px,
+    rgba(0, 0, 0, 0.09) 0px 16px 8px,
+    #5B3A8A 0px 12px 10px;
   }
 
   #container{
@@ -79,19 +116,29 @@ div {
   
   .cell {
     flex: 1;
-    padding: 7px;
+    padding: 7px 2px 7px 2px;
     
   }
 
-  .small-logo-cell{
-    flex: 1 0 50%;
+  .small-logo-cell {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 50%;
+    transition: flex-basis 0.3s ease;
     
   }
+
+  .small-logo-cell-is-sticky {
+    flex-basis: 40%; 
+  
+  }
+
 
   .small-logo{
     max-width: 100%;
     filter: drop-shadow(0 0 0.75rem #ED3994) brightness(1.6);
   }
+
     
   /*--------------BURGER MENU----------------*/
   .burger-invisible {
@@ -112,9 +159,9 @@ div {
     width: 26px;
     height: 26px;
     cursor: pointer;
-    margin-right: 0;
+    margin-right: 10px;
     margin-left: auto;
-    margin-top: 5px;
+    margin-top: 8px;
   }
 
   label:before {
