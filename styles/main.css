@@ -93,6 +93,11 @@ body {
 
 }
 
+/* .menu-open {
+  height: 0px;
+  display: none;
+} */
+
 .menu-header {
   transition: left 0.3s ease;
   position: relative;

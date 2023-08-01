@@ -6,6 +6,7 @@
 
 html, 
 body {
+  scroll-behavior: smooth;
     height: 100%;
     color:#F2C6EE;
 }
@@ -21,16 +22,67 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 
+/*------- MAIN STYLES -------*/
 a {
   text-decoration: none;
   color: white;
+  transition: left 0.3s ease;
 }
 
-/*------- MAIN STYLES -------*/
+a:hover {
+  filter: drop-shadow(0 0 0.4rem #ED3994);
+  color: #E1ACCE;
+  position: relative;
+  left: 1px;
+  bottom:1px;
+}
 
 div {
   /* border-style: dashed; */
   border-width: 1px;
+}
+
+#desktop-logo-header{
+  width: 70%;
+  margin: 10px 0 10px 0;
+  filter: drop-shadow(0 0 0.75rem #ED3994);
+  /* animation: shine 8s cubic-bezier(0.1, -0.6, 0.2, 0)  infinite; */
+  transition: width 2s;
+  transition: top 2s ease;
+}
+
+.desktop-logo{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  transition: height 0.4s ease-in;
+}
+
+.desktop-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.desktop-menu {
+  position: sticky;
+  top: 0px;
+  z-index: 200;
+  display: flex;
+  justify-content: center;
+}
+
+nav a {
+  margin: 5px 5px 5px 5px;
+  text-transform: lowercase;
+  font-size: 1.2em;
+}
+
+#container{
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 5px 0 5px;
 }
 
 .block {
@@ -50,7 +102,12 @@ h1, h2, h3 {
   text-transform: lowercase;
 }
 
-/*---- SMOOTH appear ----*/
+#footer {
+  display: flex;
+  justify-content: center;
+}
+
+/*---- FADE-IN BLOCKS ----*/
 .animation-div {
   opacity: 0;
   
@@ -64,6 +121,23 @@ h1, h2, h3 {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+/*---- END OF FADE-IN BLOCKS ----*/
+
+/*---- STICKY MENU ----*/
+
+.desktop-header-is-sticky {
+  position: sticky;
+  top:0px;
+  box-shadow: rgba(69, 58, 148, 0.17) 0px -23px 25px 0px inset,
+  rgba(69, 58, 148, 0.15) 0px -36px 30px 0px inset,
+  rgba(69, 58, 148, 0.1) 0px -79px 40px 0px inset,
+  rgba(0, 0, 0, 0.06) 0px 2px 1px,
+  rgba(0, 0, 0, 0.09) 0px 4px 2px,
+  rgba(0, 0, 0, 0.09) 0px 8px 4px,
+  rgba(0, 0, 0, 0.09) 0px 16px 8px,
+  #5B3A8A 0px 12px 10px;
+}
+
 
 /*------- MEDIA QUERIES -------*/
 
@@ -86,12 +160,9 @@ h1, h2, h3 {
     margin-top: 0;
     padding: 5px 3px 1px 5px;
     transition: box-shadow 1s ease;
-    
-    
   }
 
   .mobile-header-is-sticky {
-  
     top:0px;
     box-shadow: rgba(69, 58, 148, 0.17) 0px -23px 25px 0px inset,
     rgba(69, 58, 148, 0.15) 0px -36px 30px 0px inset,
@@ -213,10 +284,7 @@ h1, h2, h3 {
     right: 5px;
     transform: rotateZ(-45deg);
   }
-
-
   /*--------------BURGER MENU ENDS----------------*/
-
 
   .menu-closed{
     position: relative;
