@@ -47,21 +47,23 @@ div {
   margin: 10px 0 10px 0;
   filter: drop-shadow(0 0 0.75rem #ED3994);
   /* animation: shine 8s cubic-bezier(0.1, -0.6, 0.2, 0)  infinite; */
-  transition: width 2s;
-  transition: top 2s ease;
+  transition: height 0.3s;
+  
 }
 
 .desktop-logo{
   width: 100%;
   display: flex;
   justify-content: center;
-  transition: height 0.4s ease-in;
+  transition: height 0.2s ease-in;
 }
 
 .desktop-header {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  -webkit-transition: background-image 0.2s ease-in-out;
+transition: background-image 0.2s ease-in-out;
 }
 
 .desktop-menu {
@@ -70,6 +72,7 @@ div {
   z-index: 200;
   display: flex;
   justify-content: center;
+  transition: justify-content 0.5s ease;
 }
 
 nav a {
@@ -126,6 +129,7 @@ h1, h2, h3 {
 /*---- STICKY MENU ----*/
 
 .desktop-header-is-sticky {
+  backdrop-filter: none;
   position: sticky;
   top:0px;
   box-shadow: rgba(69, 58, 148, 0.17) 0px -23px 25px 0px inset,
@@ -136,6 +140,14 @@ h1, h2, h3 {
   rgba(0, 0, 0, 0.09) 0px 8px 4px,
   rgba(0, 0, 0, 0.09) 0px 16px 8px,
   #5B3A8A 0px 12px 10px;
+  background-image: url("../media/logo.png");
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-color: #963B70;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  margin-top: -20px;
 }
 
 

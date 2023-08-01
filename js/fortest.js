@@ -24,20 +24,21 @@ function isElementInViewport(element) {
 }
 
 // for sticky header
-let desktopLogo = document.querySelector('.desktop-logo')
 let desktopStickyElement = document.getElementsByClassName('desktop-menu')[0]
 let stickyElement = document.getElementById('mobile-header')
 let isSticky = false
 let mobileLogoCell = document.getElementById('mobile-logo-cell')
 let animationDivs = document.querySelectorAll('.animation-div')
-const logoHeight = desktopLogo.getBoundingClientRect().height //calculate the height of the logo, it will depend on screen size
+let desktopNav = document.getElementById('desktop-nav')
+const desktopLogo = document.getElementById('desktop-logo-header')
+const desktopLogoHeight = desktopLogo.height
 
 window.addEventListener('scroll', function () {
   let scrollY = window.scrollY
   if (scrollY > 0 && !isSticky) {
     // The sticky element is sticky
-    console.log('Stickyyyyy!!!', logoHeight)
     desktopLogo.style.height = '0px'
+    document.querySelector('.desktop-logo').height = 0
     desktopStickyElement.classList.add('desktop-header-is-sticky')
     stickyElement.classList.add('mobile-header-is-sticky')
     mobileLogoCell.classList.add('small-logo-cell-is-sticky')
@@ -45,8 +46,7 @@ window.addEventListener('scroll', function () {
   } else if (scrollY === 0 && isSticky) {
     // The sticky element is no longer sticky
     desktopStickyElement.classList.remove('desktop-header-is-sticky')
-    desktopLogo.style.height = `${logoHeight}px`
-
+    desktopLogo.style.height = `${desktopLogoHeight}px`
     stickyElement.classList.remove('mobile-header-is-sticky')
     mobileLogoCell.classList.remove('small-logo-cell-is-sticky')
     isSticky = false
@@ -61,7 +61,6 @@ window.addEventListener('scroll', function () {
 })
 
 window.onload = function () {
-  desktopLogo.style.height = `${logoHeight}px` // this way the transition for height on scrolling works from the first scroll
   animationDivs.forEach(function (div) {
     // show visible divs straight away
     if (isElementInViewport(div)) {
@@ -70,4 +69,15 @@ window.onload = function () {
   })
 }
 
-// for sticky header on desktop
+document.addEventListener('DOMContentLoaded', function () {
+  let desktopLogo = document.getElementById('desktop-logo-header')
+  const logoHeight = desktopLogo.clientHeight
+  if (desktopLogo.complete) {
+  } else {
+    // The image is not loaded yet, add a load event listener
+    desktopLogo.addEventListener('load', function () {
+      const logoHeight = desktopLogo.clientHeight
+      desktopLogo.height = logoHeight
+    })
+  }
+})
