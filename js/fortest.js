@@ -80,6 +80,27 @@ document.addEventListener('DOMContentLoaded', function () {
       desktopLogo.height = logoHeight
     })
   }
+
+  //----SHINE TEST----//
+  const navLinks = document.querySelectorAll('nav a')
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault()
+      console.log('smth')
+      const targetId = link.getAttribute('href').replace('-link', '')
+      const targetSection = document.querySelector(targetId)
+      console.log(targetId, targetSection)
+      targetSection.classList.add('glow')
+
+      setTimeout(() => {
+        targetSection.classList.remove('glow')
+      }, 1000) // Adjust the time to match the animation duration
+
+      targetSection.scrollIntoView({ behavior: 'smooth' })
+    })
+  })
+  //----END OF SHINE TEST----//
 })
 
 // Get all the elements with class "project-descr"

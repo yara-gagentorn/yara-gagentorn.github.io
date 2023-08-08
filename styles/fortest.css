@@ -97,6 +97,9 @@ nav a {
   background-color: rgba(255,189,211 , 0.05);
   backdrop-filter: blur(5px);
   vertical-align: top;
+  /* transition: box-shadow 3s ease;   */
+  transition: background-color 1s ease;
+
 }
 
 .logo-con a {
@@ -194,9 +197,6 @@ h1, h2, h3 {
   transition: max-height 0.3s ease;
 }
 
-/*--- SHADOW INSIDE---*/
-
-
 
 /*--- BUTTONS ---*/
 
@@ -282,7 +282,14 @@ button:hover:disabled {
   filter: drop-shadow(0 0 0.95rem #ED3994);
 }
 
+/**---- GLOW -----**/
 
+.glow {
+  background-color: #9F4B7B;
+  
+  /* box-shadow: 0 0 20px rgba(82, 2, 111, 0.8); */
+  /* transition: box-shadow 2s ease;   */
+}
 
 /*------- MEDIA QUERIES -------*/
 
