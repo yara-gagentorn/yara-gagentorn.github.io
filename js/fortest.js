@@ -23,7 +23,7 @@ function isElementInViewport(element) {
   )
 }
 
-// for sticky header
+// for sticky header, such a mess, but at least it is working
 let desktopStickyElement = document.getElementsByClassName('desktop-menu')[0]
 let stickyElement = document.getElementById('mobile-header')
 let isSticky = false
@@ -80,4 +80,32 @@ document.addEventListener('DOMContentLoaded', function () {
       desktopLogo.height = logoHeight
     })
   }
+})
+
+// Get all the elements with class "project-descr"
+const projectDescrElements = document.querySelectorAll('.project-descr')
+
+// Function to toggle the visibility of full description
+function toggleFullDescription(event) {
+  const projectDescr = event.currentTarget.previousElementSibling
+  projectDescr.classList.toggle('expanded')
+  const buttonText = projectDescr.classList.contains('expanded')
+    ? 'Show Less'
+    : 'Show More'
+  event.currentTarget.textContent = buttonText
+
+  // Wait for the transition to finish before setting the max-height to accommodate the full content
+  setTimeout(() => {
+    if (projectDescr.classList.contains('expanded')) {
+      projectDescr.style.maxHeight = projectDescr.scrollHeight + 'px'
+    } else {
+      projectDescr.style.maxHeight = '507px'
+    }
+  }, 10)
+}
+
+// Attach the click event to each "Show More" button
+const toggleButtons = document.querySelectorAll('.toggle-button')
+toggleButtons.forEach((button) => {
+  button.addEventListener('click', toggleFullDescription)
 })

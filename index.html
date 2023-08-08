@@ -4,96 +4,194 @@
     <title>My website</title>
     <meta name="description" content="My blog">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="./styles/main.css" rel="stylesheet" type="text/css">
+    <link href="./styles/fortest.css" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Fredoka+One&family=Quicksand&display=swap" rel="stylesheet">
   </head>
   <body>
     <div id="container">
-      <img id="logo-header" src="./media/logo.png" alt="logo">
-      
-      <div class="block header" id="header">
-        <!-- navigation -->
-      <div id="logo-and-nav">
-        <div class="column">
-      <img id="small-logo" class="small-logo" src="./media/logo.png">
-        <ul id="menu-header" class="menu-header">
-          <li class="menu-header-el"><a href="#">About</a></li>
-          <li class="menu-header-el"><a href="./blog/blog-content.html">My Blog</a></li>
-          <li class="menu-header-el"><a href="./projects/projects-content.html">My Projects</a></li>
-          <li class="menu-header-el"><a href="./projects/cv.html">My CV</a></li>
-          <li class="menu-header-el"><a href="./projects/contacts.html">Contacts</a></li>
-        </ul>
+      <div class="block mobile-header" id="mobile-header">
+        <div class="row">
+          <div class="cell small-logo-cell" id="mobile-logo-cell"><img class="small-logo" src="./media/logo.png"></div>
+          <div class="cell">
+            <div class="burger-invisible">
+              <input type="checkbox" id="menu-checkbox" onclick="toggleMenu()" >
+              <label for="menu-checkbox">
+                <div></div>
+                <div></div>
+                <div></div>
+            </label>
+           </div>
+          </div>
         </div>
-        <div class="burger-invisible column" onclick="toggleMenu()">
-          <input type="checkbox" id="menu-checkbox" >
-          <label for="menu-checkbox">
-            <div></div>
-            <div></div>
-            <div></div>
-        </label>
-       </div>
-       </div>
-       
-       <div id="menu-open" class="menu-open column">
-        <ul id="menu-open-list" >
-          <li class="menu-header-el"><a href="#">About</a></li>
-          <li class="menu-header-el"><a href="./blog/blog-content.html">My Blog</a></li>
-          <li class="menu-header-el"><a href="./projects/projects-content.html">My Projects</a></li>
-          <li class="menu-header-el"><a href="./projects/cv.html">My CV</a></li>
-          <li class="menu-header-el"><a href="./projects/contacts.html">Contacts</a></li>
-        </ul>
-       </div>
+        <div class="row menu-closed" id="menu">
+          <div  class="cell">
+            <nav id="menu-open" class="menu-open-list" >
+              <a href="#about-link" onclick="toggleMenu()">About</a>
+              <a href="#projects-link" onclick="toggleMenu()">My Projects</a>
+              <a href="#blog-link" onclick="toggleMenu()">My Blog</a> 
+              <a href="#cv-link" onclick="toggleMenu()">My CV</a>
+              <a href="#contacts-link" onclick="toggleMenu()">Contacts</a>
+            </nav>
+          </div>
+        </div>
       </div>
-      
-      <div id="content"><!-- main content-->
-        <div class="block" id="blog"><!-- links to blog posts-->
+
+      <div class="desktop-header"  style="position: sticky; top:0; z-index: 200;">
+        <div class="desktop-logo" >
+          <img id="desktop-logo-header" src="./media/logo.png" alt="yara gagen-torn">
         </div>
-        <div class="block" id="welcome">
-          <h2>Welcome!</h2>
+        <div  class="desktop-menu block cell" >
+          <nav id="desktop-nav">
+            <a href="#about-link">About</a>
+            <a href="#projects-link">Projects</a> 
+            <a href="#cv-link">CV</a>
+            <a href="#blog-link">Blog</a> 
+            <a href="#contacts-link">Contacts</a>
+          </nav>
+        </div>
+      </div>
+      <div id="content">
+        <div id="about" class="block">
+          <!-- <span id="about-link" style="position: relative; top:-70px;"></span> -->
+          <h2>Hello, world!</h2>
           <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-          <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
+          <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. <span id="projects-link"></span></p></div>
+        
+        <div id="projects" class="block">
+          <h2>Projects</h2>
+          <div class="projects-grid">
+          
+            <div class="block">
+              <!-- FIRST ROW OF PROJECTS -->
+              <div class="project-descr">
+                <h2><a href="./projects/1-game-of-life.html" target="_blank">Conway's Game Of Life</a></h2>
+                <div class="project-img-div"><img class="project-img" src="../media/gol.gif"></div>     
+                  <p class="full-descr">
+                      The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead (or populated and unpopulated, respectively).
+                      
+                      Every cell interacts with its eight neighbours, which are the cells that are horizontally, vertically, or diagonally adjacent. At each step in time, the following transitions occur:
+                    <br>
+                    &#8227; Any live cell with fewer than two live neighbours dies, as if by underpopulation.<br>
+                    &#8227; Anyl ive cell with two or three live neighbours lives on to the next generation.<br>
+                    &#8227; Any live cell with more than three live neighbours dies, as if by overpopulation.<br>
+                    &#8227; Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.<br><br>
+                    
+                    <b>Made with </b>Vanilla JavaScript <br>
+                    <a href="https://github.com/yara-gagentorn/yara-gagentorn.github.io/blob/main/js/game-of-life.js">Check source code on GitHub.</a>
+                </p>
+              </div>
+              <button class="toggle-button small-button">Show More</button>
+          </div>
+
+          <div class="block">          
+            <h2><a href="https://enspiraled-6xkx.vercel.app/server/public/index.html"  target="_blank">Enspiraled</a></h2>
+            <div class="project-img-div"><img class="project-img"  src="../media/enspiraled.gif"></div>
+              <p>Fractal made of circles. Click on each circle creates four more circles, each new circle is two times smaller in radius with centers on north, south, west and east of the clicked circle.
+               </p>
+              <p><b>Made with</b> React JS<br>
+              <a href="https://github.com/yara-gagentorn/enspiraled">Check source code on GitHub.</a></p>          
+          </div>
+          
+          <div class="block">
+            <h2><a href="./projects/2-number-seek.html"  target="_blank">Number Seek</a></h2>
+            <div class="project-img-div"><img class="project-img" src="../media/numberseek-crop.gif"></div>
+            
+               <p>Click on the numbers in order, starting from 1. This simple game is a tribute to my childhood. Back then, my classmates and I used pen and piece of paper to write numbers from 1 to 100 in random order and then exchanged those papers. The goal is to find all the numbers in order from 1 to 100, one by one, and do it faster than your opponent.</p>
+               <p><b>Made with</b> Vanilla JavaScript<br>
+               <a href="https://github.com/yara-gagentorn/yara-gagentorn.github.io/blob/main/js/number-seek.js">Check source code on GitHub.</a></p>
+             
+            </div>
+          </div>
+          
+          <!-- SECOND ROW OF PROJECTS -->
+          <div class="projects-grid">
+            <div class="block">
+              <div class="project-descr">     
+                  
+                    <h2><a href="./projects/3-tic-tac-toe.html"  target="_blank">Tic-Tac-Toe</a></h2>
+                    <div class="project-img-div"><img class="project-img"  src="../media/ttt.gif"></div>
+                   <p class="full-descr">   
+                      <p>Good old Tic-Tac-Toe game with sound effects and animation. </p>
+                      <p><b>Made with</b> Vanilla JavaScript<br>
+                      <a href="https://github.com/yara-gagentorn/yara-gagentorn.github.io/blob/main/js/ttt.js">Check source code on GitHub.</a></p>
+                </p>
+              </div>
+          </div>
+
+          <div class="block">          
+            <h2><a href="https://www.arcoiris.co.nz/"  target="_blank">Arcoiris.co.nz</a></h2>
+            <div class="project-img-div"><img class="project-img"  src="../media/arcoiris.gif"></div>
+              <p>Website for an event decoration company. I used an HTML template and the Django framework to create it. It has been deployed and is now working!
+               </p>
+              <p><b>Made with</b> Django framework (Python, JavaScript)<br></p> 
+              <!-- <a href="">Check source code on GitHub.</a>          -->
+          </div>
+          
+          <div class="block">
+            <h2><a href="https://www.arcoiris.co.nz/home.html"  target="_blank">YaraM</a></h2>
+            <div class="project-img-div"><img class="project-img" src="../media/yaram.gif"></div>
+               <p>This is a website for my hobby. It was made on the same base as arcoiris.co.nz but with a different design.</p>
+               <p><b>Made with</b> Django framework (Python, JavaScript)<br></p>
+               <!-- <a href="">Check source code on GitHub.</a> -->
+            </div>
+          </div>
+          <span id="cv-link"></span>
         </div>
 
         
+        <div id="cv" class="block">
+          <h2>CV</h2>
+          <table>
+            <tr>
+              <td>Nothing fancy, no colors, no fonts, no shadows, just my CV:</td>
+              <td><a target="_blank" href="../media/YaraCV-2023.pdf"><img src="../media/pdf-icon.png" style="width: 150px;"></a></td>
+            </tr>
+          </table>
+          <p> </p>
+        </div>
+        
+        <div class="block"> 
+          <h2>Blog</h2>
+          <p>There are a number of articles I wrote during my foundation course at Dev Academy. Some of them are <span class="tech-blog">technical</span>, while others are about <span class="core-blog">values</span>.</p>
+          <div id="blog" class="projects-grid">
+            <div>
+              
+              <p class="blog-links-el tech-blog"><a href="./blog/1-class-vs-id.html">Classes vs IDs</a></p>
+              <p class="blog-links-el core-blog"><a href="./blog/2-identity-and-value.html">Identity and Values</a></p>
+              <p class="blog-links-el tech-blog"><a href="./blog/4-javascript-dom.html">JS and DOM</a></p>
+            </div>
+            
+            <div>
+              <p class="blog-links-el core-blog"><a href="./blog/5-emotional-intelligence.html">IQ and EQ</a></p>
+              <p class="blog-links-el tech-blog"><a href="./blog/6-problem-solving.html">Problem Solving</a></p>
+              <p class="blog-links-el core-blog"><a href="./blog/7-neuroplasticity.html">Neuroplasticity</a></p>
+            </div>
+            
+            <div>
+              <p class="blog-links-el core-blog"><a href="./blog/8-foundation-reflection.html">Foundation Reflection</a></p>
+            </div>
+          </div>
+        </div>
 
+        <div id="contacts" class="block"> 
+          <h2>Contacts</h2>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/yara.gagen/" target="_blank"><img src="./media/facebook.png" class="social-icon"></a>
+            <a href="https://www.instagram.com/yararat/" target="_blank"><img src="./media/instagram.png" class="social-icon"></a>
+            <a href="https://wa.me/64223053540/" target="_blank"><img src="./media/whatsapp.png" class="social-icon"></a>
+            <a href="https://www.linkedin.com/in/yara-gagen-torn" target="_blank"><img src="./media/linkedin.png" class="social-icon"></a>
+            <a href="mailto:yaragagen@gmail.com" target="_blank"><img src="./media/email.png" class="social-icon"></a>
+          </div>
+        </div>
       </div>
 
-      <div class="block">
-        <h2>Welcome!</h2>
-        <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-        <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-        <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-      </div>
-
-      <div class="block">
-        <h2>Welcome!</h2>
-        <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-        <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-        <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-      </div>
-
-      <div class="block">
-        <h2>Welcome!</h2>
-        <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-        <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-        <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-      </div>
-
-      <div class="block">
-        <h2>Welcome!</h2>
-        <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
-        <p>Now I am looking for a permanent place in the New Zealand IT industry. I am passionate about technologies and how to make them more accessible for everyone. </p>
-        <!--p>There is one important thing which I need to explain. Do you see those rectangles on the left (you will not see them on the mobile phone), which are a little bit outside of the another rectangle? This is not a bug, this is a feature. I totally know how to work with margin (no) and I am capable of arranging the elements the way I want (also no). CSS is easy (it's hard) and predictable (ha.ha.ha.)</p-->
-      </div>
       <div class="block" id="footer">
-        Yara Gagen-Torn &copy; 2022
+        Yara Gagen-Torn &copy; 2023
       </div>
-
     </div>
-    <script src="./js/blog-content-table.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="./js/fortest.js"></script>
 
   </body>
 </html>

@@ -51,6 +51,8 @@ div {
   
 }
 
+#logo-header {display: block;}
+
 .desktop-logo{
   width: 100%;
   display: flex;
@@ -97,6 +99,35 @@ nav a {
   vertical-align: top;
 }
 
+.logo-con a {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#blog {display: flex;
+justify-content: center;}
+
+p.blog-links-el {  
+  background-color: rgba(201,121,135 , 0.3);
+  margin: 5px 10px 5px 10px;
+  padding: 5px 10px 5px 20px;
+  border-radius: var(--bradius);
+  backdrop-filter: blur(5px);
+  white-space: nowrap;
+  filter: drop-shadow(0 0 0.95rem #ED3994);
+
+}
+
+p.tech-blog, span.tech-blog {
+  background-color: #7A3B7D60;
+}
+
+p.core-blog, span.core-blog {
+  background-color: #E1425760;
+}
+
+
 h1, h2, h3 {
   margin-top: 0.1em;
   margin-bottom: 0.5em;
@@ -110,21 +141,6 @@ h1, h2, h3 {
   justify-content: center;
 }
 
-/*---- FADE-IN BLOCKS ----*/
-.animation-div {
-  opacity: 0;
-  
-}
-
-.animation-div-fade-in {
-  animation: fade-in 0.5s ease forwards
-}
-
-@keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-/*---- END OF FADE-IN BLOCKS ----*/
 
 /*---- STICKY MENU ----*/
 
@@ -147,8 +163,124 @@ h1, h2, h3 {
   background-color: #963B70;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  margin-top: -20px;
+  margin-top: -20px; /*fixing miracle gap*/
 }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  /* grid-auto-rows: 100px; */
+}
+
+.project-img {
+  width: 250px;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 0.95rem #ED3994);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.project-img-div{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.project-descr {
+  max-height: 507px;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+/*--- SHADOW INSIDE---*/
+
+
+
+/*--- BUTTONS ---*/
+
+button {
+  box-shadow: 4px 4px #551d3940;
+  border: none;
+  border-radius: var(--bradius);
+  font-weight: 400;
+  padding: 0.7em 1.5em 0.7em 1.5em;
+  background-color:rgba(249, 151, 166, 0.5);
+  background-image: linear-gradient(to right, #923B7280 0%,   #A14273 100%);
+  color:white;
+  display: inline-block;
+  font-size: 1em;
+  margin: 10px 2px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color:rgba(238, 142, 158, 0.1);
+  transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+button:active {
+  box-shadow: 1px 1px  #551d3940;
+  transform: translate(1px, 1px);
+}
+
+button:disabled{
+  color: gray;
+  background-color: gray;
+  animation: none;
+}
+
+button:active:disabled {
+  box-shadow: 4px 4px #551d3940;
+  transform: none;
+}
+
+button:hover:disabled {
+  /* background-color:rgba(238, 142, 158, 0.1); */
+  transition: none;
+  transition: none;
+}
+
+.small-button {
+  font-size: 0.8em ;
+  text-transform: lowercase;
+}
+
+/*---- SHOW MORE/LESS ----*/
+.project-descr .more {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.project-descr.expanded .more {
+  max-height: 1000px; /* Set the maximum height to a large enough value to accommodate the full content */
+}
+
+.social-icons {
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.social-icons a {
+  display: block; 
+  text-align: center; 
+}
+
+.social-icons img {
+  /* max-width: 100%; */
+  width: 80px;
+  margin-left: 10px;
+  margin-right: 10px;
+  filter: drop-shadow(0 0 0.95rem #ED3994);
+}
+
 
 
 /*------- MEDIA QUERIES -------*/
@@ -158,6 +290,14 @@ h1, h2, h3 {
 }
  
 @media only screen and (max-width:767px) {
+  #blog {
+    display: grid;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr; 
+  }
+
   .desktop-header{
     display: none;
   }
@@ -323,7 +463,23 @@ h1, h2, h3 {
   
 }
 
+@media screen and (max-width: 1200px) {
+  
+  .projects-grid {
+    grid-template-columns: 1fr; 
+  }
+}
+
+@media screen and (max-width: 1580px) {
+ .project-img {
+    width: 150px;
+  }
+
+}
+
 @media only screen and (min-width: 768px) {
+  
+
   .mobile-header {
     display: none;
   }
