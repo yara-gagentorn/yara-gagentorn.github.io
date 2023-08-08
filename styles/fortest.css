@@ -105,8 +105,10 @@ nav a {
   justify-content: center;
 }
 
-#blog-list {display: flex;
-justify-content: center;}
+#blog-list {
+  display: flex;
+  justify-content: center;
+}
 
 p.blog-links-el {  
   background-color: rgba(201,121,135 , 0.3);
@@ -116,7 +118,6 @@ p.blog-links-el {
   backdrop-filter: blur(5px);
   white-space: nowrap;
   filter: drop-shadow(0 0 0.95rem #ED3994);
-
 }
 
 p.tech-blog, span.tech-blog {
@@ -327,7 +328,7 @@ button:hover:disabled {
   }
 
   #container{
-    width: 70%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     padding: 0 5px 0 5px;
@@ -460,6 +461,15 @@ button:hover:disabled {
     display: block;
   }
 
+  .social-icons {
+    display: block;
+  }
+
+  #blog-list {
+    display: block;
+    justify-content: center;
+  }
+
   
 }
 
@@ -467,6 +477,11 @@ button:hover:disabled {
   
   .projects-grid {
     grid-template-columns: 1fr; 
+  }
+
+  #blog-list {
+    display: block;
+    justify-content: center;
   }
 }
 
