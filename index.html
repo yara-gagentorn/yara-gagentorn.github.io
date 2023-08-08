@@ -50,10 +50,12 @@
             <a href="#blog-link">Blog</a> 
             <a href="#contacts-link">Contacts</a>
           </nav>
+          
         </div>
       </div>
       <div id="content">
         <div id="about" class="block">
+          <span id="about-link"></span>
           <!-- <span id="about-link" style="position: relative; top:-70px;"></span> -->
           <h2>Hello, world!</h2>
           <p>I am Yara and this website started as a reflection of my journey with Dev Academy.</p>
@@ -67,7 +69,7 @@
               <!-- FIRST ROW OF PROJECTS -->
               <div class="project-descr">
                 <h2><a href="./projects/1-game-of-life.html" target="_blank">Conway's Game Of Life</a></h2>
-                <div class="project-img-div"><img class="project-img" src="../media/gol.gif"></div>     
+                <div class="project-img-div"><a href="./projects/1-game-of-life.html" target="_blank"><img class="project-img" src="../media/gol.gif"></a></div>     
                   <p class="full-descr">
                       The universe of the Game of Life is an infinite, two-dimensional orthogonal grid of square cells, each of which is in one of two possible states, live or dead (or populated and unpopulated, respectively).
                       
@@ -87,7 +89,7 @@
 
           <div class="block">          
             <h2><a href="https://enspiraled-6xkx.vercel.app/server/public/index.html"  target="_blank">Enspiraled</a></h2>
-            <div class="project-img-div"><img class="project-img"  src="../media/enspiraled.gif"></div>
+            <div class="project-img-div"><a href="https://enspiraled-6xkx.vercel.app/server/public/index.html"  target="_blank"><img class="project-img"  src="../media/enspiraled.gif"></a></div>
               <p>Fractal made of circles. Click on each circle creates four more circles, each new circle is two times smaller in radius with centers on north, south, west and east of the clicked circle.
                </p>
               <p><b>Made with</b> React JS<br>
@@ -96,7 +98,7 @@
           
           <div class="block">
             <h2><a href="./projects/2-number-seek.html"  target="_blank">Number Seek</a></h2>
-            <div class="project-img-div"><img class="project-img" src="../media/numberseek-crop.gif"></div>
+            <div class="project-img-div"><a href="./projects/2-number-seek.html"  target="_blank"><img class="project-img" src="../media/numberseek-crop.gif"></a></div>
             
                <p>Click on the numbers in order, starting from 1. This simple game is a tribute to my childhood. Back then, my classmates and I used pen and piece of paper to write numbers from 1 to 100 in random order and then exchanged those papers. The goal is to find all the numbers in order from 1 to 100, one by one, and do it faster than your opponent.</p>
                <p><b>Made with</b> Vanilla JavaScript<br>
@@ -111,7 +113,7 @@
               <div class="project-descr">     
                   
                     <h2><a href="./projects/3-tic-tac-toe.html"  target="_blank">Tic-Tac-Toe</a></h2>
-                    <div class="project-img-div"><img class="project-img"  src="../media/ttt.gif"></div>
+                    <div class="project-img-div"><a href="./projects/3-tic-tac-toe.html"  target="_blank"><img class="project-img"  src="../media/ttt.gif"></a></div>
                    <p class="full-descr">   
                       <p>Good old Tic-Tac-Toe game with sound effects and animation. </p>
                       <p><b>Made with</b> Vanilla JavaScript<br>
@@ -122,7 +124,7 @@
 
           <div class="block">          
             <h2><a href="https://www.arcoiris.co.nz/"  target="_blank">Arcoiris.co.nz</a></h2>
-            <div class="project-img-div"><img class="project-img"  src="../media/arcoiris.gif"></div>
+            <div class="project-img-div"><a href="https://www.arcoiris.co.nz/"  target="_blank"><img class="project-img"  src="../media/arcoiris.gif"></a></div>
               <p>Website for an event decoration company. I used an HTML template and the Django framework to create it. It has been deployed and is now working!
                </p>
               <p><b>Made with</b> Django framework (Python, JavaScript)<br></p> 
@@ -131,7 +133,7 @@
           
           <div class="block">
             <h2><a href="https://www.arcoiris.co.nz/home.html"  target="_blank">YaraM</a></h2>
-            <div class="project-img-div"><img class="project-img" src="../media/yaram.gif"></div>
+            <div class="project-img-div">><a href="https://www.arcoiris.co.nz/home.html"  target="_blank"><img class="project-img" src="../media/yaram.gif"></a></div>
                <p>This is a website for my hobby. It was made on the same base as arcoiris.co.nz but with a different design.</p>
                <p><b>Made with</b> Django framework (Python, JavaScript)<br></p>
                <!-- <a href="">Check source code on GitHub.</a> -->
@@ -149,7 +151,7 @@
               <td><a target="_blank" href="../media/YaraCV-2023.pdf"><img src="../media/pdf-icon.png" style="width: 150px;"></a></td>
             </tr>
           </table>
-          <p> </p>
+          <span id="blog-link"></span>
         </div>
         
         <div class="block"> 
@@ -171,8 +173,10 @@
             
             <div>
               <p class="blog-links-el core-blog"><a href="./blog/8-foundation-reflection.html">Foundation Reflection</a></p>
+              <span id="contacts-link"></span>
             </div>
           </div>
+
         </div>
 
         <div id="contacts" class="block"> 
